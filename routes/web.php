@@ -13,10 +13,43 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
+|
+| The Routes For The User Pages
+|
+*/
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.index');
+});
+Route::get('/favourites', function () {
+    return view('user.favourites');
+});
+Route::get('/cart', function () {
+    return view('user.cart');
+});
+Route::get('/orders', function () {
+    return view('user.orders');
+});
+Route::get('/laptop', function () {
+    return view('user.laptop');
+});
+Route::get('/laptops', function () {
+    return view('user.laptops');
+});
+Route::get('/profile', function () {
+    return view('user.profile');
 });
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+/*
+|
+| The Routes For The Admin Pages
+|
+*/
+
+
+
+
+
+Auth::routes();

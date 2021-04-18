@@ -1,77 +1,82 @@
-@extends('layouts.app')
+@extends('user.layouts.layout')
+
+@section('title', 'اسم الشركة | إنشاء حساب جديد')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+  <section id="login-form" class="py-3 px-2 mt-5 mb-5">
+    <h1 class="text-center">إنشاء حساب جديد</h1>
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6">
+          <form action="{{ route('register') }}" method="POST">
+            @csrf
+            <div class="form-group">
+              <label for="username"><i class="lni lni-user"></i> الاسم الكامل</label>
+              <input type="text" name="fullname" id="username" class="form-control border border-dark rounded-pill" placeholder="الاسم والكنية">
+              
+              @error('fullname')
+                <small class="text-danger">{{ $message }}</small>
+              @enderror
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
             </div>
+            <div class="form-group">
+              <label for="email"><i class="lni lni-envelope"></i> البريد الإلكتروني</label>
+              <input type="email" name="email" id="email" class="form-control border border-dark rounded-pill" placeholder="user@email.com">
+
+              @error('email')
+                <small class="text-danger">{{ $message }}</small>
+              @enderror
+
+            </div>
+            <div class="form-group">
+              <label for="phone"><i class="lni lni-phone"></i> رقم الهاتف</label>
+              <input type="text" name="phone" id="phone" class="form-control border border-dark rounded-pill" placeholder="946-918-650 (963)">
+
+              @error('phone')
+                <small class="text-danger">{{ $message }}</small>
+              @enderror
+
+            </div>
+            <div class="form-group">
+              <label for="address"><i class="lni lni-map"></i> العنوان</label>
+              <input type="text" name="address" id="address" class="form-control border border-dark rounded-pill" placeholder="دمشق - الحمرا">
+
+              @error('address')
+                <small class="text-danger">{{ $message }}</small>
+              @enderror
+
+            </div>
+            <div class="form-group">
+              <label for="password"><i class="lni lni-eye"></i> كلمة السر</label>
+              <input type="password" name="password" id="password" class="form-control border border-dark rounded-pill" placeholder="********">
+
+              @error('password')
+                <small class="text-danger">{{ $message }}</small>
+              @enderror
+
+            </div>
+            <div class="form-group">
+              <label for="password-confirm"><i class="lni lni-eye"></i> تاكيد كلمة السر</label>
+              <input type="password" name="password_confirmation" id="password-confirm" class="form-control border border-dark rounded-pill" placeholder="********">
+
+              @error('password_confirmation')
+                <small class="text-danger">{{ $message }}</small>
+              @enderror
+
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary rounded-pill" type="submit">
+                  إنشاء الحساب
+              </button>
+            </div>
+            <div class="form-group">
+              لديك حساب مسبقا؟ <a href="/login">تسجيل الدخول إلى حسابك</a>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-</div>
+  </section>
+
 @endsection

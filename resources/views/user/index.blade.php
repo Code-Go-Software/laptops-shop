@@ -40,7 +40,7 @@
               <img src="../assets/images/laptop1.jpg" class="img-fluid rounded">
             </div>
             <div class="data px-2 pb-1">
-              <a href="laptop.html" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
+              <a href="/laptop" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
               <div class="d-flex w-100">
                 <div class="flex-grow-1">
                   <form action="" method="POST">
@@ -72,7 +72,7 @@
               <img src="../assets/images/laptop1.jpg" class="img-fluid rounded">
             </div>
             <div class="data px-2 pb-1">
-              <a href="laptop.html" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
+              <a href="/laptop" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
               <div class="d-flex w-100">
                 <div class="flex-grow-1">
                   <form action="" method="POST">
@@ -104,7 +104,7 @@
               <img src="../assets/images/laptop1.jpg" class="img-fluid rounded">
             </div>
             <div class="data px-2 pb-1">
-              <a href="laptop.html" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
+              <a href="/laptop" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
               <div class="d-flex w-100">
                 <div class="flex-grow-1">
                   <form action="" method="POST">
@@ -136,7 +136,7 @@
               <img src="../assets/images/laptop1.jpg" class="img-fluid rounded">
             </div>
             <div class="data px-2 pb-1">
-              <a href="laptop.html" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
+              <a href="/laptop" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
               <div class="d-flex w-100">
                 <div class="flex-grow-1">
                   <form action="" method="POST">
@@ -168,7 +168,7 @@
               <img src="../assets/images/laptop1.jpg" class="img-fluid rounded">
             </div>
             <div class="data px-2 pb-1">
-              <a href="laptop.html" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
+              <a href="/laptop" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
               <div class="d-flex w-100">
                 <div class="flex-grow-1">
                   <form action="" method="POST">
@@ -193,7 +193,7 @@
         </div>
       </div>
       <div class="text-center mt-3">
-        <a href="laptops.html" class="btn btn-primary rounded-pill">تصفح جميع الحواسيب الجديدة</a>
+        <a href="/laptops" class="btn btn-primary rounded-pill">تصفح جميع الحواسيب الجديدة</a>
       </div>
     </div>
   </section>

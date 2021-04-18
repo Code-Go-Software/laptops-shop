@@ -21,13 +21,13 @@
   <!--Navbar Start-->
   <nav class="d-flex justify-content-center align-items-center py-2 px-2">
     <div>
-      <a href="register.html" class="text-dark">
+      <a href="/register" class="text-dark">
         <i class="lni lni-user" style="font-size:18px;"></i>
         <small class="d-none d-md-inline ml-2">إنشاء حساب</small>
       </a>
     </div>
     <div class="ml-3">
-      <a href="favourites.html" class="text-dark">
+      <a href="/favourites" class="text-dark">
         <i class="lni lni-heart text-danger" style="font-size:18px;"></i>
         <small class="d-none d-md-inline ml-2">القائمة المفضلة</small>
       </a>
@@ -36,13 +36,13 @@
       <h3>اسم الشركة</h3>
     </div>
     <div class="mr-3">
-      <a href="cart.html" class="text-dark">
+      <a href="/cart" class="text-dark">
         <i class="lni lni-cart" style="font-size:18px;"></i>
         <small class="d-none d-md-inline ml-2">سلة المشتريات</small>
       </a>
     </div>
     <div>
-      <a href="laptops.html" class="text-dark">
+      <a href="/laptops" class="text-dark">
         <i class="lni lni-display-alt" style="font-size:18px;"></i>
         <small class="d-none d-md-inline ml-2">المنتجات</small>
       </a>
