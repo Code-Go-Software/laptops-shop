@@ -19,32 +19,32 @@
 
 <body dir="rtl">
   <!--Navbar Start-->
-  <nav class="d-flex justify-content-center align-items-center py-2 px-2">
-    <div>
-      <a href="/register" class="text-dark">
+  <nav class="d-flex justify-content-center align-items-center py-2 mb-2 px-2" style="background-color: #262626;">
+    <div class="ml-3">
+      <a href="/register" class="text-light">
         <i class="lni lni-user" style="font-size:18px;"></i>
-        <small class="d-none d-md-inline ml-2">إنشاء حساب</small>
+        <small class="d-none d-md-inline mr-2">إنشاء حساب</small>
       </a>
     </div>
     <div class="ml-3">
-      <a href="/favourites" class="text-dark">
-        <i class="lni lni-heart text-danger" style="font-size:18px;"></i>
-        <small class="d-none d-md-inline ml-2">القائمة المفضلة</small>
+      <a href="/favourites" class="text-light">
+        <i class="lni lni-heart-filled text-danger" style="font-size:18px;"></i>
+        <small class="d-none d-md-inline mr-2">القائمة المفضلة</small>
       </a>
     </div>
-    <div class="flex-grow-1 text-center">
+    <div class="flex-grow-1 text-center text-light">
       <h3>اسم الشركة</h3>
     </div>
     <div class="mr-3">
-      <a href="/cart" class="text-dark">
+      <a href="/cart" class="text-light">
         <i class="lni lni-cart" style="font-size:18px;"></i>
-        <small class="d-none d-md-inline ml-2">سلة المشتريات</small>
+        <small class="d-none d-md-inline mr-2">سلة المشتريات</small>
       </a>
     </div>
-    <div>
-      <a href="/laptops" class="text-dark">
+    <div class="mr-3">
+      <a href="/laptops" class="text-light">
         <i class="lni lni-display-alt" style="font-size:18px;"></i>
-        <small class="d-none d-md-inline ml-2">المنتجات</small>
+        <small class="d-none d-md-inline mr-2">المنتجات</small>
       </a>
     </div>
   </nav>
@@ -112,7 +112,7 @@
     </div>
   </footer>
   <div>
-    <div class="bg-dark text-secondary text-center py-1 px-2">
+    <div class="text-secondary text-center py-1 px-2" style="background-color: #262626;">
       جميع الحقوق محفوظة @
     </div>
   </div>
