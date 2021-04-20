@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Content;
+use App\Models\Category;
 
 
 class Laptop extends Model
@@ -23,5 +24,12 @@ class Laptop extends Model
         $cureency_value = doubleval($currency->value);
 
         return $this->after_discount_price * $cureency_value;
+    }
+
+    /*
+    * Laptop Category
+    */
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 }
