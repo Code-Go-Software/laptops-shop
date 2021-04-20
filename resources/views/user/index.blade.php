@@ -25,53 +25,70 @@
   </section>
   <!--Carousel End-->
 
-  <!--Product Section Start-->
-  <section id="new-products" class="py-3 px-2">
-    <h1>الأجهزة الجديدة</h1>
-    <p class="text-secondary">تصفح أحدث الأجهزة الجديدة لدينا</p>
-    <div class="container-fluid">
-      <div class="row">
+  @forelse ($categories as $category)
+      
+    <section id="new-products" class="py-3 px-2">
+      <h1>{{ $category->name }}</h1>
+      <p class="text-secondary">{{ $category->description }}</p>
+      <div class="container-fluid">
+        <div class="row">
 
-        <div class="col-6 col-md-4 col-lg-3 px-1 mb-2">
-          <div class="product text-center shadow h-100">
-            <div class="header text-left">
-              <small class="d-inline-block bg-danger text-light p-1"><i class="lni lni-eye"></i> 250</small>
-            </div>
-            <div class="image">
-              <img src="../assets/images/laptop1.jpg" class="img-fluid rounded">
-            </div>
-            <div class="data px-2 pb-1">
-              <a href="/laptop" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
-              <div class="d-flex w-100">
-                <div class="flex-grow-1">
-                  <form action="" method="POST">
-                    <button class="btn" type="submit">
-                      <i class="lni lni-cart"></i> <small class="d-none d-md-inline">إضافة للسلة</small>
-                    </button>
-                  </form>
-                </div>
-                <div class="flex-grow-1">
-                  <form action="" method="POST">
-                    <button class="btn" type="submit">
-                      <i class="lni lni-heart text-danger"></i> <small class="d-none d-md-inline">إضافة للمفضلة</small>
-                    </button>
-                  </form>
+          @if ($loop->index < 8)
+
+            @php
+                $laptops = $category->laptops;
+            @endphp
+              
+            @foreach ($laptops as $laptop)
+
+              <div class="col-6 col-md-4 col-lg-3 px-1 mb-2">
+                <div class="product text-center shadow h-100">
+                  <div class="header text-left">
+                    <small class="d-inline-block bg-danger text-light p-1"><i class="lni lni-eye"></i> {{ $laptop->views }}</small>
+                  </div>
+                  <div class="image">
+                    <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded">
+                  </div>
+                  <div class="data px-2 pb-1">
+                    <a href="laptops/{{ $laptop->id }}/{{ $laptop->name }}" class="text-dark font-weight-bold">{{ $laptop->name }}</a>
+                    <div class="d-flex w-100">
+                      <div class="flex-grow-1">
+                        <form action="" method="POST">
+                          <button class="btn" type="submit">
+                            <i class="lni lni-cart"></i> <small class="d-none d-md-inline">إضافة للسلة</small>
+                          </button>
+                        </form>
+                      </div>
+                      <div class="flex-grow-1">
+                        <form action="" method="POST">
+                          <button class="btn" type="submit">
+                            <i class="lni lni-heart text-danger"></i> <small class="d-none d-md-inline">إضافة للمفضلة</small>
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                    <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
+                    <br>
+                    <strike class="text-secondary"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
+                  </div>
                 </div>
               </div>
-              <span class="text-success font-weight-bold"><bdi>s.p</bdi> 125000</span>
-              <br>
-              <strike class="text-secondary"><small><bdi>s.p</bdi> 150000</small></strike>
-            </div>
+                
+            @endforeach
+
+          @else
+              @break
+          @endif
+
+          <div class="col-12 text-center mt-3">
+            <a href="/laptops?category={{ $category->name }}" class="btn btn-primary rounded-pill">عرض المزيد</a>
           </div>
         </div>
-
       </div>
-      <div class="text-center mt-3">
-        <a href="/laptops" class="btn btn-primary rounded-pill">تصفح جميع الحواسيب الجديدة</a>
-      </div>
-    </div>
-  </section>
-  <!--Product Section End-->
+    </section>
+  @empty
+      <div class="alert alert-secondary text-center">عذرا لا يتوفر أي حواسيب حاليا</div>
+  @endforelse
 
 @endsection
 

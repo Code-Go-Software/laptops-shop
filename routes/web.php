@@ -29,7 +29,7 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () { return view('user.index'); }); // Application Home Page
+Route::get('/', [LaptopController::class, 'home']); // Application Home Page
 Route::get('/about-us', function () { return view('user.about-us'); });
 Route::get('/favourites', [FavouriteController::class, 'index']); // User Favuorites List
 Route::get('/cart', [CartController::class, 'index']); // User Cart Items List 
