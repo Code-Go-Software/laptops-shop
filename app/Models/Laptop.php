@@ -13,15 +13,15 @@ class Laptop extends Model
     use HasFactory;
 
     public function beforeDiscountPrice(){
-        $currency = Content::where('key', 'currency');
-        $cureency_value = doubleval($currency->value);
+        $currency = Content::where('key', 'currency')->get();
+        $cureency_value = doubleval($currency->first()->value);
 
         return $this->before_discount_price * $cureency_value;
     }
 
     public function afterDiscountPrice(){
-        $currency = Content::where('key', 'currency');
-        $cureency_value = doubleval($currency->value);
+        $currency = Content::where('key', 'currency')->get();
+        $cureency_value = doubleval($currency->first()->value);
 
         return $this->after_discount_price * $cureency_value;
     }

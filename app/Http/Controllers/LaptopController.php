@@ -46,7 +46,7 @@ class LaptopController extends Controller
      */
     public function show(Laptop $laptop, $name)
     {
-        return view('user.loptop', [
+        return view('user.laptop', [
             'laptop' => $laptop
         ]);
     }
