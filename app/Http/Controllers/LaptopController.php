@@ -46,8 +46,12 @@ class LaptopController extends Controller
      */
     public function show(Laptop $laptop, $name)
     {
+        // Get The Laptops From The Same Company
+        $related_laptops = Laptop::where('company', $laptop->company)->limit(8)->get();
+        
         return view('user.laptop', [
-            'laptop' => $laptop
+            'laptop' => $laptop,
+            'related_laptops' => $related_laptops
         ]);
     }
 

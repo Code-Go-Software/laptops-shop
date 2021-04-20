@@ -7,20 +7,20 @@
 <section id="product" class="py-3 px-2 mt-3">
   <div class="container-fluid">
     <div class="text-center">
-      <img src="../assets/images/laptop1.jpg" class="img-fluid">
+      <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid">
     </div>
     <div class="thumbs d-flex justify-content-center align-items-center">
       <div class="col">
-        <img src="../assets/images/laptop1.jpg" class="img-fluid rounded-circle shadow">
+        <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded-circle shadow">
       </div>
       <div class="col">
-        <img src="../assets/images/laptop1.jpg" class="img-fluid rounded-circle shadow">
+        <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded-circle shadow">
       </div>
       <div class="col">
-        <img src="../assets/images/laptop1.jpg" class="img-fluid rounded-circle shadow">
+        <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded-circle shadow">
       </div>
       <div class="col">
-        <img src="../assets/images/laptop1.jpg" class="img-fluid rounded-circle shadow">
+        <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded-circle shadow">
       </div>
     </div>
     <div class="text-center mt-3">
@@ -88,105 +88,49 @@
     <h1 class="mb-5">الأجهزة المشابهة</h1>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-6 col-md-4 col-lg-3 px-1 mb-2">
-          <div class="product text-center shadow h-100">
-            <div class="header text-left">
-              <small class="d-inline-block bg-danger text-light p-1"><i class="lni lni-eye"></i> 250</small>
-            </div>
-            <div class="image">
-              <img src="../assets/images/laptop1.jpg" class="img-fluid rounded">
-            </div>
-            <div class="data px-2 pb-1">
-              <a href="laptop.html" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
-              <div class="d-flex w-100">
-                <div class="flex-grow-1">
-                  <form action="" method="POST">
-                    <button class="btn" type="submit">
-                      <i class="lni lni-cart"></i> <small class="d-none d-md-inline">إضافة للسلة</small>
-                    </button>
-                  </form>
-                </div>
-                <div class="flex-grow-1">
-                  <form action="" method="POST">
-                    <button class="btn" type="submit">
-                      <i class="lni lni-heart text-danger"></i> <small class="d-none d-md-inline">إضافة للمفضلة</small>
-                    </button>
-                  </form>
-                </div>
+
+        @forelse ($related_laptops as $laptop)
+
+          <div class="col-6 col-md-4 col-lg-3 px-1 mb-2">
+            <div class="product text-center shadow h-100">
+              <div class="header text-left">
+                <small class="d-inline-block bg-danger text-light p-1"><i class="lni lni-eye"></i> {{ $laptop->views }}</small>
               </div>
-              <span class="text-success font-weight-bold"><bdi>s.p</bdi> 125000</span>
-              <br>
-              <strike class="text-secondary"><small><bdi>s.p</bdi> 150000</small></strike>
+              <div class="image">
+                <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded">
+              </div>
+              <div class="data px-2 pb-1">
+                <a href="laptops/{{ $laptop->id }}/{{ $laptop->name }}" class="text-dark font-weight-bold">{{ $laptop->name }}</a>
+                <div class="d-flex w-100">
+                  <div class="flex-grow-1">
+                    <form action="" method="POST">
+                      <button class="btn" type="submit">
+                        <i class="lni lni-cart"></i> <small class="d-none d-md-inline">إضافة للسلة</small>
+                      </button>
+                    </form>
+                  </div>
+                  <div class="flex-grow-1">
+                    <form action="" method="POST">
+                      <button class="btn" type="submit">
+                        <i class="lni lni-heart text-danger"></i> <small class="d-none d-md-inline">إضافة للمفضلة</small>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+                <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
+                <br>
+                <strike class="text-secondary"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-6 col-md-4 col-lg-3 px-1 mb-2">
-          <div class="product text-center shadow h-100">
-            <div class="header text-left">
-              <small class="d-inline-block bg-danger text-light p-1"><i class="lni lni-eye"></i> 250</small>
-            </div>
-            <div class="image">
-              <img src="../assets/images/laptop1.jpg" class="img-fluid rounded">
-            </div>
-            <div class="data px-2 pb-1">
-              <a href="laptop.html" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
-              <div class="d-flex w-100">
-                <div class="flex-grow-1">
-                  <form action="" method="POST">
-                    <button class="btn" type="submit">
-                      <i class="lni lni-cart"></i> <small class="d-none d-md-inline">إضافة للسلة</small>
-                    </button>
-                  </form>
-                </div>
-                <div class="flex-grow-1">
-                  <form action="" method="POST">
-                    <button class="btn" type="submit">
-                      <i class="lni lni-heart text-danger"></i> <small class="d-none d-md-inline">إضافة للمفضلة</small>
-                    </button>
-                  </form>
-                </div>
-              </div>
-              <span class="text-success font-weight-bold"><bdi>s.p</bdi> 125000</span>
-              <br>
-              <strike class="text-secondary"><small><bdi>s.p</bdi> 150000</small></strike>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-md-4 col-lg-3 px-1 mb-2">
-          <div class="product text-center shadow h-100">
-            <div class="header text-left">
-              <small class="d-inline-block bg-danger text-light p-1"><i class="lni lni-eye"></i> 250</small>
-            </div>
-            <div class="image">
-              <img src="../assets/images/laptop1.jpg" class="img-fluid rounded">
-            </div>
-            <div class="data px-2 pb-1">
-              <a href="laptop.html" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
-              <div class="d-flex w-100">
-                <div class="flex-grow-1">
-                  <form action="" method="POST">
-                    <button class="btn" type="submit">
-                      <i class="lni lni-cart"></i> <small class="d-none d-md-inline">إضافة للسلة</small>
-                    </button>
-                  </form>
-                </div>
-                <div class="flex-grow-1">
-                  <form action="" method="POST">
-                    <button class="btn" type="submit">
-                      <i class="lni lni-heart text-danger"></i> <small class="d-none d-md-inline">إضافة للمفضلة</small>
-                    </button>
-                  </form>
-                </div>
-              </div>
-              <span class="text-success font-weight-bold"><bdi>s.p</bdi> 125000</span>
-              <br>
-              <strike class="text-secondary"><small><bdi>s.p</bdi> 150000</small></strike>
-            </div>
-          </div>
-        </div>
+
+        @empty
+            <div class="alert alert-secondary text-center">عذرا لا يوجد أي حواسيب مشابهة</div>
+        @endforelse
+
       </div>
       <div class="text-center mt-3">
-        <a href="/laptops" class="btn btn-primary rounded-pill">عرض المزيد</a>
+        <a href="/laptops" class="btn btn-primary rounded-pill">عرض جيع الحواسيب</a>
       </div>
     </div>
   </section>
