@@ -19,7 +19,10 @@ class LaptopController extends Controller
 
     public function index()
     {
-        
+        $laptops = Laptop::paginate(12);
+        return view('user.laptops', [
+            'laptops' => $laptops
+        ]);
     }
 
     public function create()
