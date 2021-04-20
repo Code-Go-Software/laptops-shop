@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Laptop;
 
-class Favourite extends Model
+class Cart extends Model
 {
     use HasFactory;
 
     /*
-    * Favourite Item Laptop
+    * Get The Laptop Data
     */
     public function laptop(){
         return $this->hasOne(Laptop::class);

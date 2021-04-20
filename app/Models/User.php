@@ -6,6 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Favourite;
+use App\Models\Cart;
+use App\Models\Order;
 
 class User extends Authenticatable
 {
@@ -44,4 +47,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /*
+    * User Favourites Laptops 
+    */
+    public function favourites(){
+        return $this->hasMany(Favourite::class);
+    }
+
+    /*
+    * User Cart Items
+    */
+    public function carts(){
+        return $this->hasMany(Cart::class);
+    }
+
+    /*
+    * User Orders
+    */
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
 }

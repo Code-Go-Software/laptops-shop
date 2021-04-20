@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\FavuoriteController;
+use App\Http\Controllers\FavouriteController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LaptopController;
 use App\Http\Controllers\OrderController;
@@ -30,7 +30,8 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/', function () { return view('user.index'); }); // Application Home Page
-Route::get('/favourites', [FavuoriteController::class, 'index']); // User Favuorites List
+Route::get('/about-us', function () { return view('user.about-us'); });
+Route::get('/favourites', [FavouriteController::class, 'index']); // User Favuorites List
 Route::get('/cart', [CartController::class, 'index']); // User Cart Items List 
 Route::get('/laptops', [LaptopController::class, 'index']);
 Route::get('/laptops/{laptop}/{name}', [LaptopController::class, 'show']);
@@ -46,8 +47,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/cart', [CartController::class, 'store']); // Add Laptop To The User Cart
     Route::delete('/cart/{cart}', [CartController::class, 'destroy']); // Remove Laptop From User Cart
 
-    Route::post('/favourites', [FavuoriteController::class, 'store']); // Add Laptop To The User Favuorites List
-    Route::delete('/favourites/{favourite}', [FavuoriteController::class, 'destroy']); // Remove Laptop From User Favuorites List
+    Route::post('/favourites', [FavouriteController::class, 'store']); // Add Laptop To The User Favuorites List
+    Route::delete('/favourites/{favourite}', [FavouriteController::class, 'destroy']); // Remove Laptop From User Favuorites List
 
     Route::post('/orders', [OrderController::class, 'store']); // Add New Order
 

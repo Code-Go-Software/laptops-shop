@@ -21,10 +21,19 @@
   <!--Navbar Start-->
   <nav class="d-flex justify-content-center align-items-center py-2 mb-2 px-2" style="background-color: #262626;">
     <div class="ml-3">
-      <a href="/register" class="text-light">
-        <i class="lni lni-user" style="font-size:18px;"></i>
-        <small class="d-none d-md-inline mr-2">إنشاء حساب</small>
-      </a>
+      @auth
+        <a href="/profile" class="text-light">
+          <img src="../assets/images/default-user.png" class="img-fluid rounded-circle" width="30px" height="30px">
+          <small class="d-none d-md-inline mr-1">{{ auth()->user()->fullname }}</small>
+        </a>
+      @endauth
+      
+      @guest
+        <a href="/register" class="text-light">
+          <i class="lni lni-user" style="font-size:18px;"></i>
+          <small class="d-none d-md-inline mr-2">إنشاء حساب</small>
+        </a>
+      @endguest
     </div>
     <div class="ml-3">
       <a href="/favourites" class="text-light">
@@ -49,7 +58,7 @@
     </div>
   </nav>
   <section id="search-bar">
-    <form action="laptops.html" method="GET"  class="d-flex align-items-stretch mb-1">
+    <form action="/laptops" method="GET"  class="d-flex align-items-stretch mb-1">
       <div>
         <button type="submit" class="btn btn-dark rounded-pill"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
       </div>
@@ -71,22 +80,22 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-5 col-md-4">
-          <h5>أقسام الموقع</h5>
+          <h5 class="font-weight-bold">أقسام الموقع</h5>
           <ul class="list-unstyled py-2 pl-2">
-            <li class="py-1 px-1"><a href="#" class="text-dark">الصفحة الأولى</a></li>
-            <li class="py-1 px-1"><a href="#" class="text-dark">الصفحة الثانية</a></li>
-            <li class="py-1 px-1"><a href="#" class="text-dark">الصفحة الثالثة</a></li>
-            <li class="py-1 px-1"><a href="#" class="text-dark">الصفحة الرابعة</a></li>
+            <li class="py-1 px-1"><a href="/" class="text-dark">الصفحة الرئيسية</a></li>
+            <li class="py-1 px-1"><a href="/laptops" class="text-dark">تصفح الحواسيب المحمولة</a></li>
+            <li class="py-1 px-1"><a href="/register" class="text-dark">إنشاء حساب</a></li>
+            <li class="py-1 px-1"><a href="/about-us" class="text-dark">عن الشركة</a></li>
           </ul>
         </div>
         <div class="col-7 col-md-5">
-          <h5>معلومات التواصل</h5>
+          <h5 class="font-weight-bold">معلومات التواصل</h5>
           <ul class="list-unstyled py-2 pl-2">
-            <li class="py-1 px-1"><i class="lni lni-phone"></i> 0946918650</li>
-            <li class="py-1 px-1"><i class="lni lni-phone-set"></i> 011-211-75</li>
-            <li class="py-1 px-1"><i class="lni lni-envelope"></i> test@web.com</li>
-            <li class="py-1 px-1"><i class="lni lni-map"></i> دمشق - الحمرا</li>
-            <li class="py-1 px-1"><i class="lni lni-car"></i> التوصيل مجاني</li>
+            <li class="py-1 px-1"><i class="lni lni-phone ml-1"></i> 0946918650</li>
+            <li class="py-1 px-1"><i class="lni lni-phone-set ml-1"></i> 011-211-75</li>
+            <li class="py-1 px-1"><i class="lni lni-envelope ml-1"></i> test@web.com</li>
+            <li class="py-1 px-1"><i class="lni lni-map ml-1"></i> دمشق - الحمرا</li>
+            <li class="py-1 px-1"><i class="lni lni-car ml-1"></i> التوصيل مجاني</li>
           </ul>
           <div class="d-flex mt-2">
             <div class="px-2 py-1">
@@ -105,7 +114,7 @@
         </div>
         <div class="col-12 col-md-3">
           <div class="text-center mt-2">
-            <img src="../assets/images/logo.png" class="img-fluid">
+            <h1>Company Name</h1>
           </div>
         </div>
       </div>

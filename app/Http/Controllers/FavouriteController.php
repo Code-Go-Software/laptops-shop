@@ -3,23 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Cart;
+use App\Models\Favourite;
 use Illuminate\Support\Facades\Auth;
 
-class CartController extends Controller
+class FavouriteController extends Controller
 {
-
+    
     public function index()
     {
-        $cart_items;
+        $favourites;
+
         if(Auth::check()){
-            $cart_items = Auth::user()->carts;
+            $favourites = Auth::user()->favourites;
         }else{
-            $cart_items = [];
+            $favourites = [];
         }
 
-        return view('user.cart', [
-            'cart_items' => $cart_items
+        //Show A List Of User Favourites Laptops
+        return view('user.favourites', [
+            'favourites' => $favourites
         ]);
     }
 
