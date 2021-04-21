@@ -30,7 +30,17 @@ class CartController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'laptop_id' => 'required|numeric',
+        ]);
+
+        $cart = new Cart();
+        $cart->user_id = Auth::user()->id;
+        $cart->laptop_id = $request->laptop_id;
+
+        $cart->save();
+
+        return back(); 
     }
 
     public function show($id)
@@ -48,8 +58,13 @@ class CartController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function destroy(Cart $cart)
     {
-        //
+        // Check if The Cart Item Belongs To The Authenticated User
+        if($cart->user_id != Auth::user()->id)
+            return redirect('/cart');
+
+        $cart->delete();
+        return redirect('/cart');
     }
 }

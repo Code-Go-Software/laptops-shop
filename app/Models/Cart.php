@@ -10,10 +10,12 @@ class Cart extends Model
 {
     use HasFactory;
 
+    protected $table = 'cart';
+
     /*
     * Get The Laptop Data
     */
     public function laptop(){
-        return $this->hasOne(Laptop::class);
+        return $this->belongsTo(Laptop::class);
     }
 }

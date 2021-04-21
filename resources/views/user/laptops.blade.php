@@ -52,7 +52,9 @@
                 <a href="laptops/{{ $laptop->id }}/{{ $laptop->name }}" class="text-dark font-weight-bold">{{ $laptop->name }}</a>
                 <div class="d-flex w-100">
                   <div class="flex-grow-1">
-                    <form action="" method="POST">
+                    <form action="/cart" method="POST">
+                      @csrf
+                      <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
                       <button class="btn" type="submit">
                         <i class="lni lni-cart"></i> <small class="d-none d-md-inline">إضافة للسلة</small>
                       </button>
