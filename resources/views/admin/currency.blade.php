@@ -10,7 +10,7 @@
   <div class="col-12 row justify-content-center">
     <div class="col-4">
       <div class="text-center mb-4">
-        <h1 class="text-success"><bdi>s.p</bdi> 125000</h1>
+        <h1 class="text-success"><bdi>s.p</bdi> {{ $currency }}</h1>
         <h3>سعر الصرف الحالي</h3>
       </div>
       <form action="" method="post" class="mt-4">

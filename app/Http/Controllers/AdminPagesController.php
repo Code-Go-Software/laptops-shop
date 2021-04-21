@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Category;
 use App\Models\Favourite;
+use App\Models\Content;
 
 class AdminPagesController extends Controller
 {
@@ -35,6 +36,14 @@ class AdminPagesController extends Controller
     }
 
     public function currency(){
+        $currency = Content::where('key', 'currency')->get();
+
+        return view('admin.currency', [
+            'currency' => doubleval($currency->first()->value)
+        ]);
+    }
+
+    public function help(){
         
     }
 }
