@@ -61,7 +61,9 @@
                     </form>
                   </div>
                   <div class="flex-grow-1">
-                    <form action="" method="POST">
+                    <form action="/favourites" method="POST">
+                      @csrf
+                      <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
                       <button class="btn" type="submit">
                         <i class="lni lni-heart text-danger"></i> <small class="d-none d-md-inline">إضافة للمفضلة</small>
                       </button>

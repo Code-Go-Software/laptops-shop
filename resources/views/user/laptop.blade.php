@@ -29,13 +29,17 @@
         <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
         <strike class="text-secondary"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
       </h2>
-      <form action="" method="post" class="d-inline">
+      <form action="/cart" method="post" class="d-inline">
+        @csrf
+        <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
         <button class="btn rounded-pill btn-dark btn-sm" type="submit">
           <i class="lni lni-cart"></i> 
           إضافة إلى السلة
         </button>
       </form>
-      <form action="" method="post" class="d-inline">
+      <form action="/favourites" method="post" class="d-inline">
+        @csrf
+        <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
         <button class="btn rounded-pill btn-danger btn-sm">
           <i class="lni lni-heart"></i> 
           إضافة إلى المفضلة
@@ -112,7 +116,9 @@
                     </form>
                   </div>
                   <div class="flex-grow-1">
-                    <form action="" method="POST">
+                    <form action="/favourites" method="POST">
+                      @csrf
+                      <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
                       <button class="btn" type="submit">
                         <i class="lni lni-heart text-danger"></i> <small class="d-none d-md-inline">إضافة للمفضلة</small>
                       </button>

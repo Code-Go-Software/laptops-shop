@@ -14,6 +14,6 @@ class Favourite extends Model
     * Favourite Item Laptop
     */
     public function laptop(){
-        return $this->hasOne(Laptop::class);
+        return $this->belongsTo(Laptop::class);
     }
 }

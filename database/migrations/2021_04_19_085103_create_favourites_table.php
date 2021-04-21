@@ -19,6 +19,8 @@ class CreateFavouritesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
+            $table->unique(['laptop_id', 'user_id']);
+
             $table->foreign('laptop_id')->references('id')->on('laptops')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });

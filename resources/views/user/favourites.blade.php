@@ -25,8 +25,8 @@
                 <p class="font-weight-bold mb-1">
                   <a href="/laptops/{{ $laptop->id }}/{{ $laptop->name }}" class="text-dark">{{ $laptop->name }}</a>
                 </p>
-                <span class="text-success font-weight-bold"><bdi>s.p</bdi> $laptop->afterDiscountPrice()</span>
-                <strike class="text-secondary"><small><bdi>s.p</bdi> $laptop->beforeDiscountPrice()</small></strike>
+                <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
+                <strike class="text-secondary"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
               </div>
               <div class="col-2 text-right">
                 <form action="/favourites/{{ $favourite->id }}" method="post">

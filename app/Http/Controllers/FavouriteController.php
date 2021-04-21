@@ -32,7 +32,17 @@ class FavouriteController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'laptop_id' => 'required|numeric',
+        ]);
+
+        $fav = new Favourite();
+        $fav->user_id = Auth::user()->id;
+        $fav->laptop_id = $request->laptop_id;
+
+        $fav->save();
+
+        return back();
     }
 
     public function show($id)
@@ -50,8 +60,13 @@ class FavouriteController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function destroy(Favourite $favourite)
     {
-        //
+        // Check if The Favourite Item Belongs To The Authenticated User
+        if($favourite->user_id != Auth::user()->id)
+            return redirect('/favourites');
+
+        $favourite->delete();
+        return redirect('/favourites');
     }
 }

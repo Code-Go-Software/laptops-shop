@@ -19,11 +19,11 @@
 
 <body dir="rtl">
   <!--Navbar Start-->
-  <nav class="d-flex justify-content-center align-items-center py-2 mb-2 px-2" style="background-color: #262626;">
+  <nav class="d-flex justify-content-center align-items-center py-2 px-2" style="background-color: #262626;">
     <div class="ml-3">
       @auth
         <a href="/profile" class="text-light">
-          <img src="../assets/images/default-user.png" class="img-fluid rounded-circle" width="30px" height="30px">
+          <img src="{{ asset('assets/images/default-user.png') }}" class="img-fluid rounded-circle" width="30px" height="30px">
           <small class="d-none d-md-inline mr-1">{{ auth()->user()->fullname }}</small>
         </a>
       @endauth
@@ -60,13 +60,13 @@
   <section id="search-bar">
     <form action="/laptops" method="GET"  class="d-flex align-items-stretch mb-1">
       <div>
-        <button type="submit" class="btn btn-dark rounded-pill"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
+        <button type="submit" class="btn btn-dark rounded-0"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
       </div>
       <div class="flex-grow-1 px-1">
-        <input type="text" placeholder="ما الذي تبحث عنه" class="form-control rounded-pill">
+        <input type="text" placeholder="ما الذي تبحث عنه" class="form-control rounded-0">
       </div>
       <div class="d-none d-md-block">
-        <a href="laptops.html" class="btn btn-primary rounded-pill"><i class="lni lni-control-panel d-none d-md-inline"></i> بحث
+        <a href="laptops.html" class="btn btn-primary rounded-0"><i class="lni lni-control-panel d-none d-md-inline"></i> بحث
           متقدم</a>
       </div>
     </form>
