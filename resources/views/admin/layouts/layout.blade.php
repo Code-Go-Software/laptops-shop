@@ -20,13 +20,13 @@
 <body dir="rtl">
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">اسم الشركة | لوحة التحكم</a>
+    <a class="navbar-brand" href="/admin">اسم الشركة | لوحة التحكم</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <b class="mr-2 text-light">مدير الموقع</b>
           <img src="../assets/images/default-user.png" class="img-fluid rounded-circle" width="50px" height="50px">
@@ -42,58 +42,58 @@
         <div class="h-100">
           <div class="px-3 py-2">
             <a href="index.html" class="text-light h6">
-              <i class="lni lni-dashboard mr-3"></i>
+              <i class="lni lni-dashboard ml-2"></i>
               لوحة التحكم
             </a>
           </div>
           <div class="px-3 py-2">
             <a href="users/index.html" class="text-light h6">
-              <i class="lni lni-user mr-3"></i>
+              <i class="lni lni-user ml-2"></i>
               إدارة المستخدمين
             </a>
           </div>
           <div class="px-3 py-2">
             <a href="products/index.html" class="text-light h6">
-              <i class="lni lni-package mr-3"></i>
+              <i class="lni lni-package ml-2"></i>
               إدارة المنتجات
             </a>
           </div>
           <div class="px-3 py-2">
             <a href="categories/index.html" class="text-light h6">
-              <i class="lni lni-tag mr-3"></i>
+              <i class="lni lni-tag ml-2"></i>
               إدارة الفئات
             </a>
           </div>
           <div class="px-3 py-2">
             <a href="orders/index.html" class="text-light h6">
-              <i class="lni lni-clipboard mr-3"></i>
+              <i class="lni lni-clipboard ml-2"></i>
               إدارة الطلبات
             </a>
           </div>
           <div class="px-3 py-2">
             <a href="content/index.html" class="text-light h6">
-              <i class="lni lni-files mr-3"></i>
+              <i class="lni lni-files ml-2"></i>
               إدارة المحتوى
             </a>
           </div>
           <div class="px-3 py-2">
             <a href="currency.html" class="text-light h6">
-              <i class="lni lni-dollar mr-3"></i>
+              <i class="lni lni-dollar ml-2"></i>
               سعر الصرف
             </a>
           </div>
           <div class="px-3 py-2">
             <a href="help-center.html" class="text-light h6">
-              <i class="lni lni-question-circle mr-3"></i>
+              <i class="lni lni-question-circle ml-2"></i>
               مركز المساعدة 
             </a>
           </div>
-          <div class="px-3 py-2 flex-grow-1">
-            <a href="logout.html" class="text-danger h6">
-              <i class="lni lni-exit mr-3"></i>
+          <form action="/logout" method="POST" class="px-3 py-2 flex-grow-1">
+            <button type="submit" class="btn text-danger h6 pr-0">
+              <i class="lni lni-exit ml-2"></i>
               تسجيل خروج 
-            </a>
-          </div>
+            </button>
+          </form>
         </div>
       </div>
       <!--Side Bar End-->

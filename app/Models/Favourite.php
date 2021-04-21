@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Laptop;
+use App\Models\User;
 
 class Favourite extends Model
 {
@@ -15,5 +16,12 @@ class Favourite extends Model
     */
     public function laptop(){
         return $this->belongsTo(Laptop::class);
+    }
+
+    /*
+    * Get The Favourite Item User
+    */
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

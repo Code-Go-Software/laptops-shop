@@ -9,6 +9,9 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ContentController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AdminPagesController;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,7 +69,7 @@ Route::post('/admin/login', [LoginController::class, 'login']); // Send A Login 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () { // Add The IsAdmin MiddleWare
     
-    Route::get('/', function () { return view('admin.index'); }); // Show Admin Dashboard Page
+    Route::get('/', [AdminPagesController::class, 'dashboard']); // Show Admin Dashboard Page
     Route::get('/currency', function () { return view('admin.currency'); }); // Show Admin Currency Page
     Route::get('/help', function () { return view('admin.help-center'); }); // Show Admin Help Page
 
