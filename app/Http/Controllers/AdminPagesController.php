@@ -44,6 +44,6 @@ class AdminPagesController extends Controller
     }
 
     public function help(){
-        
+        return view('admin.help-center');
     }
 }

@@ -16,7 +16,7 @@
       <form action="" method="post" class="mt-4">
         <div class="form-group">
           <label for="currency">سعر الصرف الجديد</label>
-          <input type="text" class="form-control border-dark rounded-pill" placeholder="3500">
+          <input type="text" class="form-control border-dark rounded-pill" placeholder="{{ $currency }}">
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary rounded-pill">تعديل سعر الصرف</button>

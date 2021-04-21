@@ -29,8 +29,9 @@
     </form>
   </div>
   <div class="col-12">
-    <h4 class="text-secondary mb-4">الفئات <span>(25)</span></h4>
-    <div class="table-responsive-sm">
+    <h4 class="text-secondary mb-3">الفئات <span>(25)</span></h4>
+    <a href="/admin/categories/create" class="btn btn-success rounded-pill"><i class="lni lni-plus"></i> إضافة فئة جديدة</a>
+    <div class="table-responsive-sm mt-3">
       <table class="table table-striped mt-2 table-sm table-hover">
         <thead>
           <tr>
@@ -45,30 +46,40 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>
-              حواسيب ألعاب
-            </td>
-            <td>
-              حواسيب ذات مواصفات عالية لجميع الألعاب الحديثة
-            </td>
-            <td class="text-center">
-              <b><i class="lni lni-display-alt"></i> 150</b>
-            </td>
-            <td class="text-center">
-              <b><i class="lni lni-eye"></i> 2500</b>
-            </td>
-            <td>21-2-2021 18:45</td>
-            <td>
-              <form action="" method="post">
-                <button type="submit" class="btn p-0"><i class="lni lni-trash text-danger"></i></button>
-              </form>
-            </td>
-            <td>
-              <a href="edit.html"><i class="lni lni-pencil btn text-primary p-0"></i></a>
-            </td>
-          </tr>
+          
+          @forelse ($categories as $category)
+            <tr>
+              <th scope="row">{{ $loop->index + 1 }}</th>
+              <td>
+                {{ $category->name }}
+              </td>
+              <td>
+                {{ $category->description }}
+              </td>
+              <td class="text-center">
+                <b><i class="lni lni-display-alt"></i> {{ $category->laptops->count() }}</b>
+              </td>
+              <td class="text-center">
+                <b><i class="lni lni-eye"></i> {{ $category->laptops->sum('views') }}</b>
+              </td>
+              <td>{{ $category->created_at }}</td>
+              <td>
+                <form action="admin/categories/{{ $category->id }}" method="post">
+                  @csrf
+                  @method('delete')
+                  <button type="submit" class="btn p-0"><i class="lni lni-trash text-danger"></i></button>
+                </form>
+              </td>
+              <td>
+                <a href="admin/categories/{{ $category->id }}/edit"><i class="lni lni-pencil btn text-primary p-0"></i></a>
+              </td>
+            </tr>
+          @empty
+            <tr class="text-center">
+              لا يوجد أي فئات حواسيب حاليا
+            </tr>
+          @endforelse
+
         </tbody>
       </table>
     </div>

@@ -41,49 +41,49 @@
       <div class="col-2 d-flex flex-column bg-dark">
         <div class="h-100">
           <div class="px-3 py-2">
-            <a href="index.html" class="text-light h6">
+            <a href="/admin" class="text-light h6">
               <i class="lni lni-dashboard ml-2"></i>
               لوحة التحكم
             </a>
           </div>
           <div class="px-3 py-2">
-            <a href="users/index.html" class="text-light h6">
+            <a href="admin/users" class="text-light h6">
               <i class="lni lni-user ml-2"></i>
               إدارة المستخدمين
             </a>
           </div>
           <div class="px-3 py-2">
-            <a href="products/index.html" class="text-light h6">
+            <a href="admin/products" class="text-light h6">
               <i class="lni lni-package ml-2"></i>
               إدارة المنتجات
             </a>
           </div>
           <div class="px-3 py-2">
-            <a href="categories/index.html" class="text-light h6">
+            <a href="admin/categories" class="text-light h6">
               <i class="lni lni-tag ml-2"></i>
               إدارة الفئات
             </a>
           </div>
           <div class="px-3 py-2">
-            <a href="orders/index.html" class="text-light h6">
+            <a href="admin/orders" class="text-light h6">
               <i class="lni lni-clipboard ml-2"></i>
               إدارة الطلبات
             </a>
           </div>
           <div class="px-3 py-2">
-            <a href="content/index.html" class="text-light h6">
+            <a href="admin/content" class="text-light h6">
               <i class="lni lni-files ml-2"></i>
               إدارة المحتوى
             </a>
           </div>
           <div class="px-3 py-2">
-            <a href="currency.html" class="text-light h6">
+            <a href="admin/currency" class="text-light h6">
               <i class="lni lni-dollar ml-2"></i>
               سعر الصرف
             </a>
           </div>
           <div class="px-3 py-2">
-            <a href="help-center.html" class="text-light h6">
+            <a href="admin/help" class="text-light h6">
               <i class="lni lni-question-circle ml-2"></i>
               مركز المساعدة 
             </a>
