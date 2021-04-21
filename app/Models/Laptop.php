@@ -32,4 +32,11 @@ class Laptop extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+
+    /*
+    * Get The Laptops Order
+    */
+    public function orders(){
+        return $this->belongsToMany(Order::class)->with(['price']);
+    }
 }

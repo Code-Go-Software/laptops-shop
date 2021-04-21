@@ -29,7 +29,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('laptop_id');
             $table->unsignedBigInteger('price');
-            $table->timestamps();
+            //$table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('laptop_id')->references('id')->on('laptops')->onDelete('cascade')->onUpdate('cascade');

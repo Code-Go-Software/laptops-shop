@@ -51,7 +51,7 @@
                           <a href="laptops/{{ $laptop->id }}/{{ $laptop->name }}" class="text-dark">{{ $laptop->name }}</a>
                         </p>
                         <small>السعر عند الطلب</small>
-                        <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->price }}</span>
+                        <span class="text-success font-weight-bold"><bdi>s.p</bdi> </span>
                       </div>
                     </div>
                   @endforeach

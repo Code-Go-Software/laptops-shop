@@ -68,8 +68,12 @@
         <div class="row justify-content-center">
           <form action="/orders" method="POST" class="col-12 col-md-4 col-lg-3">
             @csrf
+            <input type="hidden" name="total_price" value="{{ $total_price }}">
             <div class="form-group">
-              <input type="text" name="contanct_number" class="form-control rounded-pill border-dark text-center" placeholder="رقم التواصل: 0946918650" value="{{ auth()->user()->phone }}">
+              <input type="text" name="contact_number" class="form-control rounded-pill border-dark text-center" placeholder="رقم التواصل: 0946918650" value="{{ auth()->user()->phone }}">
+              @error('contact_number')
+                <small class="text-danger">{{ $message }}</small>
+              @enderror
             </div>
             <div class="form-group">
               <button type="submit" class="btn btn-lg btn-block rounded-pill btn-success">
