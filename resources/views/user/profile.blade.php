@@ -11,8 +11,9 @@
             <div class="col-12 col-md-8 col-lg-6">
                 <form action="/profile" method="POST">
                     @csrf
+                    @method('put')
                     <div class="form-group text-center">
-                        <img src="../assets/images/default-user.png" class="img-fluid rounded-circle">
+                        <img src="{{ asset('assets/images/default-user.png') }}" class="img-fluid rounded-circle">
                         <div class="mt-2">
                             <button class="btn btn-success"><i class="lni lni-image"></i> اختيار صورة</button>
                             <button class="btn btn-primary"><i class="lni lni-save"></i>  حفظ</button>
@@ -20,19 +21,19 @@
                     </div>
                     <div class="form-group">
                         <label for="username"><i class="lni lni-user"></i> الاسم الكامل</label>
-                        <input type="text" id="username" class="form-control border border-dark rounded-pill" placeholder="الاسم والكنية">
+                        <input type="text" name="fullname" id="username" value="{{ $user->fullname }}" class="form-control border border-dark rounded-pill" placeholder="الاسم والكنية">
                     </div>
                     <div class="form-group">
                         <label for="phone"><i class="lni lni-phone"></i> رقم الهاتف</label>
-                        <input type="text" id="phone" class="form-control border border-dark rounded-pill" placeholder="946-918-650 (963)">
+                        <input type="text" name="phone" id="phone" value="{{ $user->phone }}" class="form-control border border-dark rounded-pill" placeholder="946-918-650 (963)">
                     </div>
                     <div class="form-group">
                         <label for="address"><i class="lni lni-map"></i> العنوان</label>
-                        <input type="text" id="address" class="form-control border border-dark rounded-pill" placeholder="دمشق - الحمرا">
+                        <input type="text" name="address" id="address" value="{{ $user->address }}" class="form-control border border-dark rounded-pill" placeholder="دمشق - الحمرا">
                     </div>
                     <div class="form-group text-secondary">
                         <p>
-                            <i class="lni lni-envelope"></i> البريد الالكتروني: test@web.com
+                            <i class="lni lni-envelope"></i> البريد الالكتروني: {{ $user->email }}
                         </p>
                         <!--
                         <p>
@@ -40,8 +41,8 @@
                         </p>
                         -->
                     </div>
-                    <div class="form-group text-center">
-                        <button class="btn btn-primary rounded-pill">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary rounded-pill">
                             <i class="lni lni-save"></i> 
                             حفظ التغييرات
                         </button>
