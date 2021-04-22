@@ -25,9 +25,11 @@ class OrderController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        //
+    public function indexForAdmin(){
+        return view('admin.orders.index', [
+            'completed_orders' => Order::where('status', true)->get(),
+            'uncompleted_orders' => Order::where('status', false)->get()
+        ]);
     }
 
     public function store(Request $request)
@@ -64,7 +66,9 @@ class OrderController extends Controller
 
     public function show(Order $order)
     {
-        //
+        return view('admin.orders.show', [
+            'order' => $order
+        ]);
     }
 
     public function update(Request $request, Order $order)
