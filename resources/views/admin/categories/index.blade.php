@@ -56,22 +56,22 @@
               <td>
                 {{ $category->description }}
               </td>
-              <td class="text-center">
+              <td>
                 <b><i class="lni lni-display-alt"></i> {{ $category->laptops->count() }}</b>
               </td>
-              <td class="text-center">
+              <td>
                 <b><i class="lni lni-eye"></i> {{ $category->laptops->sum('views') }}</b>
               </td>
               <td>{{ $category->created_at }}</td>
               <td>
-                <form action="admin/categories/{{ $category->id }}" method="post">
+                <form action="/admin/categories/{{ $category->id }}" method="post">
                   @csrf
                   @method('delete')
                   <button type="submit" class="btn p-0"><i class="lni lni-trash text-danger"></i></button>
                 </form>
               </td>
               <td>
-                <a href="admin/categories/{{ $category->id }}/edit"><i class="lni lni-pencil btn text-primary p-0"></i></a>
+                <a href="/admin/categories/{{ $category->id }}/edit"><i class="lni lni-pencil btn text-primary p-0"></i></a>
               </td>
             </tr>
           @empty

@@ -92,7 +92,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () { // A
     Route::put('/orders/{order}', [OrderController::class, 'update']); // Update Specific Order Status
 
     Route::get('/categories', [CategoryController::class, 'index']); // List All Categories For Admin
-    Route::get('/categories/{category}', [CategoryController::class, 'show']); // Show Specific Category Data For Admin
     Route::post('/categories', [CategoryController::class, 'store']); // Add New Category
     Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']); // Show Edit Category Form
     Route::put('/categories/{category}', [CategoryController::class, 'update']); // Update Specific Category Data

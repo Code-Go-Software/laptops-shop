@@ -29,7 +29,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <b class="mr-2 text-light">مدير الموقع</b>
-          <img src="../assets/images/default-user.png" class="img-fluid rounded-circle" width="50px" height="50px">
+          <img src="{{ asset('assets/images/default-user.png') }}" class="img-fluid rounded-circle" width="50px" height="50px">
         </li>
       </ul>
     </div>

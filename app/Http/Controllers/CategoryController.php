@@ -22,26 +22,42 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:categories'
+        ]);
+
+        $category = new Category();
+        $category->name = $request->name;
+        $category->description = $request->description;
+
+        $category->save();
+
+        return redirect('admin/categories');
     }
 
-    public function show($id)
+    public function edit(Category $category)
     {
-        //
+        return view('admin.categories.edit', [
+            'category' => $category
+        ]);
     }
 
-    public function edit($id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required'
+        ]);
+
+        $category->name = $request->name;
+        $category->description = $request->description;
+
+        $category->save();
+        return redirect('admin/categories');
     }
 
-    public function update(Request $request, $id)
+    public function destroy(Category $category)
     {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
+        $category->delete();
+        return redirect('admin/categories');
     }
 }
