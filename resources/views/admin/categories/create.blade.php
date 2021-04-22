@@ -9,7 +9,7 @@
   </div>
   <div class="col-12 row justify-content-center">
     <div class="col-12 col-md-8 col-lg-6">
-      <form action="admin/categories" method="post" class="mt-3">
+      <form action="/admin/categories" method="post" class="mt-3">
         @csrf
         <div class="form-group">
           <label for="name">اسم الفئة</label>

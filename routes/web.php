@@ -77,8 +77,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () { // A
     Route::get('/users/{user}', [UserController::class, 'showForAdmin']); // Show Specific User Data For Admin
     Route::delete('/users/{user}', [UserController::class, 'destroy']); // Delete Specific User For Admin
 
-    Route::get('/laptops', [LaptopController::class, 'index']); // Show Laptops List For Admin
-    Route::get('/laptops/{laptop}', [LaptopController::class, 'show']); // Show Specific Laptop Data For Admin
+    Route::get('/laptops', [LaptopController::class, 'indexForAdmin']); // Show Laptops List For Admin
+    Route::get('/laptops/create', [LaptopController::class, 'create']); // Show Add New Laptop Form
+    Route::get('/laptops/{laptop}', [LaptopController::class, 'showForAdmin']); // Show Specific Laptop Data For Admin
     Route::post('/laptops', [LaptopController::class, 'store']); // Add New Laptop
     Route::get('/laptops/{laptop}/edit', [LaptopController::class, 'edit']);
     Route::put('/laptops/{laptop}', [LaptopController::class, 'update']);
@@ -87,12 +88,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () { // A
     Route::post('/laptops/subimages', [LaptopController::class, 'addSubImage']); // Add New Sub Image For Laptop
     Route::delete('/laptops/subiamges', [LaptopController::class, 'deleteSubImage']); // Remove Sub Image For Laptop
 
-    Route::get('/orders', [OrderController::class, 'index']); // List All Orders For Admin
+    Route::get('/orders', [OrderController::class, 'indexForAdmin']); // List All Orders For Admin
     Route::get('/orders/{order}', [OrderController::class, 'show']); // Show Spevific Order Data For Admin
     Route::put('/orders/{order}', [OrderController::class, 'update']); // Update Specific Order Status
 
     Route::get('/categories', [CategoryController::class, 'index']); // List All Categories For Admin
-    Route::post('/categories', [CategoryController::class, 'store']); // Add New Category
+    Route::get('/categories/create', [CategoryController::class, 'create']); // Show Add New Category Form
+    Route::post('/categories', [CategoryController::class, 'store']); // Stort New Category
     Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']); // Show Edit Category Form
     Route::put('/categories/{category}', [CategoryController::class, 'update']); // Update Specific Category Data
     Route::delete('/categories/{category}', [CategoryController::class, 'destroy']); // Delete Specific Category

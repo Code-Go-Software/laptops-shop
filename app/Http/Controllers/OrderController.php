@@ -62,22 +62,17 @@ class OrderController extends Controller
         return back();
     }
 
-    public function show($id)
+    public function show(Order $order)
     {
         //
     }
 
-    public function edit($id)
+    public function update(Request $request, Order $order)
     {
         //
     }
 
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
+    public function destroy(Order $order)
     {
         //
     }

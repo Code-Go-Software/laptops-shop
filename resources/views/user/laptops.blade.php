@@ -78,7 +78,9 @@
           </div>
 
         @empty
-            
+          <div class="col-12 alert alert-secondary">
+            لا يوجد أي حواسيب متوفرة حاليا
+          </div>
         @endforelse
            
       </div>

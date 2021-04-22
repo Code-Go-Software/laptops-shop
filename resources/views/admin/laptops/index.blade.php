@@ -9,21 +9,21 @@
   </div>
   <div class="col-12 row justify-content-center text-center my-3">
     <div class="col-4">
-      <h1>250</h1>
+      <h1>{{ $laptops->count() }}</h1>
       <p><i class="lni lni-display-alt h1"></i> عدد الحواسيب الكلي</p>
     </div>
     <div class="col-4">
-      <h1>100</h1>
+      <h1>{{ $un_available_laptops->count() }}</h1>
       <p><i class="lni lni-close"></i> عدد الحواسيب الغير متوفرة</p>
     </div>
     <div class="col-4">
-      <h1>1500</h1>
+      <h1>{{ $laptops->count() }}</h1>
       <p><i class="lni lni-checkmark-circle"></i> عدد الحواسيب المتوفرة</p>
     </div>
   </div>
 
   <div class="col-12">
-    <h4 class="text-secondary mb-4">المنتجات المتوفرة <span>(25)</span></h4>
+    <h4 class="text-secondary mb-4">المنتجات المتوفرة <span>({{ $laptops->count() }})</span></h4>
   </div>
   <div class="col-12">
     <form action="" class="row" method="get">
@@ -45,8 +45,9 @@
         <label for="sort"><small>الفئة</small></label>
         <select class="form-control form-control-sm rounded-pill d-inline-block w-auto border-dark ml-2">
           <option value="0">الكل</option>
-          <option value="0">الحواسيب الجديدة</option>
-          <option value="1">الحواسيب المستعملة</option>
+          @foreach ($categories as $category)
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+          @endforeach
         </select>
       </div>
       <div class="form-group mr-3">
@@ -55,112 +56,104 @@
       <div class="form-group mr-3">
         <button type="submit" class="btn btn-sm btn-primary rounded-pill">تطبيق</button>
       </div>
-      <div class="form-group">
-        <a href="create.html" class="btn btn-sm btn-success rounded-pill"><i class="lni lni-plus"></i> إضافة</a>
+      <div class="form-group mr-2">
+        <a href="/admin/laptops/create" class="btn btn-sm btn-success rounded-pill"><i class="lni lni-plus"></i> إضافة</a>
       </div>
     </form>
   </div>
   <div class="col-12 row">
-    <div class="col-6 col-md-4 col-lg-3 px-1 mb-2">
-      <div class="product text-center shadow h-100">
-        <div class="header text-left">
-          <small class="d-inline-block bg-danger text-light p-1"><i class="lni lni-eye"></i> 250</small>
-        </div>
-        <div class="image">
-          <img src="../../assets/images/laptop1.jpg" class="img-fluid rounded">
-        </div>
-        <div class="data px-2 pb-1">
-          <a href="laptop.html" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
-          <div class="d-flex w-100">
-            <div class="flex-grow-1">
-              <form action="" method="POST">
-                <button class="btn" type="submit">
-                  <i class="lni lni-cart"></i> <small class="d-none d-md-inline">إضافة للسلة</small>
-                </button>
-              </form>
-            </div>
-            <div class="flex-grow-1">
-              <form action="" method="POST">
-                <button class="btn" type="submit">
-                  <i class="lni lni-heart text-danger"></i> <small class="d-none d-md-inline">إضافة للمفضلة</small>
-                </button>
-              </form>
-            </div>
+
+    @forelse ($laptops as $laptop)
+      <div class="col-6 col-md-4 col-lg-3 px-1 mb-2">
+        <div class="product text-center shadow h-100">
+          <div class="header text-left">
+            <small class="d-inline-block bg-danger text-light p-1"><i class="lni lni-eye"></i> {{ $laptop->views }}</small>
           </div>
-          <span class="text-success font-weight-bold"><bdi>s.p</bdi> 125000</span>
-          <br>
-          <strike class="text-secondary"><small><bdi>s.p</bdi> 150000</small></strike>
+          <div class="image">
+            <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded">
+          </div>
+          <div class="data px-2 pb-1">
+            <a href="/admin/laptops/{{ $laptop->id }}/{{ $laptop->name }}" class="text-dark font-weight-bold">{{ $laptop->name }}</a>
+            <div class="d-flex w-100">
+              <div class="flex-grow-1">
+                <a class="btn" href="/admin/laptops/{{ $laptop->id }}/edit">
+                  <i class="lni lni-pencil"></i> <small>تعديل</small>
+                </a>
+              </div>
+              <div class="flex-grow-1">
+                <form action="/admin/laptops/{{ $laptop->id }}" method="POST">
+                  @csrf
+                  @method('delete')
+                  <button class="btn" type="submit">
+                    <i class="lni lni-trash text-danger"></i> <small>حذف</small>
+                  </button>
+                </form>
+              </div>
+            </div>
+            <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
+            <br>
+            <strike class="text-secondary"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
+          </div>
         </div>
       </div>
-    </div>
+    @empty
+        <div class="col-12 alert alert-secondary">
+          لا يوجد أي حواسيب متوفرة حاليا
+        </div>
+    @endforelse
+
   </div>
+
   <!--Pagination Start-->
-  <div class="mt-5 col-12">
-    <ul class="pagination justify-content-center">
-      <li class="page-item">
-        <a class="page-link" href="#">Previous</a>
-      </li>
-      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
+  <div class="mt-5">
+    {{ $laptops->links() }}
   </div>
   <!--Pagination End-->
   
   <div class="col-12">
-    <h4 class="text-secondary mb-4 mt-4">المنتجات المنتجات الغير متوفرة <span>(3)</span></h4>
+    <h4 class="text-secondary mb-4 mt-4">المنتجات المنتجات الغير متوفرة <span>({{ $un_available_laptops->count() }})</span></h4>
   </div>
   <div class="col-12 row">
-    <div class="col-6 col-md-4 col-lg-3 px-1 mb-2">
-      <div class="product text-center shadow h-100">
-        <div class="header text-left">
-          <small class="d-inline-block bg-danger text-light p-1"><i class="lni lni-eye"></i> 250</small>
-        </div>
-        <div class="image">
-          <img src="../../assets/images/laptop1.jpg" class="img-fluid rounded">
-        </div>
-        <div class="data px-2 pb-1">
-          <a href="laptop.html" class="text-dark font-weight-bold">Asus AMD3 99887 nivedia</a>
-          <div class="d-flex w-100">
-            <div class="flex-grow-1">
-              <form action="" method="POST">
-                <button class="btn" type="submit">
-                  <i class="lni lni-cart"></i> <small class="d-none d-md-inline">إضافة للسلة</small>
-                </button>
-              </form>
-            </div>
-            <div class="flex-grow-1">
-              <form action="" method="POST">
-                <button class="btn" type="submit">
-                  <i class="lni lni-heart text-danger"></i> <small class="d-none d-md-inline">إضافة للمفضلة</small>
-                </button>
-              </form>
-            </div>
+    
+    @forelse ($un_available_laptops as $laptop)
+      <div class="col-6 col-md-4 col-lg-3 px-1 mb-2">
+        <div class="product text-center shadow h-100">
+          <div class="header text-left">
+            <small class="d-inline-block bg-danger text-light p-1"><i class="lni lni-eye"></i> {{ $laptop->views }}</small>
           </div>
-          <span class="text-success font-weight-bold"><bdi>s.p</bdi> 125000</span>
-          <br>
-          <strike class="text-secondary"><small><bdi>s.p</bdi> 150000</small></strike>
+          <div class="image">
+            <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded">
+          </div>
+          <div class="data px-2 pb-1">
+            <a href="laptops/{{ $laptop->id }}/{{ $laptop->name }}" class="text-dark font-weight-bold">{{ $laptop->name }}</a>
+            <div class="d-flex w-100">
+              <div class="flex-grow-1">
+                <a class="btn" href="/admin/laptops/{{ $laptop->id }}/edit">
+                  <i class="lni lni-pencil"></i> <small>تعديل</small>
+                </a>
+              </div>
+              <div class="flex-grow-1">
+                <form action="/admin/laptops/{{ $laptop->id }}" method="POST">
+                  @csrf
+                  @method('delete')
+                  <button class="btn" type="submit">
+                    <i class="lni lni-trash text-danger"></i> <small>حذف</small>
+                  </button>
+                </form>
+              </div>
+            </div>
+            <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
+            <br>
+            <strike class="text-secondary"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
+          </div>
         </div>
       </div>
-    </div>
+    @empty
+        <div class="col-12 alert alert-secondary">
+          لا يوجد أي حواسيب غير متوفرة حاليا
+        </div>
+    @endforelse
+
   </div>
-  <!--Pagination Start-->
-  <div class="mt-5 col-12">
-    <ul class="pagination justify-content-center">
-      <li class="page-item">
-        <a class="page-link" href="#">Previous</a>
-      </li>
-      <li class="page-item active"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </div>
-  <!--Pagination End-->
 
 @endsection

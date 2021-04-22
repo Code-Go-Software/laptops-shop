@@ -155,7 +155,7 @@
                 <b><i class="lni lni-eye"></i> {{ $category->laptops->sum('views') }}</b>
               </td>
               <td>
-                <a class="font-weight-bold text-info mr-2" href="admin/categories/{{ $category->id }}"><i class="lni lni-menu"></i></a>
+                <a class="font-weight-bold text-info mr-2" href="/admin/categories"><i class="lni lni-menu"></i></a>
               </td>
             </tr>
           @empty

@@ -31,8 +31,8 @@ class CreateLaptopsTable extends Migration
             $table->boolean('is_available')->default(true);
             $table->string('type'); // New Or Open Box
             $table->string('image');
-            $table->integer('views');
-            $table->string('description');
+            $table->integer('views')->default(0);
+            $table->string('description')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->timestamps();
 
