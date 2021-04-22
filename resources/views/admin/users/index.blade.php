@@ -29,7 +29,7 @@
     </form>
   </div>
   <div class="col-12">
-    <h4 class="text-secondary mb-4">المستخدمون المسجلون <span>(25)</span></h4>
+    <h4 class="text-secondary mb-4">المستخدمون المسجلون <span>({{ $users->count() }})</span></h4>
     <div class="table-responsive-sm">
       <table class="table table-striped mt-2 table-sm table-hover">
         <thead>
@@ -47,55 +47,52 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>
-              <img src="../../assets/images/default-user.png" class="rounded-circle mr-2" width="30px" height="30px">
-            </td>
-            <td>
-              <small>طارق الحلبي</small>
-              <a href="users/show.html"><small><i class="lni lni-arrow-right-circle"></i></small></a>
-            </td>
-            <td>
-              <small>tarekalhalaby@gmail.com</small>
-            </td>
-            <td><small>0946918650</small></td>
-            <td><small>دمشق - شارع الحمرا</small></td>
-            <td><small>21-2-2021 18:45</small></td>
-            <td class="text-center"><b><i class="lni lni-clipboard"></i> 55</b></td>
-            <td>
-              <i class="lni lni-trash text-danger btn"></i>
-            </td>
-            <td>
-              <a href="show.html"><i class="lni lni-menu btn text-primary"></i></a>
-            </td>
+          
+          @forelse ($users as $user)
+            <tr>
+              <th scope="row">{{ $loop->index + 1 }}</th>
+              <td>
+                <img src="{{ asset('assets/images/default-user.png') }}" class="rounded-circle mr-2" width="30px" height="30px">
+              </td>
+              <td>
+                <small>{{ $user->fullname }}</small>
+                <a href="/admin/users/{{ $user->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
+              </td>
+              <td>
+                <small>{{ $user->email }}</small>
+              </td>
+              <td><small>{{ $user->phone }}</small></td>
+              <td><small>{{ $user->address }}</small></td>
+              <td><small>{{ $user->created_at }}</small></td>
+              <td class="text-center"><b><i class="lni lni-clipboard"></i> {{ $user->orders->count() }}</b></td>
+              <td>
+                <form action="/admin/user/{{ $user->id }}" method="post">
+                  @csrf
+                  @method('delete')
+                  <button type="submit" class="btn p-0">
+                    <i class="lni lni-trash text-danger"></i>
+                  </button>
+                </form>
+              </td>
+              <td>
+                <a href="/admin/users/{{ $user->id }}"><i class="lni lni-menu btn p-0 text-primary"></i></a>
+              </td>
+            </tr>
+          @empty
+          <tr class="text-center">
+            لا يوجد أي مستخدمين مسجلين حاليا
           </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>
-              <img src="../../assets/images/default-user.png" class="rounded-circle mr-2" width="30px" height="30px">
-            </td>
-            <td>
-              <small>طارق الحلبي</small>
-              <a href="users/show.html"><small><i class="lni lni-arrow-right-circle"></i></small></a>
-            </td>
-            <td>
-              <small>tarekalhalaby@gmail.com</small>
-            </td>
-            <td><small>0946918650</small></td>
-            <td><small>دمشق - شارع الحمرا</small></td>
-            <td><small>21-2-2021 18:45</small></td>
-            <td class="text-center"><b><i class="lni lni-clipboard"></i> 55</b></td>
-            <td>
-              <i class="lni lni-trash text-danger btn"></i>
-            </td>
-            <td>
-              <a href="show.html"><i class="lni lni-menu btn text-primary"></i></a>
-            </td>
-          </tr>
+          @endforelse
+
         </tbody>
       </table>
     </div>
   </div>
+
+  <!--Pagination Start-->
+  <div class="col-12 text-center mt-5">
+    {{ $users->links() }}
+  </div>
+  <!--Pagination End-->
 
 @endsection

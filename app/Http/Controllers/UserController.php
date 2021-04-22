@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -11,16 +12,6 @@ class UserController extends Controller
     public function index()
     {
         return view('user.profile');
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
     }
 
     public function show($id)
@@ -33,11 +24,6 @@ class UserController extends Controller
         return view('user.profile',[
             'user' => Auth::user()
         ]);
-    }
-
-    public function edit($id)
-    {
-        //
     }
 
     public function update(Request $request)
@@ -62,5 +48,17 @@ class UserController extends Controller
         Auth::user()->delete();
         Auth::logout();
         return redirect('/');
+    }
+
+    public function indexForAdmin(){
+        return view('admin.users.index', [
+            'users' => User::paginate(25)
+        ]);
+    }
+
+    public function showForAdmin(User $user){
+        return view('admin.users.show', [
+            'user' => $user
+        ]);
     }
 }

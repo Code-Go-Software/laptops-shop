@@ -73,8 +73,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () { // A
     Route::get('/currency', [AdminPagesController::class, 'currency']); // Show Admin Currency Page
     Route::get('/help', [AdminPagesController::class, 'help']); // Show Admin Help Page
 
-    Route::get('/users', [UserController::class, 'index']); // List All User For Admin
-    Route::get('/users/{user}', [UserController::class, 'show']); // Show Specific User Data For Admin
+    Route::get('/users', [UserController::class, 'indexForAdmin']); // List All User For Admin
+    Route::get('/users/{user}', [UserController::class, 'showForAdmin']); // Show Specific User Data For Admin
     Route::delete('/users/{user}', [UserController::class, 'destroy']); // Delete Specific User For Admin
 
     Route::get('/laptops', [LaptopController::class, 'index']); // Show Laptops List For Admin
