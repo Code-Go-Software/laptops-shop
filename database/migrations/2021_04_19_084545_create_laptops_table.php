@@ -28,10 +28,10 @@ class CreateLaptopsTable extends Migration
             $table->string('cd_driver');
             $table->string('battery');
             $table->string('ports');
-            $table->string('is_available');
+            $table->boolean('is_available')->default(true);
             $table->string('type'); // New Or Open Box
             $table->string('image');
-            $table->string('views');
+            $table->integer('views');
             $table->string('description');
             $table->unsignedBigInteger('category_id');
             $table->timestamps();
