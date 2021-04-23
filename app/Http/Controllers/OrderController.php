@@ -73,7 +73,10 @@ class OrderController extends Controller
 
     public function update(Request $request, Order $order)
     {
-        //
+        $order->status = ! $order->status;
+        $order->save();
+
+        return redirect('/admin/orders/'.$order->id);
     }
 
     public function destroy(Order $order)

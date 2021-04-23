@@ -73,7 +73,7 @@
             <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded">
           </div>
           <div class="data px-2 pb-1">
-            <a href="/admin/laptops/{{ $laptop->id }}/{{ $laptop->name }}" class="text-dark font-weight-bold">{{ $laptop->name }}</a>
+            <a href="/admin/laptops/{{ $laptop->id }}" class="text-dark font-weight-bold">{{ $laptop->name }}</a>
             <div class="d-flex w-100">
               <div class="flex-grow-1">
                 <a class="btn" href="/admin/laptops/{{ $laptop->id }}/edit">

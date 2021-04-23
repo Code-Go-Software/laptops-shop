@@ -15,7 +15,7 @@ class Order extends Model
     * Get Order Laptops
     */
     public function laptops(){
-        return $this->belongsToMany(Laptop::class);
+        return $this->belongsToMany(Laptop::class)->withPivot('price');
     }
 
     /*

@@ -51,19 +51,20 @@
               @foreach ($laptops as $laptop)
                 <div class="col-12 row mb-3">
                   <div class="col-3">
-                    <img src="../assets/images/laptop1.jpg" class="img-fluid">
+                    <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid">
                   </div>
                   <div class="col-9">
                     <p class="font-weight-bold mb-1">
-                      <a href="laptops/{{ $laptop->id }}/{{ $laptop->name }}" class="text-dark">{{ $laptop->name }}</a>
+                      <a href="/admin/laptops/{{ $laptop->id }}" class="text-dark">{{ $laptop->name }}</a>
                     </p>
                     <small>السعر عند الطلب</small>
-                    <span class="text-success font-weight-bold"><bdi>s.p</bdi> </span>
+                    <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->pivot->price }}</span>
                   </div>
                 </div>
               @endforeach
 
             </div>
+            <p class="mb-1 text-secondary">تاريخ إكمال الطلب: {{ $order->updated_at }}</p>
             <b>قيمة الطلب</b>
             <h3 class="d-inline-block text-danger"><bdi>s.p</bdi> {{ $order->total_price }}</h3>
           </div>

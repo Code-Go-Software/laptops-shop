@@ -28,7 +28,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('laptop_id');
-            $table->unsignedBigInteger('price');
+            $table->double('price');
             //$table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade')->onUpdate('cascade');
