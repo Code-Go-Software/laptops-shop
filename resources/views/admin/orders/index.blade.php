@@ -89,9 +89,9 @@
               </td>
             </tr>
           @empty
-              <tr class="text-center">
+              <div class="alert bg-secondary text-light">
                 لا يوجد أي طلبات غير منجزة حاليا
-              </tr>
+              </div>
           @endforelse
 
         </tbody>
@@ -180,9 +180,9 @@
               </td>
             </tr>
           @empty
-              <tr class="text-center">
+              <div class="alert alert-danger">
                 لا يوجد أي طلبات منجزة حاليا
-              </tr>
+              </div>
           @endforelse
 
         </tbody>
@@ -190,6 +190,7 @@
     </div>
   </div>
 
+  <!--
   <div class="col-9 mt-4">
     <h4 class="text-secondary mb-4">التقرير السنوي</h4>
     <form action="" class="row" method="get">
@@ -243,5 +244,6 @@
       </table>
     </div>
   </div>
+  -->
 
 @endsection

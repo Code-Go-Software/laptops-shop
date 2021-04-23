@@ -91,9 +91,9 @@
               </td>
             </tr>
           @empty
-              <tr class="text-center">
-                لا يوجد طلبات غير منجزة
-              </tr>
+            <div class="alert alert-danger">
+              لا يوجد طلبات غير منجزة
+            </div>
           @endforelse
 
         </tbody>
