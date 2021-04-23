@@ -23,15 +23,15 @@
     <div class="ml-3">
       @auth
         <a href="/profile" class="text-light">
-          <img src="{{ asset('assets/images/default-user.png') }}" class="img-fluid rounded-circle" width="30px" height="30px">
+          <img src="{{ asset('images/' . auth()->user()->image) }}" class="img-fluid rounded-circle" width="30px" height="30px">
           <small class="d-none d-md-inline mr-1">{{ auth()->user()->fullname }}</small>
         </a>
       @endauth
       
       @guest
-        <a href="/register" class="text-light">
+        <a href="/login" class="text-light">
           <i class="lni lni-user" style="font-size:18px;"></i>
-          <small class="d-none d-md-inline mr-2">إنشاء حساب</small>
+          <small class="d-none d-md-inline mr-2">تسجيل دخول</small>
         </a>
       @endguest
     </div>
@@ -66,7 +66,7 @@
         <input type="text" placeholder="ما الذي تبحث عنه" class="form-control rounded-0">
       </div>
       <div class="d-none d-md-block">
-        <a href="laptops.html" class="btn btn-primary rounded-0"><i class="lni lni-control-panel d-none d-md-inline"></i> بحث
+        <a href="laptops.html" class="btn btn-dark rounded-0"><i class="lni lni-control-panel d-none d-md-inline"></i> بحث
           متقدم</a>
       </div>
     </form>
@@ -130,6 +130,7 @@
   <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('assets/js/functions.js') }}"></script>
 </body>
 
 </html>

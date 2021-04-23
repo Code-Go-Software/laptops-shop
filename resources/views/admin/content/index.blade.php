@@ -24,10 +24,13 @@
         <div class="row mt-4">
 
           <div class="col-lg-6">
-            <form action="" method="post">
+            <form action="/admin/content/" method="post">
+              @csrf
+              @method('put')
+              <input type="hidden" name="is_image" value="0">
               <div class="form-group">
                 <label for="address">عنوان الشركة</label>
-                <input type="text" id="address" class="form-control rounded-pill border-dark" placeholder="دمشق - البحصة - جانب جامع الورد">
+                <input type="text" name="address" id="address" class="form-control rounded-pill border-dark" placeholder="دمشق - البحصة - جانب جامع الورد">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
@@ -36,10 +39,13 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="" method="post">
+            <form action="/admin/content/" method="post">
+              @csrf
+              @method('put')
+              <input type="hidden" name="is_image" value="0">
               <div class="form-group">
                 <label for="phone">رقم الهاتف</label>
-                <input type="text" id="phone" class="form-control rounded-pill border-dark" placeholder="0946918650">
+                <input type="text" name="phone" id="phone" class="form-control rounded-pill border-dark" placeholder="0946918650">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
@@ -48,10 +54,13 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="" method="post">
+            <form action="/admin/content/" method="post">
+              @csrf
+              @method('put')
+              <input type="hidden" name="is_image" value="0">
               <div class="form-group">
                 <label for="fixed-phone">رقم الهاتف الثابت</label>
-                <input type="text" id="fixed-phone" class="form-control rounded-pill border-dark" placeholder="211-115-12">
+                <input type="text" name="fixed_phone" id="fixed-phone" class="form-control rounded-pill border-dark" placeholder="211-115-12">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
@@ -60,10 +69,13 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="" method="post">
+            <form action="/admin/content/" method="post">
+              @csrf
+              @method('put')
+              <input type="hidden" name="is_image" value="0">
               <div class="form-group">
                 <label for="email">بريد المساعدة</label>
-                <input type="text" id="email" class="form-control rounded-pill border-dark" placeholder="info@company.com">
+                <input type="text" name="email" id="email" class="form-control rounded-pill border-dark" placeholder="info@company.com">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
@@ -72,10 +84,13 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="" method="post">
+            <form action="/admin/content/" method="post">
+              @csrf
+              @method('put')
+              <input type="hidden" name="is_image" value="0">
               <div class="form-group">
                 <label for="facebook">رابط صفحة الفيسبوك</label>
-                <input type="text" id="facebook" class="form-control rounded-pill border-dark" placeholder="https://www.facebook.com">
+                <input type="text" name="facebook" id="facebook" class="form-control rounded-pill border-dark" placeholder="https://www.facebook.com">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
@@ -84,10 +99,13 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="" method="post">
+            <form action="/admin/content/" method="post">
+              @csrf
+              @method('put')
+              <input type="hidden" name="is_image" value="0">
               <div class="form-group">
                 <label for="telegram">رابط قناة التلغرام</label>
-                <input type="text" id="telegram" class="form-control rounded-pill border-dark" placeholder="https://www.telegram.com">
+                <input type="text" name="telegram" id="telegram" class="form-control rounded-pill border-dark" placeholder="https://www.telegram.com">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
@@ -96,10 +114,13 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="" method="post">
+            <form action="/admin/content/" method="post">
+              @csrf
+              @method('put')
+              <input type="hidden" name="is_image" value="0">
               <div class="form-group">
                 <label for="whatsapp">رقم التواصل واتساب</label>
-                <input type="text" id="whatsapp" class="form-control rounded-pill border-dark" placeholder="0946918650">
+                <input type="text" name="whatsapp" id="whatsapp" class="form-control rounded-pill border-dark" placeholder="0946918650">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
@@ -113,46 +134,58 @@
       <div class="tab-pane fade show" id="sliders" role="tabpanel" aria-labelledby="sliders-tab">
         <div class="row justify-content-center">
           <div class="col-lg-9">
-            <form action="" method="post">
+            <form action="/admin/content/" method="post" enctype="multipart/form-data">
+              @csrf
+              @method('put')
+              <input type="hidden" name="is_image" value="1">
               <div class="form-group mt-4">
                 <h4>الصورة الأولى</h4>
               </div>
               <div class="form-group text-center">
-                <img src="../../assets/images/laptop1.jpg" class="img-fluid rounded">
+                <img src="{{ asset('assets/images/laptop1.jpg') }}" id="slider1-image" class="img-fluid rounded">
               </div>
               <div class="form-group text-center">
-                <button class="btn btn-primary rounded-pill mt-2"><i class="lni lni-image"></i> اختيار صورة جديدة</button>
-                <button class="btn btn-info rounded-pill mt-2"><i class="lni lni-save"></i> حفظ</button>
+                <input type="file" class="d-none" name="slider1" id="slider1">
+                <div id="select-slider1" class="btn btn-primary rounded-pill mt-2"><i class="lni lni-image"></i> اختيار صورة جديدة</div>
+                <button type="submit" class="btn btn-info rounded-pill mt-2"><i class="lni lni-save"></i> حفظ</button>
               </div>
             </form>
           </div>
 
           <div class="col-lg-9 mt-4">
-            <form action="" method="post">
+            <form action="/admin/content/" method="post" enctype="multipart/form-data">
+              @csrf
+              @method('put')
+              <input type="hidden" name="is_image" value="1">
               <div class="form-group mt-4">
                 <h4>الصورة الثانية</h4>
               </div>
               <div class="form-group text-center">
-                <img src="../../assets/images/laptop1.jpg" class="img-fluid rounded">
+                <img src="{{ asset('assets/images/laptop1.jpg') }}" id="slider2-image" class="img-fluid rounded">
               </div>
               <div class="form-group text-center">
-                <button class="btn btn-primary rounded-pill mt-2"><i class="lni lni-image"></i> اختيار صورة جديدة</button>
-                <button class="btn btn-info rounded-pill mt-2"><i class="lni lni-save"></i> حفظ</button>
+                <input type="file" class="d-none" name="slider2" id="slider2">
+                <div id="select-slider2" class="btn btn-primary rounded-pill mt-2"><i class="lni lni-image"></i> اختيار صورة جديدة</div>
+                <button type="submit" class="btn btn-info rounded-pill mt-2"><i class="lni lni-save"></i> حفظ</button>
               </div>
             </form>
           </div>
 
           <div class="col-lg-9 mt-4">
-            <form action="" method="post">
+            <form action="/admin/content/" method="post" enctype="multipart/form-data">
+              @csrf
+              @method('put')
+              <input type="hidden" name="is_image" value="1">
               <div class="form-group mt-4">
                 <h4>الصورة الثالثة</h4>
               </div>
               <div class="form-group text-center">
-                <img src="../../assets/images/laptop1.jpg" class="img-fluid rounded">
+                <img src="{{ asset('assets/images/laptop1.jpg') }}" id="slider3-image" class="img-fluid rounded">
               </div>
               <div class="form-group text-center">
-                <button class="btn btn-primary rounded-pill mt-2"><i class="lni lni-image"></i> اختيار صورة جديدة</button>
-                <button class="btn btn-info rounded-pill mt-2"><i class="lni lni-save"></i> حفظ</button>
+                <input type="file" class="d-none" name="slider3" id="slider3">
+                <div id="select-slider3" class="btn btn-primary rounded-pill mt-2"><i class="lni lni-image"></i> اختيار صورة جديدة</div>
+                <button type="submit" class="btn btn-info rounded-pill mt-2"><i class="lni lni-save"></i> حفظ</button>
               </div>
             </form>
           </div>
@@ -167,10 +200,13 @@
 ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص العربى أن يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه التصميم فيظهر بشكل لا يليق.
 هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً.
           </p>
-          <form action="" method="post">
+          <form action="/admin/content/" method="post">
+            @csrf
+            @method('put')
+            <input type="hidden" name="is_image" value="0">
             <div class="form-group">
-              <label for="description"><b>تعديل المقال</b></label>
-              <textarea id="description" class="form-control rounded border-dark" cols="30" rows="10" placeholder="مقال تعريفي عن الشركة"></textarea>
+              <label for="about-us"><b>تعديل المقال</b></label>
+              <textarea id="about-us" name="about_us" class="form-control rounded border-dark" cols="30" rows="10" placeholder="مقال تعريفي عن الشركة"></textarea>
             </div>
             <div class="form-group">
               <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>

@@ -138,7 +138,7 @@
 
       </div>
       <div class="text-center mt-3">
-        <a href="/laptops" class="btn btn-primary rounded-pill">عرض جيع الحواسيب</a>
+        <a href="/laptops" class="btn btn-primary rounded-pill">عرض جميع الحواسيب</a>
       </div>
     </div>
   </section>

@@ -61,4 +61,26 @@ class UserController extends Controller
             'user' => $user
         ]);
     }
+
+    public function updateImage(Request $request){
+        $validated = $request->validate([
+            'image' => 'required|mimes:jpg,png,jpeg|max:1024'
+        ]);
+
+        $user = Auth::user();
+        if($user->image != "default-user.png"){
+            $image = public_path('/images/'.$user->image);
+            if (file_exists($image)) unlink($image);
+        }
+
+        $image_name = time() . '-' . $user->id . '.' . $request->image->extension();
+
+        if($request->image->move(public_path('images'), $image_name)){
+            $user->image = $image_name;
+            $user->save();
+            return back();
+        }else{
+            abort(500);
+        }
+    }
 }

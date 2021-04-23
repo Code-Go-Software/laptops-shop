@@ -9,14 +9,15 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 col-lg-6">
-                <form action="/profile" method="POST">
+                <form action="/profile/image" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="form-group text-center">
-                        <img src="{{ asset('assets/images/default-user.png') }}" class="img-fluid rounded-circle">
+                        <img src="{{ asset('images/' . $user->image) }}" class="img-fluid rounded-circle" id="image-preview">
                         <div class="mt-2">
-                            <button class="btn btn-success"><i class="lni lni-image"></i> اختيار صورة</button>
-                            <button class="btn btn-primary"><i class="lni lni-save"></i>  حفظ</button>
+                            <input type="file" name="image" id="image-input" class="d-none" onchange="previewImage(this, '#image-preview');">
+                            <div class="btn btn-success rounded-pill" onclick="openFileInput('#image-input');"><i class="lni lni-image"></i> اختيار صورة</div>
+                            <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i>  حفظ</button>
                         </div>
                     </div>
                     <div class="form-group">
