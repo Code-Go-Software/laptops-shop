@@ -91,10 +91,10 @@
         <div class="col-7 col-md-5">
           <h5 class="font-weight-bold">معلومات التواصل</h5>
           <ul class="list-unstyled py-2 pl-2">
-            <li class="py-1 px-1"><i class="lni lni-phone ml-1"></i> 0946918650</li>
-            <li class="py-1 px-1"><i class="lni lni-phone-set ml-1"></i> 011-211-75</li>
-            <li class="py-1 px-1"><i class="lni lni-envelope ml-1"></i> test@web.com</li>
-            <li class="py-1 px-1"><i class="lni lni-map ml-1"></i> دمشق - الحمرا</li>
+            <li class="py-1 px-1"><i class="lni lni-phone ml-1"></i> {{ $content->where('key', 'phone')->first()->value }}</li>
+            <li class="py-1 px-1"><i class="lni lni-phone-set ml-1"></i> {{ $content->where('key', 'fixed_phone')->first()->value }}</li>
+            <li class="py-1 px-1"><i class="lni lni-envelope ml-1"></i> {{ $content->where('key', 'help_email')->first()->value }}</li>
+            <li class="py-1 px-1"><i class="lni lni-map ml-1"></i> {{ $content->where('key', 'address')->first()->value }}</li>
             <li class="py-1 px-1"><i class="lni lni-car ml-1"></i> التوصيل مجاني</li>
           </ul>
           <div class="d-flex mt-2">

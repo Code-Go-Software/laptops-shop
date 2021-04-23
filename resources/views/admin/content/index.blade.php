@@ -24,13 +24,13 @@
         <div class="row mt-4">
 
           <div class="col-lg-6">
-            <form action="/admin/content/" method="post">
+            <form action="/admin/content/{{ $content->where('key', 'address')->first()->id }}" method="post">
               @csrf
               @method('put')
               <input type="hidden" name="is_image" value="0">
               <div class="form-group">
                 <label for="address">عنوان الشركة</label>
-                <input type="text" name="address" id="address" class="form-control rounded-pill border-dark" placeholder="دمشق - البحصة - جانب جامع الورد">
+                <input type="text" name="value" id="address" class="form-control rounded-pill border-dark" placeholder="دمشق - البحصة - جانب جامع الورد" value="{{ $content->where('key', 'address')->first()->value }}">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
@@ -39,13 +39,13 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="/admin/content/" method="post">
+            <form action="/admin/content/{{ $content->where('key', 'phone')->first()->id }}" method="post">
               @csrf
               @method('put')
               <input type="hidden" name="is_image" value="0">
               <div class="form-group">
                 <label for="phone">رقم الهاتف</label>
-                <input type="text" name="phone" id="phone" class="form-control rounded-pill border-dark" placeholder="0946918650">
+                <input type="text" name="value" id="phone" class="form-control rounded-pill border-dark" placeholder="0946918650" value="{{ $content->where('key', 'phone')->first()->value }}">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
@@ -54,13 +54,13 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="/admin/content/" method="post">
+            <form action="/admin/content/{{ $content->where('key', 'fixed_phone')->first()->id }}" method="post">
               @csrf
               @method('put')
               <input type="hidden" name="is_image" value="0">
               <div class="form-group">
                 <label for="fixed-phone">رقم الهاتف الثابت</label>
-                <input type="text" name="fixed_phone" id="fixed-phone" class="form-control rounded-pill border-dark" placeholder="211-115-12">
+                <input type="text" name="value" id="fixed-phone" class="form-control rounded-pill border-dark" placeholder="211-115-12" value="{{ $content->where('key', 'fixed_phone')->first()->value }}">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
@@ -69,13 +69,13 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="/admin/content/" method="post">
+            <form action="/admin/content/{{ $content->where('key', 'help_email')->first()->id }}" method="post">
               @csrf
               @method('put')
               <input type="hidden" name="is_image" value="0">
               <div class="form-group">
-                <label for="email">بريد المساعدة</label>
-                <input type="text" name="email" id="email" class="form-control rounded-pill border-dark" placeholder="info@company.com">
+                <label for="help-email">بريد المساعدة</label>
+                <input type="text" name="value" id="help-email" class="form-control rounded-pill border-dark" placeholder="info@company.com" value="{{ $content->where('key', 'help_email')->first()->value }}">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
@@ -84,13 +84,13 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="/admin/content/" method="post">
+            <form action="/admin/content/{{ $content->where('key', 'facebook_link')->first()->id }}" method="post">
               @csrf
               @method('put')
               <input type="hidden" name="is_image" value="0">
               <div class="form-group">
-                <label for="facebook">رابط صفحة الفيسبوك</label>
-                <input type="text" name="facebook" id="facebook" class="form-control rounded-pill border-dark" placeholder="https://www.facebook.com">
+                <label for="facebook-link">رابط صفحة الفيسبوك</label>
+                <input type="text" name="value" id="facebook-link" class="form-control rounded-pill border-dark" placeholder="https://www.facebook.com"  value="{{ $content->where('key', 'facebook_link')->first()->value }}">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
@@ -99,13 +99,13 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="/admin/content/" method="post">
+            <form action="/admin/content/{{ $content->where('key', 'telegram_link')->first()->id }}" method="post">
               @csrf
               @method('put')
               <input type="hidden" name="is_image" value="0">
               <div class="form-group">
-                <label for="telegram">رابط قناة التلغرام</label>
-                <input type="text" name="telegram" id="telegram" class="form-control rounded-pill border-dark" placeholder="https://www.telegram.com">
+                <label for="telegram-link">رابط قناة التلغرام</label>
+                <input type="text" name="value" id="telegram-link" class="form-control rounded-pill border-dark" placeholder="https://www.telegram.com" value="{{ $content->where('key', 'telegram_link')->first()->value }}">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
@@ -114,13 +114,13 @@
           </div>
 
           <div class="col-lg-6">
-            <form action="/admin/content/" method="post">
+            <form action="/admin/content/{{ $content->where('key', 'whatsapp_number')->first()->id }}" method="post">
               @csrf
               @method('put')
               <input type="hidden" name="is_image" value="0">
               <div class="form-group">
-                <label for="whatsapp">رقم التواصل واتساب</label>
-                <input type="text" name="whatsapp" id="whatsapp" class="form-control rounded-pill border-dark" placeholder="0946918650">
+                <label for="whatsapp-number">رقم التواصل واتساب</label>
+                <input type="text" name="value" id="whatsapp-number" class="form-control rounded-pill border-dark" placeholder="0946918650"  value="{{ $content->where('key', 'whatsapp_number')->first()->value }}">
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
@@ -134,7 +134,7 @@
       <div class="tab-pane fade show" id="sliders" role="tabpanel" aria-labelledby="sliders-tab">
         <div class="row justify-content-center">
           <div class="col-lg-9">
-            <form action="/admin/content/" method="post" enctype="multipart/form-data">
+            <form action="/admin/content/{{ $content->where('key', 'slide1')->first()->id }}" method="post" enctype="multipart/form-data">
               @csrf
               @method('put')
               <input type="hidden" name="is_image" value="1">
@@ -142,18 +142,18 @@
                 <h4>الصورة الأولى</h4>
               </div>
               <div class="form-group text-center">
-                <img src="{{ asset('assets/images/laptop1.jpg') }}" id="slider1-image" class="img-fluid rounded">
+                <img src="{{ asset('assets/images/' . $content->where('key', 'slide1')->first()->value) }}" id="slide1-image" class="img-fluid rounded">
               </div>
               <div class="form-group text-center">
-                <input type="file" class="d-none" name="slider1" id="slider1">
-                <div id="select-slider1" class="btn btn-primary rounded-pill mt-2"><i class="lni lni-image"></i> اختيار صورة جديدة</div>
+                <input type="file" class="d-none" name="value" id="slide1" onchange="previewImage(this, '#slide1-image')">
+                <div id="select-slide1" class="btn btn-primary rounded-pill mt-2" onclick="openFileInput('#slide1')"><i class="lni lni-image"></i> اختيار صورة جديدة</div>
                 <button type="submit" class="btn btn-info rounded-pill mt-2"><i class="lni lni-save"></i> حفظ</button>
               </div>
             </form>
           </div>
 
           <div class="col-lg-9 mt-4">
-            <form action="/admin/content/" method="post" enctype="multipart/form-data">
+            <form action="/admin/content/{{ $content->where('key', 'slide2')->first()->id }}" method="post" enctype="multipart/form-data">
               @csrf
               @method('put')
               <input type="hidden" name="is_image" value="1">
@@ -161,18 +161,18 @@
                 <h4>الصورة الثانية</h4>
               </div>
               <div class="form-group text-center">
-                <img src="{{ asset('assets/images/laptop1.jpg') }}" id="slider2-image" class="img-fluid rounded">
+                <img src="{{ asset('assets/images/' . $content->where('key', 'slide2')->first()->value) }}" id="slide2-image" class="img-fluid rounded">
               </div>
               <div class="form-group text-center">
-                <input type="file" class="d-none" name="slider2" id="slider2">
-                <div id="select-slider2" class="btn btn-primary rounded-pill mt-2"><i class="lni lni-image"></i> اختيار صورة جديدة</div>
+                <input type="file" class="d-none" name="value" id="slide2" onchange="previewImage(this, '#slide2-image')">
+                <div id="select-slider2" class="btn btn-primary rounded-pill mt-2" onclick="openFileInput('#slide2')"><i class="lni lni-image"></i> اختيار صورة جديدة</div>
                 <button type="submit" class="btn btn-info rounded-pill mt-2"><i class="lni lni-save"></i> حفظ</button>
               </div>
             </form>
           </div>
 
           <div class="col-lg-9 mt-4">
-            <form action="/admin/content/" method="post" enctype="multipart/form-data">
+            <form action="/admin/content/{{ $content->where('key', 'slide3')->first()->id }}" method="post" enctype="multipart/form-data">
               @csrf
               @method('put')
               <input type="hidden" name="is_image" value="1">
@@ -180,11 +180,11 @@
                 <h4>الصورة الثالثة</h4>
               </div>
               <div class="form-group text-center">
-                <img src="{{ asset('assets/images/laptop1.jpg') }}" id="slider3-image" class="img-fluid rounded">
+                <img src="{{ asset('assets/images/' . $content->where('key', 'slide3')->first()->value) }}" id="slide3-image" class="img-fluid rounded">
               </div>
               <div class="form-group text-center">
-                <input type="file" class="d-none" name="slider3" id="slider3">
-                <div id="select-slider3" class="btn btn-primary rounded-pill mt-2"><i class="lni lni-image"></i> اختيار صورة جديدة</div>
+                <input type="file" class="d-none" name="value" id="slide3" onchange="previewImage(this, '#slide3-image')">
+                <div id="select-slider3" class="btn btn-primary rounded-pill mt-2" onclick="openFileInput('#slide3')"><i class="lni lni-image"></i> اختيار صورة جديدة</div>
                 <button type="submit" class="btn btn-info rounded-pill mt-2"><i class="lni lni-save"></i> حفظ</button>
               </div>
             </form>
@@ -195,18 +195,15 @@
       <div class="tab-pane fade" id="about-us" role="tabpanel" aria-labelledby="about-us-tab">
         <div class="py-3 px-4">
           <p>
-            هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
-إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع.
-ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص العربى أن يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه التصميم فيظهر بشكل لا يليق.
-هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً.
+            {{ $content->where('key', 'about_us')->first()->value }}
           </p>
-          <form action="/admin/content/" method="post">
+          <form action="/admin/content/{{ $content->where('key', 'about_us')->first()->id }}" method="post">
             @csrf
             @method('put')
             <input type="hidden" name="is_image" value="0">
             <div class="form-group">
               <label for="about-us"><b>تعديل المقال</b></label>
-              <textarea id="about-us" name="about_us" class="form-control rounded border-dark" cols="30" rows="10" placeholder="مقال تعريفي عن الشركة"></textarea>
+              <textarea id="about-us" name="value" class="form-control rounded border-dark" cols="30" rows="10" placeholder="مقال تعريفي عن الشركة">{{ $content->where('key', 'about_us')->first()->value }}</textarea>
             </div>
             <div class="form-group">
               <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
