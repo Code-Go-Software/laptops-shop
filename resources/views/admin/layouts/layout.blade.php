@@ -19,7 +19,7 @@
 
 <body dir="rtl">
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #262626;">
     <a class="navbar-brand" href="/admin">اسم الشركة | لوحة التحكم</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -28,8 +28,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <b class="mr-2 text-light">مدير الموقع</b>
-          <img src="{{ asset('assets/images/default-user.png') }}" class="img-fluid rounded-circle" width="50px" height="50px">
+          <b class="ml-2 text-light">مدير الموقع</b>
+          <img src="{{ asset('images/' . auth()->user()->image) }}" class="img-fluid rounded-circle" width="50px" height="50px">
         </li>
       </ul>
     </div>
@@ -38,7 +38,7 @@
   <section class="container-fluid">
     <div class="row">
       <!--Side Bar Start-->
-      <div class="col-2 d-flex flex-column bg-dark">
+      <div class="col-2 d-flex flex-column" style="background-color: #262626;">
         <div class="h-100">
           <div class="px-3 py-2">
             <a href="/admin" class="text-light h6">
@@ -89,6 +89,7 @@
             </a>
           </div>
           <form action="/logout" method="POST" class="px-3 py-2 flex-grow-1">
+            @csrf
             <button type="submit" class="btn text-danger h6 pr-0">
               <i class="lni lni-exit ml-2"></i>
               تسجيل خروج 

@@ -67,7 +67,7 @@ Route::get('/admin/login', function () { return view('admin.login'); }); // Show
 
 Route::post('/admin/login', [LoginController::class, 'login']); // Send A Login Request
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () { // Add The IsAdmin MiddleWare
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'IsAdmin']], function () { // Add The IsAdmin MiddleWare
     
     Route::get('/', [AdminPagesController::class, 'dashboard']); // Show Admin Dashboard Page
     Route::get('/currency', [AdminPagesController::class, 'currency']); // Show Admin Currency Page

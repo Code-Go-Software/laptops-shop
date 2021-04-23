@@ -86,6 +86,11 @@
             <li class="py-1 px-1"><a href="/laptops" class="text-dark">تصفح الحواسيب المحمولة</a></li>
             <li class="py-1 px-1"><a href="/register" class="text-dark">إنشاء حساب</a></li>
             <li class="py-1 px-1"><a href="/about-us" class="text-dark">عن الشركة</a></li>
+            @auth
+                @if(auth()->user()->is_admin)
+                  <li class="py-1 px-1"><a href="/admin" class="text-dark">إدارة الموقع</a></li>
+                @endif
+            @endauth
           </ul>
         </div>
         <div class="col-7 col-md-5">

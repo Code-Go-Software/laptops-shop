@@ -91,7 +91,7 @@
               </td>
             </tr>
           @empty
-            <div class="alert alert-danger">
+            <div class="alert bg-secondary text-light">
               لا يوجد طلبات غير منجزة
             </div>
           @endforelse
@@ -159,9 +159,9 @@
               </td>
             </tr>
           @empty
-            <tr class="text-center">
+            <div class="bg-secondary text-light">
               لا يوجد أي فئات حاليا
-            </tr>
+            </div>
           @endforelse
 
         </tbody>
@@ -201,9 +201,9 @@
               </td>
             </tr>
           @empty
-            <tr class="text-center">
+            <div class="alert bg-secondary text-light">
               لا يوجد أي حواسيب مفضلة حاليا
-            </tr>
+            </div>
           @endforelse
 
         </tbody>
