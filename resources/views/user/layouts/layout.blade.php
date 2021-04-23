@@ -75,6 +75,18 @@
   </section>
   <!--Navbar End-->
 
+  @if (Session::has('success'))
+      <section class="alert bg-success text-light">
+        {{ Session::get('success') }}
+      </section>
+  @endif
+
+  @if (Session::has('fail'))
+    <section class="alert bg-danger text-light">
+      {{ Session::get('fail') }}
+    </section>
+  @endif
+
   @yield('content')
 
   <!--Footer Start-->

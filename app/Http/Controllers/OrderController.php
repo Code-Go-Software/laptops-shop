@@ -61,7 +61,7 @@ class OrderController extends Controller
         // Delete All Items From The User Cart
         Cart::where('user_id', $user_id)->delete();
 
-        return back();
+        return back()->with('success', 'تمت إضافة طلبك بنجاح سنقوم بالتواصل معك بأسرع وقت ممكن');
     }
 
     public function show(Order $order)
@@ -76,11 +76,7 @@ class OrderController extends Controller
         $order->status = ! $order->status;
         $order->save();
 
-        return redirect('/admin/orders/'.$order->id);
+        return redirect('/admin/orders/'.$order->id)->with('success', 'تم تعديل حالة الطلب بنجاح');
     }
 
-    public function destroy(Order $order)
-    {
-        //
-    }
 }

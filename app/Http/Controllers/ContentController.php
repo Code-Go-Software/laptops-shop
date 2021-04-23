@@ -39,7 +39,7 @@ class ContentController extends Controller
         }
 
         $content->save();
-        return back();
+        return back()->with('success', 'تم تعديل البيانات بنجاح');
     }
 
 }

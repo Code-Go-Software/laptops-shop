@@ -8,29 +8,47 @@
     <h1 class="mb-4">الملف الشخصي</h1>
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-8 col-lg-6">
-                <form action="/profile/image" method="POST" enctype="multipart/form-data">
+            <div class="col-12 text-center">
+                <form action="/profile/image" method="post" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="form-group text-center">
-                        <img src="{{ asset('images/' . $user->image) }}" class="img-fluid rounded-circle" id="image-preview">
+                        <img src="{{ asset('images/' . $user->image) }}" class="img-fluid rounded-circle" id="image-preview" style="max-width: 250px">
                         <div class="mt-2">
                             <input type="file" name="image" id="image-input" class="d-none" onchange="previewImage(this, '#image-preview');">
                             <div class="btn btn-success rounded-pill" onclick="openFileInput('#image-input');"><i class="lni lni-image"></i> اختيار صورة</div>
+                            @error('image')
+                                <small class="text-danger">{{ $message }}</small>
+                            @enderror
                             <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i>  حفظ</button>
                         </div>
                     </div>
+                </form>
+            </div>
+            <div class="col-12 col-md-8 col-lg-6">
+                <form action="/profile" method="POST">
+                    @csrf
+                    @method('put')
                     <div class="form-group">
                         <label for="username"><i class="lni lni-user"></i> الاسم الكامل</label>
                         <input type="text" name="fullname" id="username" value="{{ $user->fullname }}" class="form-control border border-dark rounded-pill" placeholder="الاسم والكنية">
+                        @error('fullname')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="phone"><i class="lni lni-phone"></i> رقم الهاتف</label>
                         <input type="text" name="phone" id="phone" value="{{ $user->phone }}" class="form-control border border-dark rounded-pill" placeholder="946-918-650 (963)">
+                        @error('phone')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="address"><i class="lni lni-map"></i> العنوان</label>
                         <input type="text" name="address" id="address" value="{{ $user->address }}" class="form-control border border-dark rounded-pill" placeholder="دمشق - الحمرا">
+                        @error('address')
+                            <small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                     <div class="form-group text-secondary">
                         <p>

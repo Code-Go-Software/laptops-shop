@@ -23,11 +23,6 @@ class CartController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        //
-    }
-
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -40,22 +35,7 @@ class CartController extends Controller
 
         $cart->save();
 
-        return back(); 
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
+        return back()->with('success', 'تمت إضافة الحاسوب إلى سلة المشتريات بنجاح'); 
     }
 
     public function destroy(Cart $cart)
@@ -65,6 +45,6 @@ class CartController extends Controller
             return redirect('/cart');
 
         $cart->delete();
-        return redirect('/cart');
+        return redirect('/cart')->with('success', 'تمت إزالة الحاسوب من سلة المشتريات بنجاح');
     }
 }

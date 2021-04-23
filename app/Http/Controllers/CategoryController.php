@@ -32,7 +32,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect('admin/categories');
+        return redirect('admin/categories')->with('success', 'تم إنشاء الفئة بنجاح');
     }
 
     public function edit(Category $category)
@@ -52,12 +52,12 @@ class CategoryController extends Controller
         $category->description = $request->description;
 
         $category->save();
-        return redirect('admin/categories');
+        return redirect('admin/categories')->with('success', 'تم تعديل بيانات الفئة بنجاح');
     }
 
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect('admin/categories');
+        return redirect('admin/categories')->with('success', 'تمت إزالة الفئة وجميع الحواسيب التي تنتمي لها بنجاح');
     }
 }

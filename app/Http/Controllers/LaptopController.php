@@ -84,7 +84,7 @@ class LaptopController extends Controller
 
         $laptop->save();
 
-        return redirect('/admin/laptops/');
+        return redirect('/admin/laptops/')->with('success', 'تمت إضافة الحاسوب بنجاح');
     }
 
     public function show(Laptop $laptop, $name)
@@ -168,7 +168,7 @@ class LaptopController extends Controller
         
         $laptop->save();
 
-        return redirect('/admin/laptops/'.$laptop->id);
+        return redirect('/admin/laptops/'.$laptop->id)->with('success', 'تم تعديل بيانات الحاسوب بنجاح');
     }
 
     public function updateImage(Request $request, Laptop $laptop){
@@ -184,7 +184,7 @@ class LaptopController extends Controller
         if($request->image->move(public_path('images'), $image_name)){
             $laptop->image = $image_name;
             $laptop->save();
-            return redirect('/admin/laptops/' . $laptop->id);
+            return redirect('/admin/laptops/' . $laptop->id)->with('success', 'تم تعديل الصورة الأساسية للحاسوب بنجاح');
         }else{
             abort(500);
         }
@@ -193,7 +193,7 @@ class LaptopController extends Controller
     public function destroy(Laptop $laptop)
     {
         $laptop->delete();
-        return redirect('/admin/laptops');
+        return redirect('/admin/laptops')->with('success', 'تمت إزالة الحاسوب بنجاح');
     }
 
     public function addSubImage(Request $request){
@@ -210,7 +210,7 @@ class LaptopController extends Controller
             $sub_image->laptop_id = $request->laptop_id;
             $sub_image->image = $image_name;
             $sub_image->save();
-            return redirect('/admin/laptops/' . $request->laptop_id);
+            return redirect('/admin/laptops/' . $request->laptop_id)->with('success', 'تمت إضافة الصورة الفرعية للحاسوب بنجاح');
         }else{
             abort(500);
         }
@@ -221,6 +221,6 @@ class LaptopController extends Controller
         $image = public_path('images/' . $subImage->image);
         if(file_exists($image)) unlink($image);
         $subImage->delete();
-        return back();
+        return back()->with('success', 'تمت إزالة الصورة الفرعية للحاسوب بنجاح');
     }
 }

@@ -9,16 +9,6 @@ use App\Models\User;
 class UserController extends Controller
 {
 
-    public function index()
-    {
-        return view('user.profile');
-    }
-
-    public function show($id)
-    {
-        return view('user.profile');
-    }
-
     public function showUser()
     {
         return view('user.profile',[
@@ -40,14 +30,14 @@ class UserController extends Controller
         $user->address = $request->address;
 
         $user->save();
-        return redirect('/profile');
+        return redirect('/profile')->with('success', 'تم تعديل البيانات بنجاح');
     }
 
     public function destroy()
     {
         Auth::user()->delete();
         Auth::logout();
-        return redirect('/');
+        return redirect('/')->with('success', 'تم تسجيل الخروج بنجاح');
     }
 
     public function indexForAdmin(){
@@ -78,7 +68,7 @@ class UserController extends Controller
         if($request->image->move(public_path('images'), $image_name)){
             $user->image = $image_name;
             $user->save();
-            return back();
+            return back()->with('success', 'تم تعديل الصورة الشخصية بنجاح');
         }else{
             abort(500);
         }

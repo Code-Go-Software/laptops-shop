@@ -42,22 +42,7 @@ class FavouriteController extends Controller
 
         $fav->save();
 
-        return back();
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
+        return back()->with('success', 'تمت إضافة الحاسوب إلى القائمة المفضلة بنجاح');
     }
 
     public function destroy(Favourite $favourite)
@@ -67,6 +52,6 @@ class FavouriteController extends Controller
             return redirect('/favourites');
 
         $favourite->delete();
-        return redirect('/favourites');
+        return redirect('/favourites')->with('success', 'تمت إزالة الحاسوب من القائمة المفضلة بنجاح');
     }
 }
