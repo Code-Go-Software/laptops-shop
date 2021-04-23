@@ -39,7 +39,7 @@ class ContentController extends Controller
         }
 
         $content->save();
-        return redirect('/admin/content');
+        return back();
     }
 
 }
