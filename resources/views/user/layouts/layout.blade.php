@@ -39,6 +39,7 @@
       <a href="/favourites" class="text-light">
         <i class="lni lni-heart-filled text-danger" style="font-size:18px;"></i>
         <small class="d-none d-md-inline mr-2">القائمة المفضلة</small>
+        <small>({{ auth()->user()->favourites->count() }})</small>
       </a>
     </div>
     <div class="flex-grow-1 text-center text-light">
@@ -48,6 +49,7 @@
       <a href="/cart" class="text-light">
         <i class="lni lni-cart" style="font-size:18px;"></i>
         <small class="d-none d-md-inline mr-2">سلة المشتريات</small>
+        <small>({{ auth()->user()->carts->count() }})</small>
       </a>
     </div>
     <div class="mr-3">
