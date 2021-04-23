@@ -10,21 +10,20 @@
   <section id="product" class="py-3 px-2 mt-3 col-12">
     <div class="container-fluid">
       <div class="text-center">
-        <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid">
+        <img src="{{ asset('images/' . $laptop->image) }}" class="img-fluid">
       </div>
       <div class="thumbs d-flex justify-content-center align-items-center">
-        <div class="col">
-          <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded-circle shadow">
-        </div>
-        <div class="col">
-          <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded-circle shadow">
-        </div>
-        <div class="col">
-          <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded-circle shadow">
-        </div>
-        <div class="col">
-          <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded-circle shadow">
-        </div>
+
+        @forelse ($laptop->subImages as $image)
+          <div class="col text-center">
+            <img src="{{ asset('images/' . $image->image) }}" class="img-fluid rounded-circle shadow" style="max-width: 150px;">
+          </div>
+        @empty
+            <div class="col-12 text-center">
+              لا يوجد أي صور فرعية لهذا الحاسوب
+            </div>
+        @endforelse
+
       </div>
       <div class="text-center mt-3">
         <h1>{{ $laptop->name }}</h1>

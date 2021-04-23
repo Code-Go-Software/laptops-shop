@@ -7,14 +7,25 @@
   <div class="col-12">
     <h2>إدارة الحواسيب > تعديل الحاسوب</h2>
   </div>
+  <div class="col-12 row justify-content-center">
+    <form action="/admin/laptops/image/{{ $laptop->id }}" method="post" class="col-4" enctype="multipart/form-data">
+      @csrf
+      @method('put')
+      <div class="form-group text-center">
+        <input type="file" name="image" id="main-image-file" class="d-none" onchange="previewImage(this, '#main-image-preview')">
+        <img src="{{ asset('images/' . $laptop->image) }}" class="img-fluid rounded" id="main-image-preview">
+        @error('image')
+            <small class="text-danger">{{ $message }}</small>
+        @enderror
+        <div class="btn btn-primary btn-block rounded-pill mt-2 mb-2" onclick="openFileInput('#main-image-file')"><i class="lni lni-image"></i> اختيار صورة</div>
+        <button type="submit" class="btn btn-info btn-block rounded-pill"><i class="lni lni-save"></i> حفظ الصورة</button>
+      </div>
+    </form>
+  </div>
   <form action="/admin/laptops/{{ $laptop->id }}" method="post" class="col-12 row mt-3">
     @csrf
     @method('put')
     <div class="col-4">
-      <div class="form-group text-center">
-        <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded">
-        <div class="btn btn-primary btn-block rounded-pill"><i class="lni lni-image"></i> اختيار صورة</div>
-      </div>
       <div class="form-group">
         <label for="name">اسم الحاسوب</label>
         <input type="text" name="name" id="name" class="form-control rounded-pill border-dark" placeholder="Asus 10.255 LS850" value="{{ $laptop->name }}">
@@ -160,26 +171,29 @@
     <h2>الصور الفرعية</h2>
     <div class="row">
 
-      <form action="" method="post" class="col-3 text-center mb-3">
-        <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded">
-        <button class="btn btn-block btn-danger rounded-pill mt-2"><i class="lni lni-trash"></i> حذف</button>
-      </form>
-      <form action="" method="post" class="col-3 text-center mb-3">
-        <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded">
-        <button class="btn btn-block btn-danger rounded-pill mt-2"><i class="lni lni-trash"></i> حذف</button>
-      </form>
-      <form action="" method="post" class="col-3 text-center mb-3">
-        <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded">
-        <button class="btn btn-block btn-danger rounded-pill mt-2"><i class="lni lni-trash"></i> حذف</button>
-      </form>
-      <form action="" method="post" class="col-3 text-center mb-3">
-        <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded">
-        <button class="btn btn-block btn-danger rounded-pill mt-2"><i class="lni lni-trash"></i> حذف</button>
-      </form>
-      <form action="" method="post" class="col-3 text-center mb-3">
-        <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded">
+      @forelse ($laptop->subImages as $subImage)
+        <form action="/admin/laptops/subimages/{{ $subImage->id }}" method="post" class="col-3 text-center mb-3">
+          @csrf
+          @method('delete')
+          <img src="{{ asset('images/' . $subImage->image) }}" class="img-fluid rounded">
+          <button type="submit" class="btn btn-block btn-danger rounded-pill mt-2"><i class="lni lni-trash"></i> حذف</button>
+        </form>
+      @empty
+          <div class="col-12 text-center alert alert-secondary">
+            لا يوجد أي صور فرعية لهذا الحاسوب حتى الآن
+          </div>
+      @endforelse
+      
+      <form action="/admin/laptops/subimages" method="post" class="col-3 text-center mb-3" enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
+        <img src="{{ asset('assets/images/laptop-placeholder.jpg') }}" class="img-fluid rounded" id="preview-image">
+        <input type="file" name="sub_image" id="image-file" class="d-none" onchange="previewImage(this, '#preview-image')">
+        @error('sub_image')
+            <small class="text-danger">{{ $message }}</small>
+        @enderror
         <br>
-        <button class="btn btn-primary rounded-pill mt-2"><i class="lni lni-image"></i> اختيار صورة</button>
+        <div class="btn btn-primary rounded-pill mt-2" onclick="openFileInput('#image-file')"><i class="lni lni-image"></i> اختيار صورة</div>
         <button class="btn btn-info rounded-pill mt-2"><i class="lni lni-save"></i> إضافة</button>
       </form>
     </div>

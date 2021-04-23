@@ -7,25 +7,29 @@
   <div class="col-12">
     <h2>إدارة الحواسيب > إضافة حاسوب جديد</h2>
   </div>
-  <form action="/admin/laptops" method="post" class="col-12 row mt-3">
+  <form action="/admin/laptops" method="post" class="col-12 row mt-3" enctype="multipart/form-data">
     @csrf
     <div class="col-4">
       <div class="form-group text-center">
-        <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded">
-        <div class="btn btn-primary btn-block rounded-pill"><i class="lni lni-image"></i> اختيار صورة</div>
+        <img src="{{ asset('assets/images/laptop-placeholder.jpg') }}" class="img-fluid rounded" id="preview-image">
+        @error('image')
+          <small class="text-danger">{{ $message }}</small>
+        @enderror
+        <input type="file" name="image" id="image-file" class="d-none" onchange="previewImage(this, '#preview-image')">
+        <div class="btn btn-primary btn-block rounded-pill mt-2" onclick="openFileInput('#image-file')"><i class="lni lni-image"></i> اختيار صورة</div>
       </div>
       <div class="form-group">
         <label for="name">اسم الحاسوب</label>
         <input type="text" name="name" id="name" class="form-control rounded-pill border-dark" placeholder="Asus 10.255 LS850">
-         @error('name')
-            <small class="text-danger">{{ $message }}</small>
+        @error('name')
+          <small class="text-danger">{{ $message }}</small>
         @enderror
       </div>
       <div class="form-group">
         <label for="main-price">السعر قبل الحسم</label>
         <input type="text" name="before_discount_price" id="main-price" class="form-control rounded-pill border-dark" placeholder="بالدولار الأمريكي">
-         @error('before_discount_price')
-            <small class="text-danger">{{ $message }}</small>
+        @error('before_discount_price')
+          <small class="text-danger">{{ $message }}</small>
         @enderror
       </div>
       <div class="form-group">

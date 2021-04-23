@@ -69,7 +69,7 @@ class UserController extends Controller
 
         $user = Auth::user();
         if($user->image != "default-user.png"){
-            $image = public_path('/images/'.$user->image);
+            $image = public_path('images/'.$user->image);
             if (file_exists($image)) unlink($image);
         }
 

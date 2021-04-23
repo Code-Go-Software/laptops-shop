@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Content;
 use App\Models\Category;
+use App\Models\SubImage;
 
 
 class Laptop extends Model
@@ -38,5 +39,12 @@ class Laptop extends Model
     */
     public function orders(){
         return $this->belongsToMany(Order::class)->with(['price']);
+    }
+
+    /*
+    * Get The Laptop Sub Images
+    */
+    public function subImages(){
+        return $this->hasMany(SubImage::class);
     }
 }

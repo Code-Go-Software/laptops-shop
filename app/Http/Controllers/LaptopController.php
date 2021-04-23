@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Laptop;
 use App\Models\Category;
+use App\Models\SubImage;
 
 class LaptopController extends Controller
 {
@@ -20,7 +21,7 @@ class LaptopController extends Controller
     public function index()
     {
         return view('user.laptops', [
-            'laptops' => Laptop::paginate(12)
+            'laptops' => Laptop::where('is_available', true)->paginate(12)
         ]);
     }
 
@@ -135,6 +136,17 @@ class LaptopController extends Controller
             'category_id' => 'required',
             'ports' => 'required',
         ]);
+
+        if($laptop->image != "laptop-placeholder.jpg"){
+            $image = public_path('images/'.$laptop->image);
+            if (file_exists($image)) unlink($image);
+        }
+
+        $image_name = time() . '-' . 'laptop' . '.' . $request->image->extension();
+
+        if($request->image->move(public_path('images'), $image_name)){
+            $laptop->image = $image_name;
+        }
         
         $laptop->name = $request->name;
         $laptop->before_discount_price = $request->before_discount_price;
@@ -153,15 +165,62 @@ class LaptopController extends Controller
         $laptop->type = $request->type;
         $laptop->category_id = $request->category_id;
         $laptop->ports = $request->ports;
-        $laptop->image = "image";
         
         $laptop->save();
 
         return redirect('/admin/laptops/'.$laptop->id);
     }
 
-    public function destroy($id)
+    public function updateImage(Request $request, Laptop $laptop){
+        $validated = $request->validate([
+            'image' => 'required|mimes:jpg,png,jpeg|max:1024'
+        ]);
+
+        $image = public_path('images/'.$laptop->image);
+        if (file_exists($image)) unlink($image);
+        
+        $image_name = time() . '-' . 'laptop' . '.' . $request->image->extension();
+
+        if($request->image->move(public_path('images'), $image_name)){
+            $laptop->image = $image_name;
+            $laptop->save();
+            return redirect('/admin/laptops/' . $laptop->id);
+        }else{
+            abort(500);
+        }
+    }
+
+    public function destroy(Laptop $laptop)
     {
-        //
+        $laptop->delete();
+        return redirect('/admin/laptops');
+    }
+
+    public function addSubImage(Request $request){
+
+        $validated = $request->validate([
+            'sub_image' => 'required|mimes:jpg,png,jpeg|max:1024',
+            'laptop_id' => 'required'
+        ]);
+        
+        $image_name = time() . '-' . 'sub' . '.' . $request->file('sub_image')->extension();
+
+        if($request->file('sub_image')->move(public_path('images'), $image_name)){
+            $sub_image = new SubImage();
+            $sub_image->laptop_id = $request->laptop_id;
+            $sub_image->image = $image_name;
+            $sub_image->save();
+            return redirect('/admin/laptops/' . $request->laptop_id);
+        }else{
+            abort(500);
+        }
+        
+    }
+
+    public function deleteSubImage(SubImage $subImage){
+        $image = public_path('images/' . $subImage->image);
+        if(file_exists($image)) unlink($image);
+        $subImage->delete();
+        return back();
     }
 }

@@ -58,7 +58,7 @@
     </div>
   </nav>
   <section id="search-bar">
-    <form action="/laptops" method="GET"  class="d-flex align-items-stretch mb-1">
+    <form action="/laptops" method="GET"  class="d-flex align-items-stretch">
       <div>
         <button type="submit" class="btn btn-dark rounded-0"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
       </div>

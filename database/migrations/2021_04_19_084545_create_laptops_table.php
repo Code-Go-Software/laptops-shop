@@ -30,7 +30,7 @@ class CreateLaptopsTable extends Migration
             $table->string('ports');
             $table->boolean('is_available')->default(true);
             $table->string('type'); // New Or Open Box
-            $table->string('image');
+            $table->string('image')->default('laptop-placeholder.jpg');
             $table->integer('views')->default(0);
             $table->string('description')->nullable();
             $table->unsignedBigInteger('category_id');

@@ -83,10 +83,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () { // A
     Route::post('/laptops', [LaptopController::class, 'store']); // Add New Laptop
     Route::get('/laptops/{laptop}/edit', [LaptopController::class, 'edit']);
     Route::put('/laptops/{laptop}', [LaptopController::class, 'update']);
+    Route::put('/laptops/image/{laptop}', [LaptopController::class, 'updateImage']);
     Route::delete('/laptops/{laptop}', [LaptopController::class, 'destroy']);
 
     Route::post('/laptops/subimages', [LaptopController::class, 'addSubImage']); // Add New Sub Image For Laptop
-    Route::delete('/laptops/subiamges', [LaptopController::class, 'deleteSubImage']); // Remove Sub Image For Laptop
+    Route::delete('/laptops/subimages/{subImage}', [LaptopController::class, 'deleteSubImage']); // Remove Sub Image For Laptop
 
     Route::get('/orders', [OrderController::class, 'indexForAdmin']); // List All Orders For Admin
     Route::get('/orders/{order}', [OrderController::class, 'show']); // Show Spevific Order Data For Admin

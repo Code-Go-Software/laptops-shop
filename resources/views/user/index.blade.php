@@ -39,7 +39,7 @@
           @if ($loop->index < 8)
 
             @php
-                $laptops = $category->laptops;
+                $laptops = $category->laptops->where('is_available', true);
             @endphp
               
             @foreach ($laptops as $laptop)
@@ -50,7 +50,7 @@
                     <small class="d-inline-block bg-danger text-light p-1"><i class="lni lni-eye"></i> {{ $laptop->views }}</small>
                   </div>
                   <div class="image">
-                    <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid rounded">
+                    <img src="{{ asset('images/' . $laptop->image) }}" class="img-fluid rounded">
                   </div>
                   <div class="data px-2 pb-1">
                     <a href="laptops/{{ $laptop->id }}/{{ $laptop->name }}" class="text-dark font-weight-bold">{{ $laptop->name }}</a>
