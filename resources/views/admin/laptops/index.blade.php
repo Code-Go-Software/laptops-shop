@@ -84,7 +84,7 @@
                 <form action="/admin/laptops/{{ $laptop->id }}" method="POST">
                   @csrf
                   @method('delete')
-                  <button class="btn" type="submit">
+                  <button class="btn delete-btn" type="submit">
                     <i class="lni lni-trash text-danger"></i> <small>حذف</small>
                   </button>
                 </form>
@@ -136,7 +136,7 @@
                 <form action="/admin/laptops/{{ $laptop->id }}" method="POST">
                   @csrf
                   @method('delete')
-                  <button class="btn" type="submit">
+                  <button class="btn delete-btn" type="submit">
                     <i class="lni lni-trash text-danger"></i> <small>حذف</small>
                   </button>
                 </form>

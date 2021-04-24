@@ -75,7 +75,7 @@
                 <form action="/profile" class="d-inline" method="post">
                     @csrf
                     @method('delete')
-                    <button type="submit" class="btn btn-danger rounded-pill"><i class="lni lni-trash"></i> حذف الحساب</button>
+                    <button type="submit" class="btn btn-danger rounded-pill delete-btn"><i class="lni lni-trash"></i> حذف الحساب</button>
                 </form>
             </div>
         </div>

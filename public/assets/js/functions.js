@@ -13,3 +13,23 @@ function previewImage(input, target) {
 function openFileInput(file){
   $(file).click();
 }
+
+var currentDeleteForm;
+
+$(".delete-btn").click(function(e){
+
+  e.preventDefault();
+
+  //set the current form variable
+  currentDeleteForm = $(this).parent("form");
+
+  //fire a confirmation box
+  $("#notification").modal('show');
+  
+});
+
+$("#confirm-delete-btn").click(function(e){
+  currentDeleteForm.submit();
+  $("#notification").modal('hide');
+  currentDeleteForm = null;
+});

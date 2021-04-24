@@ -32,7 +32,7 @@
                 <form action="/favourites/{{ $favourite->id }}" method="post">
                   @csrf
                   @method('delete')
-                  <button class="btn"><i class="lni lni-trash text-danger" role="button"></i></button>
+                  <button class="btn delete-btn"><i class="lni lni-trash text-danger"></i></button>
                 </form>
               </div>
             </div>

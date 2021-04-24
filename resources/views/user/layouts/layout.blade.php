@@ -39,7 +39,7 @@
       <a href="/favourites" class="text-light">
         <i class="lni lni-heart-filled text-danger" style="font-size:18px;"></i>
         <small class="d-none d-md-inline mr-2">القائمة المفضلة</small>
-        <small>({{ auth()->user()->favourites->count() }})</small>
+        <small>({{ (Auth::check()) ? auth()->user()->favourites->count() : '0' }})</small>
       </a>
     </div>
     <div class="flex-grow-1 text-center text-light">
@@ -49,13 +49,13 @@
       <a href="/cart" class="text-light">
         <i class="lni lni-cart" style="font-size:18px;"></i>
         <small class="d-none d-md-inline mr-2">سلة المشتريات</small>
-        <small>({{ auth()->user()->carts->count() }})</small>
+        <small>({{ (Auth::check()) ? auth()->user()->carts->count() : '0' }})</small>
       </a>
     </div>
     <div class="mr-3">
       <a href="/laptops" class="text-light">
         <i class="lni lni-display-alt" style="font-size:18px;"></i>
-        <small class="d-none d-md-inline mr-2">المنتجات</small>
+        <small class="d-none d-md-inline mr-2">الحواسيب</small>
       </a>
     </div>
   </nav>
@@ -75,14 +75,33 @@
   </section>
   <!--Navbar End-->
 
+  <div class="modal fade" id="notification" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="notification-title">تأكيد العملية</h5>
+            </div>
+            <div class="modal-body" id="notification-body">
+                هل أنت متأكد؟
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">إغلاق</button>
+                <button type="button" id="confirm-delete-btn" class="btn btn-success btn-sm">نعم</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
   @if (Session::has('success'))
-      <section class="alert bg-success text-light">
+      <section class="alert bg-success mb-0 rounded-0 text-light">
+        <i class="lni lni-checkmark-circle ml-1"></i>
         {{ Session::get('success') }}
       </section>
   @endif
 
   @if (Session::has('fail'))
-    <section class="alert bg-danger text-light">
+    <section class="alert bg-danger mb-0 rounded-0 text-light">
+      <i class="lni lni-close ml-1"></i>
       {{ Session::get('fail') }}
     </section>
   @endif
@@ -118,16 +137,24 @@
           </ul>
           <div class="d-flex mt-2">
             <div class="px-2 py-1">
-              <i class="lni lni-whatsapp" style="font-size: 22px;"></i>
+              <a class="text-dark" href="{{ $content->where('key', 'whatsapp_number')->first->value }}">
+                <i class="lni lni-whatsapp" style="font-size: 22px;"></i>
+              </a>
             </div>
             <div class="px-2 py-1">
-              <i class="lni lni-telegram" style="font-size: 22px;"></i>
+              <a class="text-dark" href="{{ $content->where('key', 'telegram_link')->first->value }}">
+                <i class="lni lni-telegram" style="font-size: 22px;"></i>
+              </a>
             </div>
             <div class="px-2 py-1">
-              <i class="lni lni-youtube" style="font-size: 22px;"></i>
+              <a class="text-dark" href="{{ $content->where('key', 'instagram_link')->first->value }}">
+                <i class="lni lni-instagram" style="font-size: 22px;"></i>
+              </a>
             </div>
             <div class="px-2 py-1">
-              <i class="lni lni-facebook" style="font-size: 22px;"></i>
+              <a class="text-dark" href="{{ $content->where('key', 'facebook_link')->first->value }}">
+                <i class="lni lni-facebook" style="font-size: 22px;"></i>
+              </a>
             </div>
           </div>
         </div>

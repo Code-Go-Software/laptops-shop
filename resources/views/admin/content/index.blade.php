@@ -114,6 +114,21 @@
           </div>
 
           <div class="col-lg-6">
+            <form action="/admin/content/{{ $content->where('key', 'instagram_link')->first()->id }}" method="post">
+              @csrf
+              @method('put')
+              <input type="hidden" name="is_image" value="0">
+              <div class="form-group">
+                <label for="instagram-link">رابط حساب الانستغرام</label>
+                <input type="text" name="value" id="instagram-link" class="form-control rounded-pill border-dark" placeholder="https://www.instagram.com" value="{{ $content->where('key', 'instagram_link')->first()->value }}">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-lg-6">
             <form action="/admin/content/{{ $content->where('key', 'whatsapp_number')->first()->id }}" method="post">
               @csrf
               @method('put')

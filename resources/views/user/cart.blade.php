@@ -36,7 +36,7 @@
                 <form action="/cart/{{ $item->id }}" method="post">
                   @csrf
                   @method('delete')
-                  <button type="submit" class="btn"><i class="lni lni-reply text-danger" role="button"></i></button>
+                  <button type="submit" class="btn delete-btn"><i class="lni lni-reply text-danger" role="button"></i></button>
                 </form>
               </div>
             </div>

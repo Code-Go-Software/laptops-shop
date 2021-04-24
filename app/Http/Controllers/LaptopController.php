@@ -192,6 +192,17 @@ class LaptopController extends Controller
 
     public function destroy(Laptop $laptop)
     {
+        $image = public_path('images' . $laptops->image);
+        if(file_exists($image)) unlink($image);
+
+        $sub_images = $laptop->subImages;
+        if($sub_images->count() > 0){
+            foreach($sub_images as $sub_image){
+                $path = public_path('images' . $sub_image->image);
+                if(file_exists($path)) unlink($path);
+            }
+        }
+
         $laptop->delete();
         return redirect('/admin/laptops')->with('success', 'تمت إزالة الحاسوب بنجاح');
     }

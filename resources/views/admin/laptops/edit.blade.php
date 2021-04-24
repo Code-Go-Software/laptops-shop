@@ -176,7 +176,7 @@
           @csrf
           @method('delete')
           <img src="{{ asset('images/' . $subImage->image) }}" class="img-fluid rounded">
-          <button type="submit" class="btn btn-block btn-danger rounded-pill mt-2"><i class="lni lni-trash"></i> حذف</button>
+          <button type="submit" class="btn btn-block btn-danger rounded-pill mt-2 delete-btn"><i class="lni lni-trash"></i> حذف</button>
         </form>
       @empty
           <div class="col-12 text-center alert alert-secondary">

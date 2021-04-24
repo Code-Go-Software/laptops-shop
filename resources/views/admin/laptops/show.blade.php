@@ -78,7 +78,7 @@
           <form action="/admin/laptops/{{ $laptop->id }}" method="post" class="d-inline">
             @csrf
             @method('delete')
-            <button type="submit" class="btn btn-danger rounded-pill"><i class="lni lni-trash"></i> حذف الحاسوب</button>
+            <button type="submit" class="btn btn-danger rounded-pill delete-btn"><i class="lni lni-trash"></i> حذف الحاسوب</button>
           </form>
         </div>
       </div>

@@ -69,7 +69,7 @@
                 <form action="/admin/user/{{ $user->id }}" method="post">
                   @csrf
                   @method('delete')
-                  <button type="submit" class="btn p-0">
+                  <button type="submit" class="btn p-0 delete-btn">
                     <i class="lni lni-trash text-danger"></i>
                   </button>
                 </form>

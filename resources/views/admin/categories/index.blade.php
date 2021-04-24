@@ -67,7 +67,7 @@
                 <form action="/admin/categories/{{ $category->id }}" method="post">
                   @csrf
                   @method('delete')
-                  <button type="submit" class="btn p-0"><i class="lni lni-trash text-danger"></i></button>
+                  <button type="submit" class="btn p-0 delete-btn"><i class="lni lni-trash text-danger"></i></button>
                 </form>
               </td>
               <td>

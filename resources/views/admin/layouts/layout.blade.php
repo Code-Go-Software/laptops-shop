@@ -19,6 +19,23 @@
 
 <body dir="rtl">
 
+  <div class="modal fade" id="notification" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="notification-title">تأكيد العملية</h5>
+            </div>
+            <div class="modal-body" id="notification-body">
+                هل أنت متأكد؟
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">إغلاق</button>
+                <button type="button" id="confirm-delete-btn" class="btn btn-success btn-sm">نعم</button>
+            </div>
+        </div>
+    </div>
+  </div>
+
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #262626;">
     <a class="navbar-brand" href="/admin">اسم الشركة | لوحة التحكم</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,18 +115,33 @@
         </div>
       </div>
       <!--Side Bar End-->
+      <div class="col-10 p-0">
+        @if (Session::has('success'))
+          <section class="alert bg-success mb-0 rounded-0 text-light">
+            <i class="lni lni-checkmark-circle ml-1"></i>
+            {{ Session::get('success') }}
+          </section>
+        @endif
 
-      <div class="col-10 h-100 py-3 px-4">
-        <div class="container-fluid">
-          <div class="row">
+        @if (Session::has('fail'))
+          <section class="alert bg-danger mb-0 rounded-0 text-light">
+            <i class="lni lni-close ml-1"></i>
+            {{ Session::get('fail') }}
+          </section>
+        @endif
 
-            <!--Content Goes Here-->
-            @yield('content')
-
+        <div class="h-100 py-3 px-4">
+          <div class="container-fluid">
+  
+            <div class="row">
+  
+              <!--Content Goes Here-->
+              @yield('content')
+  
+            </div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
