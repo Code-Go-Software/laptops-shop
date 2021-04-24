@@ -212,7 +212,7 @@ class LaptopController extends Controller
     */
     public function destroy(Laptop $laptop)
     {
-        $this->delete($laptops->image);
+        $this->delete($laptop->image);
 
         $sub_images = $laptop->subImages;
         if($sub_images->count() > 0){

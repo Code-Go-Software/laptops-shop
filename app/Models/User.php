@@ -48,24 +48,54 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+
+
+
+
     /*
     * User Favourites Laptops 
     */
-    public function favourites(){
+    public function favourites()
+    {
         return $this->hasMany(Favourite::class);
     }
+
+
+
+
+
 
     /*
     * User Cart Items
     */
-    public function carts(){
+    public function carts()
+    {
         return $this->hasMany(Cart::class);
     }
+
+
+
+
+
 
     /*
     * User Orders
     */
-    public function orders(){
+    public function orders()
+    {
         return $this->hasMany(Order::class);
+    }
+
+
+
+
+
+    /*
+    * Check if the current user is admin
+    */
+    public function isAdmin()
+    {
+        return $this->is_admin;
     }
 }

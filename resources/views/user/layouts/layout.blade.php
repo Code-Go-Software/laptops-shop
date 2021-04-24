@@ -137,22 +137,22 @@
           </ul>
           <div class="d-flex mt-2">
             <div class="px-2 py-1">
-              <a class="text-dark" href="{{ $content->where('key', 'whatsapp_number')->first->value }}">
+              <a class="text-dark" href="{{ $content->where('key', 'whatsapp_number')->first()->value }}">
                 <i class="lni lni-whatsapp" style="font-size: 22px;"></i>
               </a>
             </div>
             <div class="px-2 py-1">
-              <a class="text-dark" href="{{ $content->where('key', 'telegram_link')->first->value }}">
+              <a class="text-dark" href="{{ $content->where('key', 'telegram_link')->first()->value }}">
                 <i class="lni lni-telegram" style="font-size: 22px;"></i>
               </a>
             </div>
             <div class="px-2 py-1">
-              <a class="text-dark" href="{{ $content->where('key', 'instagram_link')->first->value }}">
+              <a class="text-dark" href="{{ $content->where('key', 'instagram_link')->first()->value }}">
                 <i class="lni lni-instagram" style="font-size: 22px;"></i>
               </a>
             </div>
             <div class="px-2 py-1">
-              <a class="text-dark" href="{{ $content->where('key', 'facebook_link')->first->value }}">
+              <a class="text-dark" href="{{ $content->where('key', 'facebook_link')->first()->value }}">
                 <i class="lni lni-facebook" style="font-size: 22px;"></i>
               </a>
             </div>

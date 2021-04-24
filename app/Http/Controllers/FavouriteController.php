@@ -39,6 +39,11 @@ class FavouriteController extends Controller
     */
     public function store(Request $request)
     {
+        if(Auth::user()->isAdmin())
+        {
+            return back()->with('fail', 'عذرا لا يمكنك القيام بهذا الإجراء من حاسب مدير الموقع');
+        }
+
         $validated = $request->validate([
             'laptop_id' => 'required|numeric',
         ]);

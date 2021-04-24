@@ -14,7 +14,8 @@ class Controller extends BaseController
     /*
     ** Helper function to check if a given image name exists and delete it
     */
-    public function delete($image){
+    public function delete($image)
+    {
         $image_path = public_path('images/' . $image);
         if(file_exists($image_path)) unlink($image_path);
     }
@@ -25,7 +26,9 @@ class Controller extends BaseController
     /*
     ** Helper function to create the image upload name
     */
-    public function create_name($prefix, $ext){
-        return time() . '-' . $prefix . $ext;
-    } 
+    public function create_name($prefix, $ext)
+    {
+        return time() . '-' . $prefix . '.' . $ext;
+    }
+
 }

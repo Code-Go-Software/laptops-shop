@@ -34,7 +34,11 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
-        
+        if(Auth::user()->isAdmin())
+        {
+            return back()->with('fail', 'عذرا لا يمكنك القيام بهذا الإجراء من حاسب مدير الموقع');
+        }
+
         // Ensure That The User Added A Contact Phone Number
         $validated = $request->validate([
             'contact_number' => 'required|numeric',
