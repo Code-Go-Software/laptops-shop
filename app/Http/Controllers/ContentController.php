@@ -8,11 +8,22 @@ use App\Models\Content;
 class ContentController extends Controller
 {
 
+
+
+    /*
+    ** View the admin page to manage the website content values
+    */
     public function index()
     {
         return view('admin.content.index');
     }
 
+
+
+
+    /*
+    ** Validate the new content values and update it
+    */
     public function update(Request $request, Content $content)
     {
         if($request->is_image){
@@ -20,16 +31,13 @@ class ContentController extends Controller
                 'value' => 'required|mimes:jpg,png,jpeg'
             ]);
             
-            $image = public_path('/assets/images/'.$content->value);
-            if (file_exists($image)) unlink($image);
+            $this->delete($content->value);
     
-            $image_name = time() . '-' . $content->id . '.' . $request->file('value')->extension();
+            $image_name = $this->create_name($content->id, $request->file('value')->extension());
     
-            if($request->file('value')->move(public_path('assets/images'), $image_name)){
-                $content->value = $image_name;
-            }else{
-                abort(500);
-            }
+            if(!$request->file('value')->move(public_path('images/'), $image_name)) return back()->with('fail', 'فشل في تحميل الصورة حاول مجددا');
+
+            $content->value = $image_name;
 
         }else{
             $validated = $request->validate([

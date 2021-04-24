@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
 
+
+
+    /*
+    ** View the user cart page
+    */
     public function index()
     {
         $cart_items;
@@ -23,6 +28,12 @@ class CartController extends Controller
         ]);
     }
 
+
+
+
+    /*
+    ** Validate the new cart item data and store it
+    */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -38,11 +49,17 @@ class CartController extends Controller
         return back()->with('success', 'تمت إضافة الحاسوب إلى سلة المشتريات بنجاح'); 
     }
 
+
+
+
+    /*
+    ** Check if the cart item belongs to the current user and delete it 
+    */
     public function destroy(Cart $cart)
     {
         // Check if The Cart Item Belongs To The Authenticated User
         if($cart->user_id != Auth::user()->id)
-            return redirect('/cart');
+            return redirect('/cart')->with('fail', 'حدث خطأ أثناء محاولة إزالة الحاسوب من سلة المشتريات');
 
         $cart->delete();
         return redirect('/cart')->with('success', 'تمت إزالة الحاسوب من سلة المشتريات بنجاح');

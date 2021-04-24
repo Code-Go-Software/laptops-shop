@@ -12,8 +12,14 @@ use App\Models\Content;
 
 class AdminPagesController extends Controller
 {
-    public function dashboard(){
 
+
+
+    /*
+    ** View the admin dashboard page with the requierd data
+    */
+    public function dashboard()
+    {
         $all_orders = Order::all()->count();
         $uncompleted_orders = Order::where('status', false)->get();
         $completed_orders_count = $all_orders - $uncompleted_orders->count();
@@ -32,10 +38,16 @@ class AdminPagesController extends Controller
             'categories' => Category::all(),
             'favourites' => Favourite::all()
         ]);
-
     }
 
-    public function currency(){
+
+
+
+    /*
+    ** View the admin manage currency page with the current currency value
+    */
+    public function currency()
+    {
         $currency = Content::where('key', 'currency')->get();
 
         return view('admin.currency', [
@@ -43,7 +55,14 @@ class AdminPagesController extends Controller
         ]);
     }
 
-    public function help(){
+
+
+
+    /*
+    ** View the admin help page
+    */
+    public function help()
+    {
         return view('admin.help-center');
     }
 }

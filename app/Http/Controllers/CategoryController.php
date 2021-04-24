@@ -8,6 +8,11 @@ use App\Models\Category;
 class CategoryController extends Controller
 {
 
+
+
+    /*
+    ** View all categories for the admin
+    */
     public function index()
     {
         return view('admin.categories.index', [
@@ -15,11 +20,23 @@ class CategoryController extends Controller
         ]);
     }
 
+
+
+
+    /*
+    ** View the admin create category page
+    */
     public function create()
     {
         return view('admin.categories.create');
     }
 
+
+
+
+    /*
+    ** Validate the new category data and store it
+    */
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -35,6 +52,12 @@ class CategoryController extends Controller
         return redirect('admin/categories')->with('success', 'تم إنشاء الفئة بنجاح');
     }
 
+
+
+
+    /*
+    ** View the edit category form category current data
+    */
     public function edit(Category $category)
     {
         return view('admin.categories.edit', [
@@ -42,6 +65,12 @@ class CategoryController extends Controller
         ]);
     }
 
+
+
+
+    /*
+    ** Validate the new category data and update it
+    */
     public function update(Request $request, Category $category)
     {
         $validated = $request->validate([
@@ -55,6 +84,12 @@ class CategoryController extends Controller
         return redirect('admin/categories')->with('success', 'تم تعديل بيانات الفئة بنجاح');
     }
 
+
+
+
+    /*
+    ** Delete the category
+    */
     public function destroy(Category $category)
     {
         $category->delete();
