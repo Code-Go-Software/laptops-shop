@@ -19,7 +19,7 @@
 
             <div class="item row align-items-center shadow py-2 px-1 mb-2">
               <div class="col-3">
-                <img src="../assets/images/laptop1.jpg" class="img-fluid">
+                <img src="{{ asset('images/' . $laptop->image) }}" class="img-fluid">
               </div>
               <div class="col-7">
                 <p class="font-weight-bold mb-1">

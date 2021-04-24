@@ -70,26 +70,7 @@ class LaptopController extends Controller
     */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'image' => 'required|mimes:jpg,png,jpeg|max:1024',
-            'name' => 'required',
-            'before_discount_price' => 'required',
-            'after_discount_price' => 'required',
-            'company' => 'required',
-            'cpu' => 'required',
-            'ram' => 'required',
-            'hard' => 'required',
-            'screen_card' => 'required',
-            'screen_card_type' => 'required',
-            'screen_size' => 'required',
-            'cd_driver' => 'required',
-            'battery' => 'required',
-            'ports' => 'required',
-            'is_available' => 'required',
-            'type' => 'required',
-            'category_id' => 'required',
-            'ports' => 'required',
-        ]);
+        $this->validateLaptop($request, true);
 
         $image_name = $this->create_name('laptop', $request->image->extension());
 
@@ -175,25 +156,7 @@ class LaptopController extends Controller
     */
     public function update(Request $request, Laptop $laptop)
     {
-        $validated = $request->validate([
-            'name' => 'required',
-            'before_discount_price' => 'required',
-            'after_discount_price' => 'required',
-            'company' => 'required',
-            'cpu' => 'required',
-            'ram' => 'required',
-            'hard' => 'required',
-            'screen_card' => 'required',
-            'screen_card_type' => 'required',
-            'screen_size' => 'required',
-            'cd_driver' => 'required',
-            'battery' => 'required',
-            'ports' => 'required',
-            'is_available' => 'required',
-            'type' => 'required',
-            'category_id' => 'required',
-            'ports' => 'required',
-        ]);
+        $this->validateLaptop($request);
         
         $laptop->name = $request->name;
         $laptop->before_discount_price = $request->before_discount_price;
@@ -299,4 +262,37 @@ class LaptopController extends Controller
         return back()->with('success', 'تمت إزالة الصورة الفرعية للحاسوب بنجاح');
     }
 
+
+
+
+
+    /*
+    ** Helper function to validate the data of the laptop
+    */
+    private function validateLaptop($request, $with_image = false)
+    {
+        $validate_arr = [
+            'name' => 'required',
+            'before_discount_price' => 'required',
+            'after_discount_price' => 'required',
+            'company' => 'required',
+            'cpu' => 'required',
+            'ram' => 'required',
+            'hard' => 'required',
+            'screen_card' => 'required',
+            'screen_card_type' => 'required',
+            'screen_size' => 'required',
+            'cd_driver' => 'required',
+            'battery' => 'required',
+            'ports' => 'required',
+            'is_available' => 'required',
+            'type' => 'required',
+            'category_id' => 'required',
+            'ports' => 'required',
+        ];
+
+        if($with_image) $validate_arr['image'] = 'required|mimes:jpg,png,jpeg|max:1024';
+
+        $request->validate($validate_arr);
+    }
 }

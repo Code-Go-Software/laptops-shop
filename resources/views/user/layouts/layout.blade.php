@@ -68,7 +68,7 @@
         <input type="text" placeholder="ما الذي تبحث عنه" class="form-control rounded-0">
       </div>
       <div class="d-none d-md-block">
-        <a href="laptops.html" class="btn btn-dark rounded-0"><i class="lni lni-control-panel d-none d-md-inline"></i> بحث
+        <a href="/laptops" class="btn btn-dark rounded-0"><i class="lni lni-control-panel d-none d-md-inline"></i> بحث
           متقدم</a>
       </div>
     </form>

@@ -48,7 +48,7 @@
             <tr>
               <th scope="row">{{ $loop->index + 1 }}</th>
               <td>
-                <img src="{{ asset('assets/images/default-user.png') }}" class="rounded-circle mr-2" width="30px" height="30px">
+                <img src="{{ asset('images/' . $oreder->user->image) }}" class="rounded-circle mr-2" width="30px" height="30px">
                 <small>{{ $order->user->fullname }}</small>
                 <a href="/admin/users/{{ $order->user->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
               </td>
@@ -59,7 +59,7 @@
                 @endphp
 
                 @foreach ($laptops as $laptop)
-                  <img src="{{ asset('assets/images/laptop1.jpg') }}" class="mr-2" width="30px" height="30px">
+                  <img src="{{ asset('images/' . $laptop->image) }}" class="mr-2" width="30px" height="30px">
                   <small class="mr-1">{{ $laptop->name }}</small>
                   <a href="/admin/laptops/{{ $laptop->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
                   <br>
@@ -139,7 +139,7 @@
             <tr>
               <th scope="row">{{ $loop->index + 1 }}</th>
               <td>
-                <img src="{{ asset('assets/images/default-user.png') }}" class="rounded-circle mr-2" width="30px" height="30px">
+                <img src="{{ asset('images/' . $order->user->image) }}" class="rounded-circle mr-2" width="30px" height="30px">
                 <small>{{ $order->user->fullname }}</small>
                 <a href="/admin/users/{{ $order->user->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
               </td>
@@ -150,7 +150,7 @@
                 @endphp
 
                 @foreach ($laptops as $laptop)
-                  <img src="{{ asset('assets/images/laptop1.jpg') }}" class="mr-2" width="30px" height="30px">
+                  <img src="{{ asset('images/' . $laptop->image) }}" class="mr-2" width="30px" height="30px">
                   <small class="mr-1">{{ $laptop->name }}</small>
                   <a href="/admin/laptops/{{ $laptop->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
                   <br>
@@ -180,7 +180,7 @@
               </td>
             </tr>
           @empty
-              <div class="alert alert-danger">
+              <div class="alert bg-secondary text-light">
                 لا يوجد أي طلبات منجزة حاليا
               </div>
           @endforelse

@@ -42,17 +42,25 @@ Route::get('/orders', [OrderController::class, 'index']); // User Orders History
 
 Route::group(['middleware' => 'auth'], function () {
     
+
+
     Route::get('/profile', [UserController::class, 'showUser']); // Show User Profile
     Route::put('/profile', [UserController::class, 'update']); // Update User Profile Data
     Route::put('/profile/image', [UserController::class, 'updateImage']); // Update User Profile Image
     Route::delete('/profile', [UserController::class, 'destroy']); // Delete The User Account
 
+
+
     Route::post('/cart', [CartController::class, 'store']); // Add Laptop To The User Cart
     Route::delete('/cart/{cart}', [CartController::class, 'destroy']); // Remove Laptop From User Cart
+
+
 
     Route::post('/favourites', [FavouriteController::class, 'store']); // Add Laptop To The User Favuorites List
     Route::delete('/favourites/{favourite}', [FavouriteController::class, 'destroy']); // Remove Laptop From User Favuorites List
 
+
+    
     Route::post('/orders', [OrderController::class, 'store']); // Add New Order
 
 });
@@ -63,19 +71,21 @@ Route::group(['middleware' => 'auth'], function () {
 |
 */
 
-Route::get('/admin/login', function () { return view('admin.login'); }); // Show The Admin Login Page
-
-Route::post('/admin/login', [LoginController::class, 'login']); // Send A Login Request
-
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'IsAdmin']], function () { // Add The IsAdmin MiddleWare
     
+
+
     Route::get('/', [AdminPagesController::class, 'dashboard']); // Show Admin Dashboard Page
     Route::get('/currency', [AdminPagesController::class, 'currency']); // Show Admin Currency Page
     Route::get('/help', [AdminPagesController::class, 'help']); // Show Admin Help Page
 
+
+
     Route::get('/users', [UserController::class, 'indexForAdmin']); // List All User For Admin
     Route::get('/users/{user}', [UserController::class, 'showForAdmin']); // Show Specific User Data For Admin
     Route::delete('/users/{user}', [UserController::class, 'destroy']); // Delete Specific User For Admin
+
+
 
     Route::get('/laptops', [LaptopController::class, 'indexForAdmin']); // Show Laptops List For Admin
     Route::get('/laptops/create', [LaptopController::class, 'create']); // Show Add New Laptop Form
@@ -86,12 +96,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'IsAdmin']], functio
     Route::put('/laptops/image/{laptop}', [LaptopController::class, 'updateImage']);
     Route::delete('/laptops/{laptop}', [LaptopController::class, 'destroy']);
 
+
+
     Route::post('/laptops/subimages', [LaptopController::class, 'addSubImage']); // Add New Sub Image For Laptop
     Route::delete('/laptops/subimages/{subImage}', [LaptopController::class, 'deleteSubImage']); // Remove Sub Image For Laptop
+
+
 
     Route::get('/orders', [OrderController::class, 'indexForAdmin']); // List All Orders For Admin
     Route::get('/orders/{order}', [OrderController::class, 'show']); // Show Spevific Order Data For Admin
     Route::put('/orders/{order}', [OrderController::class, 'update']); // Update Specific Order Status
+
+
 
     Route::get('/categories', [CategoryController::class, 'index']); // List All Categories For Admin
     Route::get('/categories/create', [CategoryController::class, 'create']); // Show Add New Category Form
@@ -99,6 +115,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'IsAdmin']], functio
     Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']); // Show Edit Category Form
     Route::put('/categories/{category}', [CategoryController::class, 'update']); // Update Specific Category Data
     Route::delete('/categories/{category}', [CategoryController::class, 'destroy']); // Delete Specific Category
+
+
 
     Route::get('/content', [ContentController::class, 'index']); // Show All Content Values
     Route::put('/content/{content}', [ContentController::class, 'update']); // Edit Specifi Content Value

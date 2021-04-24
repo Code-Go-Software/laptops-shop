@@ -57,7 +57,7 @@
         <button type="submit" class="btn btn-sm btn-primary rounded-pill">تطبيق</button>
       </div>
       <div class="form-group mr-2">
-        <a href="/admin/laptops/create" class="btn btn-sm btn-success rounded-pill"><i class="lni lni-plus"></i> إضافة</a>
+        <a href="/admin/laptops/create" class="btn btn-sm btn-success rounded-pill"><i class="lni lni-plus"></i> إضاة حاسوب</a>
       </div>
     </form>
   </div>
@@ -97,7 +97,7 @@
         </div>
       </div>
     @empty
-        <div class="col-12 alert alert-secondary">
+        <div class="col-12 alert bg-secondary text-light">
           لا يوجد أي حواسيب متوفرة حاليا
         </div>
     @endforelse
@@ -149,7 +149,7 @@
         </div>
       </div>
     @empty
-        <div class="col-12 alert alert-secondary">
+        <div class="col-12 alert bg-secondary text-light">
           لا يوجد أي حواسيب غير متوفرة حاليا
         </div>
     @endforelse

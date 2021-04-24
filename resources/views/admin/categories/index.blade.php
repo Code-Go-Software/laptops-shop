@@ -29,7 +29,7 @@
     </form>
   </div>
   <div class="col-12">
-    <h4 class="text-secondary mb-3">الفئات <span>(25)</span></h4>
+    <h4 class="text-secondary mb-3">الفئات <span>({{ $categories->count() }})</span></h4>
     <a href="/admin/categories/create" class="btn btn-success rounded-pill"><i class="lni lni-plus"></i> إضافة فئة جديدة</a>
     <div class="table-responsive-sm mt-3">
       <table class="table table-striped mt-2 table-sm table-hover">
@@ -75,9 +75,9 @@
               </td>
             </tr>
           @empty
-            <tr class="text-center">
+            <div class="alert bg-secondary text-light">
               لا يوجد أي فئات حواسيب حاليا
-            </tr>
+            </div>
           @endforelse
 
         </tbody>

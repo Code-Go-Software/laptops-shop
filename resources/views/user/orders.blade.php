@@ -44,7 +44,7 @@
                   @foreach ($laptops as $laptop)
                     <div class="col-12 row mb-3">
                       <div class="col-3">
-                        <img src="../assets/images/laptop1.jpg" class="img-fluid">
+                        <img src="{{ asset('images/' . $laptop->image) }}" class="img-fluid">
                       </div>
                       <div class="col-9">
                         <p class="font-weight-bold mb-1">

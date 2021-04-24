@@ -42,7 +42,7 @@ class UserController extends Controller
 
     public function indexForAdmin(){
         return view('admin.users.index', [
-            'users' => User::paginate(25)
+            'users' => User::where('is_admin', false)->paginate(25)
         ]);
     }
 

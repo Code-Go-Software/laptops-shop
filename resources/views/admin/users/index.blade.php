@@ -52,7 +52,7 @@
             <tr>
               <th scope="row">{{ $loop->index + 1 }}</th>
               <td>
-                <img src="{{ asset('assets/images/default-user.png') }}" class="rounded-circle mr-2" width="30px" height="30px">
+                <img src="{{ asset('images/' . $user->image) }}" class="rounded-circle mr-2" width="30px" height="30px">
               </td>
               <td>
                 <small>{{ $user->fullname }}</small>
@@ -79,9 +79,9 @@
               </td>
             </tr>
           @empty
-          <tr class="text-center">
+          <div class="alert bg-secondary text-light">
             لا يوجد أي مستخدمين مسجلين حاليا
-          </tr>
+          </div>
           @endforelse
 
         </tbody>

@@ -14,7 +14,7 @@
       <div class="col-12 col-md-8">
         <div class="item row align-items-center shadow py-2 px-1 mb-2">
           <div class="col-12 text-center">
-            <img src="{{ asset('assets/images/default-user.png') }}" class="img-fluid rounded-circle">
+            <img src="{{ asset('images/' . $order->user->image) }}" class="img-fluid rounded-circle">
             <p class="mt-2 mb-4">
               <span class="h4">{{ $order->user->fullname }}</span>
               <a href="/admin/users/{{ $order->user->id }}"><i class="lni lni-arrow-right-circle"></i></a>
@@ -51,7 +51,7 @@
               @foreach ($laptops as $laptop)
                 <div class="col-12 row mb-3">
                   <div class="col-3">
-                    <img src="{{ asset('assets/images/laptop1.jpg') }}" class="img-fluid">
+                    <img src="{{ asset('images/' . $laptop->image) }}" class="img-fluid">
                   </div>
                   <div class="col-9">
                     <p class="font-weight-bold mb-1">

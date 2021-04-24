@@ -23,11 +23,11 @@
 
             <div class="item row align-items-center shadow py-2 px-1 mb-2">
               <div class="col-3">
-                <img src="../assets/images/laptop1.jpg" class="img-fluid">
+                <img src="{{ asset('images/' . $laptop->image) }}" class="img-fluid">
               </div>
               <div class="col-7">
                 <p class="font-weight-bold mb-1">
-                  <a href="laptop.html" class="text-dark">{{ $laptop->name }}</a>
+                  <a href="/laptops/{{ $laptop->id }}/{{ $laptop->name }}" class="text-dark">{{ $laptop->name }}</a>
                 </p>
                 <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
                 <strike class="text-secondary"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
@@ -70,10 +70,16 @@
             @csrf
             <input type="hidden" name="total_price" value="{{ $total_price }}">
             <div class="form-group">
-              <input type="text" name="contact_number" class="form-control rounded-pill border-dark text-center" placeholder="رقم التواصل: 0946918650" value="{{ auth()->user()->phone }}">
+
+              <input type="text" name="contact_number"
+              class="form-control rounded-pill border-dark text-center"
+              placeholder="رقم التواصل: 0946918650"
+              value="{{ auth()->user()->phone }}">
+
               @error('contact_number')
                 <small class="text-danger">{{ $message }}</small>
               @enderror
+              
             </div>
             <div class="form-group">
               <button type="submit" class="btn btn-lg btn-block rounded-pill btn-success">

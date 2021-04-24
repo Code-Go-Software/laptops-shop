@@ -48,7 +48,7 @@
             <tr>
               <th scope="row">{{ $loop->index + 1 }}</th>
               <td>
-                <img src="{{ asset('assets/images/default-user.png') }}" class="rounded-circle mr-2" width="30px" height="30px">
+                <img src="{{ asset('images/' . $order->user->image) }}" class="rounded-circle mr-2" width="30px" height="30px">
                 <small>{{ $order->user->fullname }}</small>
                 <a href="admin/users/{{ $order->user->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
               </td>
@@ -59,7 +59,7 @@
                 @endphp
 
                 @foreach ($laptops as $laptop)
-                  <img src="{{ asset('assets/images/laptop1.jpg') }}" class="mr-2" width="30px" height="30px">
+                  <img src="{{ asset('images/' . $laptop->image) }}" class="mr-2" width="30px" height="30px">
                   <small class="mr-1">{{ $laptop->name }}</small>
                   <a href="admin/laptops/{{ $laptop->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
                   <br>
@@ -84,9 +84,17 @@
                   @csrf
                   @method('put')
                   <input type="hidden" name="order_id" value="{{ $order->id }}">
-                  <button type="submit" class="btn p-0 text-success">
-                    <i class="lni lni-checkmark-circle"></i>
-                  </button>
+
+                  @if ($order->status)
+                    <button type="submit" class="btn p-0 text-danger">
+                      <i class="lni lni-close"></i>
+                    </button>
+                  @else
+                    <button type="submit" class="btn p-0 text-success">
+                      <i class="lni lni-checkmark-circle"></i>
+                    </button>
+                  @endif
+
                 </form>
               </td>
             </tr>
@@ -118,10 +126,12 @@
             <td><small class="font-weight-bold">قيمة الطلبات</small></td>
             <td><b class="text-primary"><b><bdi>s.p</bdi> {{ $orders_value }}</b></b></td>
           </tr>
+          <!--
           <tr>
             <td><small class="font-weight-bold">تاريخ إخر طلب</small></td>
             <td><b class="text-secondary">21-2-2021 11:56</b></td>
           </tr>
+          -->
         </tbody>
       </table>
     </div>
@@ -159,7 +169,7 @@
               </td>
             </tr>
           @empty
-            <div class="bg-secondary text-light">
+            <div class="alert bg-secondary text-light">
               لا يوجد أي فئات حاليا
             </div>
           @endforelse
@@ -187,12 +197,12 @@
             <tr>
               <th scope="row">{{ $loop->index + 1 }}</th>
               <td>
-                <img src="../assets/images/default-user.png" class="rounded-circle mr-2" width="30px" height="30px">
+                <img src="{{ asset('images/' . $favourite->user->image) }}" class="rounded-circle mr-2" width="30px" height="30px">
                 <small>{{ $favourite->user->fullname }}</small>
                 <a href="admin/users/{{ $favourite->user->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
               </td>
               <td>
-                <img src="../assets/images/laptop1.jpg" class="mr-2" width="30px" height="30px">
+                <img src="{{ asset('images/' . $favourite->laptop->image) }}" class="mr-2" width="30px" height="30px">
                 <small class="mr-1">{{ $favourite->laptop->name }}</small>
                 <a href="admin/laptops/{{ $favourite->laptop->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
               </td>
