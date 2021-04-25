@@ -29,29 +29,29 @@
     <form action="" class="row" method="get">
       <div class="form-group mr-3">
         <label for="sort"><small>ترتيب حسب الزمن</small></label>
-        <select class="form-control form-control-sm rounded-pill d-inline-block w-auto border-dark ml-2">
-          <option value="0">الأحدث أولا</option>
-          <option value="1">الأقدم أولا</option>
+        <select name="t" class="form-control form-control-sm rounded-pill d-inline-block w-auto border-dark ml-2">
+          <option value="new" {{ (request('t') == 'new' || request('t') == '') ? 'selected' : ''}}>الأحدث أولا</option>
+          <option value="old" {{ (request('t') == 'old') ? 'selected' : ''}}>الأقدم أولا</option>
         </select>
       </div>
       <div class="form-group mr-3">
         <label for="sort"><small>ترتيب حسب السعر</small></label>
-        <select class="form-control form-control-sm rounded-pill d-inline-block w-auto border-dark ml-2">
-          <option value="0">الأعلى سعرا أولا</option>
-          <option value="1">الأقل سعرا أولا</option>
+        <select name="p" class="form-control form-control-sm rounded-pill d-inline-block w-auto border-dark ml-2">
+          <option value="high" {{ (request('p') == 'high') ? 'selected' : ''}}>الأعلى سعرا أولا</option>
+          <option value="low" {{ (request('p') == 'low' || request('p') == '') ? 'selected' : ''}}>الأقل سعرا أولا</option>
         </select>
       </div>
       <div class="form-group mr-3">
         <label for="sort"><small>الفئة</small></label>
-        <select class="form-control form-control-sm rounded-pill d-inline-block w-auto border-dark ml-2">
-          <option value="0">الكل</option>
+        <select name="cid" class="form-control form-control-sm rounded-pill d-inline-block w-auto border-dark ml-2">
+          <option value="" selected>الكل</option>
           @foreach ($categories as $category)
-            <option value="{{ $category->id }}">{{ $category->name }}</option>
+            <option value="{{ $category->id }}" {{ (request('cid') == $category->id) ? 'selected' : '' }}>{{ $category->name }}</option>
           @endforeach
         </select>
       </div>
       <div class="form-group mr-3">
-        <input type="text" class="form-control form-control-sm rounded-pill border-dark" placeholder="بحث">
+        <input type="text" name="q" class="form-control form-control-sm rounded-pill border-dark" placeholder="بحث" value="{{ request('q') }}">
       </div>
       <div class="form-group mr-3">
         <button type="submit" class="btn btn-sm btn-primary rounded-pill">تطبيق</button>

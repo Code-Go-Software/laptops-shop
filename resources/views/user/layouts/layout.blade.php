@@ -65,7 +65,7 @@
         <button type="submit" class="btn btn-dark rounded-0"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
       </div>
       <div class="flex-grow-1 px-1">
-        <input type="text" placeholder="ما الذي تبحث عنه" class="form-control rounded-0">
+        <input type="text" name="q" placeholder="ما الذي تبحث عنه" class="form-control rounded-0" value="{{ request('q') }}">
       </div>
       <div class="d-none d-md-block">
         <a href="/laptops" class="btn btn-dark rounded-0"><i class="lni lni-control-panel d-none d-md-inline"></i> بحث

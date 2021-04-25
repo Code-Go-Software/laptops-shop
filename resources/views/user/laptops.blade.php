@@ -10,32 +10,46 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12 mb-5">
-          <div class="shadow px-2 py-3 row">
+          <form action="" method="GET" class="shadow px-2 py-3 row">
             <div class="col-12 col-md-auto">
-              <select id="category" class="form-control form-control-sm d-inline-block w-auto mr-1 border-dark rounded-pill mb-3">
-                <option value="">حواسيب جديدة</option>
-                <option value="">حواسيب مستعملة</option>
+              <select id="category" name="cid"
+              class="form-control form-control-sm d-inline-block w-auto mr-1 border-dark rounded-pill mb-3">
+                <option value="">الكل</option>  
+
+                @forelse ($categories as $category)
+                  <option value="{{ $category->id }}" {{ ($category->id == request('cid')) ? 'selected' : ''}}>{{ $category->name }}</option>    
+                @empty
+
+                @endforelse
+
               </select>
-              <select id="price" class="form-control form-control-sm d-inline-block w-auto mr-1 border-dark rounded-pill mb-3">
-                <option value="">الأعلى أولا</option>
-                <option value="">الأقل أولا</option>
+              <select id="price" name="p"
+              class="form-control form-control-sm d-inline-block w-auto mr-1 border-dark rounded-pill mb-3">
+                <option value="high" {{ (request('p') == 'high') ? 'selected' : ''}}>الأعلى أولا</option>
+                <option value="low" {{ (request('p') == 'low' || request('p') == '') ? 'selected' : ''}}>الأقل أولا</option>
               </select>
-              <select id="price" class="form-control form-control-sm d-inline-block w-auto mr-1 border-dark rounded-pill mb-3">
-                <option value="">الأحدث أولا</option>
-                <option value="">الأقدم أولا</option>
+              <select id="time" name="t"
+              class="form-control form-control-sm d-inline-block w-auto mr-1 border-dark rounded-pill mb-3">
+                <option value="new" {{ (request('t') == 'new' || request('t') == '') ? 'selected' : ''}}>الأحدث أولا</option>
+                <option value="old" {{ (request('t') == 'old') ? 'selected' : ''}}>الأقدم أولا</option>
               </select>
             </div>
+            <!--
             <div class="col-auto">
-              <input type="text" placeholder="المواصفات المطلوبة" class="form-control form-control-sm d-inline-block w-auto border-dark rounded-pill mb-3">
-              <select id="price" class="form-control form-control-sm d-inline-block w-auto mr-1 border-dark rounded-pill mb-3">
-                <option value="">المعالج</option>
-                <option value="">الرامات</option>
+              <input type="text" name="value" placeholder="المواصفات المطلوبة"
+              class="form-control form-control-sm d-inline-block w-auto border-dark rounded-pill mb-3">
+              <select id="attr" class="form-control form-control-sm d-inline-block w-auto mr-1 border-dark rounded-pill mb-3">
+                <option value="cpu">المعالج</option>
+                <option value="ram">الرامات</option>
+                <option value="company">الشركة المصنعة</option>
+                <option value="hard">مساحة التخزين</option>
               </select>
             </div>
+            -->
             <div class="col-auto">
               <button type="submit" class="btn btn-info btn-sm rounded-pill"><i class="lni lni-search"></i> بحث</button>
             </div>
-          </div>
+          </form>
         </div>
 
         @forelse ($laptops as $laptop)

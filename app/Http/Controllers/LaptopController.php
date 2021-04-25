@@ -29,8 +29,11 @@ class LaptopController extends Controller
     */
     public function index()
     {
+        $laptops = $this->searchLaptops();
+
         return view('user.laptops', [
-            'laptops' => Laptop::where('is_available', true)->paginate(12)
+            'laptops' => $laptops,
+            'categories' => Category::all()
         ]);
     }
 
@@ -42,8 +45,10 @@ class LaptopController extends Controller
     */
     public function indexForAdmin()
     {
+        $laptops = $this->searchLaptops();
+
         return view('admin.laptops.index', [
-            'laptops' => Laptop::where('is_available', true)->paginate(12),
+            'laptops' => $laptops,
             'un_available_laptops' => Laptop::where('is_available', false)->get(),
             'categories' => Category::all()
         ]);
@@ -294,5 +299,60 @@ class LaptopController extends Controller
         if($with_image) $validate_arr['image'] = 'required|mimes:jpg,png,jpeg|max:1024';
 
         $request->validate($validate_arr);
+    }
+
+
+
+
+
+    /*
+    ** Helper function to search laptops
+    */
+    private function searchLaptops()
+    {
+        $t = (strtolower(request('t')) == 'old') ? 'ASC' : 'DESC';
+        $p = (strtolower(request('p')) == 'high') ? 'DESC' : 'ASC';
+        $cid = (intval(request('cid')) != 0) ? intval(request('cid')) : 0;
+        $q = request('q');
+        $laptops;
+
+        if($cid > 0 && $q != '')
+        {
+            //Search by category and name
+            $laptops = Laptop::where('is_available', true)
+            ->where('category_id', $cid)
+            ->where('name', 'like', '%'. $q . '%')
+            ->orderBy('after_discount_price', $p)
+            ->orderBy('created_at', $t)
+            ->paginate(12);
+        }
+        elseif($cid > 0 && $q == '')
+        {
+            //Search by category
+            $laptops = Laptop::where('is_available', true)
+            ->where('category_id', $cid)
+            ->orderBy('after_discount_price', $p)
+            ->orderBy('created_at', $t)
+            ->paginate(12);
+        }
+        elseif($cid == 0 && $q != '')
+        {
+            //Search by name
+            $laptops = Laptop::where('is_available', true)
+            ->where('name', 'like', '%'. $q . '%')
+            ->orderBy('after_discount_price', $p)
+            ->orderBy('created_at', $t)
+            ->paginate(12);
+        }
+        else
+        {
+            //No search just sorting
+            $laptops = Laptop::where('is_available', true)
+            ->orderBy('after_discount_price', $p)
+            ->orderBy('created_at', $t)
+            ->paginate(12);
+        }
+
+        return $laptops;
     }
 }
