@@ -36,7 +36,7 @@ class OrderController extends Controller
     {
         if(Auth::user()->isAdmin())
         {
-            return back()->with('fail', 'عذرا لا يمكنك القيام بهذا الإجراء من حاسب مدير الموقع');
+            return back()->with('fail', 'عذرا لا يمكنك القيام بهذا الإجراء من حساب مدير الموقع');
         }
 
         // Ensure That The User Added A Contact Phone Number

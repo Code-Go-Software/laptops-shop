@@ -7,13 +7,13 @@
 <section id="product" class="py-3 px-2 mt-3">
   <div class="container-fluid">
     <div class="text-center">
-      <img src="{{ asset('images/' . $laptop->image) }}" class="img-fluid">
+      <img src="{{ asset('images/' . $laptop->image) }}" class="img-fluid" id="main-image">
     </div>
     <div class="thumbs d-flex justify-content-center align-items-center">
 
       @forelse ($laptop->subImages as $image)
         <div class="col text-center">
-          <img src="{{ asset('images/' . $image->image) }}" class="img-fluid rounded-circle shadow" style="max-width: 150px;">
+          <img src="{{ asset('images/' . $image->image) }}" onclick="swapImage(this, '#main-image')" class="img-fluid rounded-circle shadow" style="max-width: 150px;">
         </div>
       @empty
           <div class="col-12 text-center">

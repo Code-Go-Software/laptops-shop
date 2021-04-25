@@ -33,3 +33,10 @@ $("#confirm-delete-btn").click(function(e){
   $("#notification").modal('hide');
   currentDeleteForm = null;
 });
+
+function swapImage(img, mainImg){
+  var thump = $(img).attr('src');
+  var main = $(mainImg).attr('src');
+  $(img).attr('src', main);
+  $(mainImg).attr('src', thump);
+}
