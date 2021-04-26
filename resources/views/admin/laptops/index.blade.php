@@ -57,7 +57,7 @@
         <button type="submit" class="btn btn-sm btn-primary rounded-pill">تطبيق</button>
       </div>
       <div class="form-group mr-2">
-        <a href="/admin/laptops/create" class="btn btn-sm btn-success rounded-pill"><i class="lni lni-plus"></i> إضاة حاسوب</a>
+        <a href="/admin/laptops/create" class="btn btn-sm btn-success rounded-pill"><i class="lni lni-plus"></i> إضافة حاسوب</a>
       </div>
     </form>
   </div>
@@ -105,7 +105,7 @@
   </div>
 
   <!--Pagination Start-->
-  <div class="mt-5">
+  <div class="mt-5 text-center">
     {{ $laptops->links() }}
   </div>
   <!--Pagination End-->

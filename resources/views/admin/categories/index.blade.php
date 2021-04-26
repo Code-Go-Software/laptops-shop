@@ -7,6 +7,7 @@
   <div class="col-12">
     <h2>إدارة الفئات</h2>
   </div>
+  <!--
   <div class="col-12">
     <form action="" class="row mt-4 mb-4" method="get">
       <div class="form-group mr-3">
@@ -28,6 +29,7 @@
       </div>
     </form>
   </div>
+  -->
   <div class="col-12">
     <h4 class="text-secondary mb-3">الفئات <span>({{ $categories->count() }})</span></h4>
     <a href="/admin/categories/create" class="btn btn-success rounded-pill"><i class="lni lni-plus"></i> إضافة فئة جديدة</a>

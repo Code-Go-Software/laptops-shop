@@ -100,7 +100,7 @@
       </div>
 
       <!--Pagination Start-->
-      <div class="mt-5">
+      <div class="mt-5 text-center">
         {{ $laptops->links() }}
       </div>
       <!--Pagination End-->

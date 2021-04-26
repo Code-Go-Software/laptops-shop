@@ -7,6 +7,14 @@
   <div class="col-12">
     <h2>إدارة الحواسيب > إضافة حاسوب جديد</h2>
   </div>
+
+  @if ($categories->count() == 0)
+    <div class="alert col-12 bg-warning mb-0 rounded-0">
+      <i class="lni lni-warning ml-1"></i>
+      لم تقم بإنشاء أي فئة للحواسيب حتى الآن, قم بإنشاء فئة جديدة لتتمكن من إضافة أي حاسوب جديد
+    </div>
+  @endif
+
   <form action="/admin/laptops" method="post" class="col-12 row mt-3" enctype="multipart/form-data">
     @csrf
     <div class="col-4">

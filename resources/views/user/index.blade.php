@@ -82,7 +82,7 @@
           @endforeach
 
           <div class="col-12 text-center mt-3">
-            <a href="/laptops?category={{ $category->name }}" class="btn btn-primary rounded-pill">عرض المزيد</a>
+            <a href="/laptops?cid={{ $category->id }}" class="btn btn-primary rounded-pill">عرض المزيد</a>
           </div>
         </div>
       </div>
