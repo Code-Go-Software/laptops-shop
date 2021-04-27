@@ -13,7 +13,7 @@
           @csrf
           <div class="form-group">
             <label for="email"><i class="lni lni-envelope"></i> البريد الإلكتروني</label>
-            <input type="text" name="email" id="email" class="form-control border border-dark rounded-pill" placeholder="user@email.com">
+            <input type="text" name="email" id="email" class="form-control border border-dark rounded-pill" placeholder="user@email.com" value="{{ old('email') }}">
 
             @error('email')
                 <small class="text-danger">{{ $message }}</small>
@@ -22,7 +22,7 @@
           </div>
           <div class="form-group">
             <label for="password"><i class="lni lni-eye"></i> كلمة السر</label>
-            <input type="password" name="password" id="password" class="form-control border border-dark rounded-pill" placeholder="********">
+            <input type="password" name="password" id="password" class="form-control border border-dark rounded-pill" placeholder="********"  value="{{ old('password') }}">
 
             @error('password')
                 <small class="text-danger">{{ $message }}</small>

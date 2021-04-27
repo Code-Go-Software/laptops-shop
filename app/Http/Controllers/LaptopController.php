@@ -100,6 +100,7 @@ class LaptopController extends Controller
         $laptop->category_id = $request->category_id;
         $laptop->ports = $request->ports;
         $laptop->image = $image_name;
+        $laptop->description = $request->description;
 
         $laptop->save();
 
@@ -118,7 +119,7 @@ class LaptopController extends Controller
         $laptop->save();
 
         // Get The Laptops From The Same Company
-        $related_laptops = Laptop::where('company', $laptop->company)->limit(8)->get();
+        $related_laptops = Laptop::where('company', $laptop->company)->where('id', '!=', $laptop->id)->limit(8)->get();
         
         return view('user.laptop', [
             'laptop' => $laptop,
@@ -180,6 +181,7 @@ class LaptopController extends Controller
         $laptop->type = $request->type;
         $laptop->category_id = $request->category_id;
         $laptop->ports = $request->ports;
+        $laptop->description = $request->description;
         
         $laptop->save();
 
