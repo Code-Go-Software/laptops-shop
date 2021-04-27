@@ -105,6 +105,12 @@
               مركز المساعدة 
             </a>
           </div>
+          <div class="px-3 py-2">
+            <a href="/" class="text-light h6">
+              <i class="lni lni-home ml-2"></i>
+               عودة للمتجر 
+            </a>
+          </div>
           <form action="/logout" method="POST" class="px-3 py-2 flex-grow-1">
             @csrf
             <button type="submit" class="btn text-danger h6 pr-0">
