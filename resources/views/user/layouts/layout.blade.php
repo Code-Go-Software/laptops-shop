@@ -7,11 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/font-css/LineIcons.css') }}">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+  <!--<link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">-->
   <style>
     body{
-      font-family: 'Almarai', sans-serif;
+      font-family: 'tahoma';
+      /*font-family: 'Almarai', sans-serif;*/
       text-align: right;
     }
   </style>
@@ -60,15 +61,15 @@
     </div>
   </nav>
   <section id="search-bar">
-    <form action="/laptops" method="GET"  class="d-flex align-items-stretch">
+    <form action="/laptops" method="GET"  class="d-flex align-items-stretch mt-2">
       <div>
-        <button type="submit" class="btn btn-dark rounded-0"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
+        <button type="submit" class="btn btn-info rounded-pill"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
       </div>
       <div class="flex-grow-1 px-1">
-        <input type="text" name="q" placeholder="ما الذي تبحث عنه" class="form-control rounded-0" value="{{ request('q') }}">
+        <input type="text" name="q" placeholder="ما الذي تبحث عنه" class="form-control rounded-pill shadow font-italic" value="{{ request('q') }}">
       </div>
       <div class="d-none d-md-block">
-        <a href="/laptops" class="btn btn-dark rounded-0"><i class="lni lni-control-panel d-none d-md-inline"></i> بحث
+        <a href="/laptops" class="btn btn-info rounded-pill"><i class="lni lni-control-panel d-none d-md-inline"></i> بحث
           متقدم</a>
       </div>
     </form>
