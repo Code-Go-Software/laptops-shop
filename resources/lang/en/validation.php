@@ -85,7 +85,7 @@ return [
     'mimes' => 'امتداد هذا الملف غير صالح',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
-        'numeric' => 'The :attribute must be at least :min.',
+        'numeric' => 'يجب أن تتكون كلمة السر من 8 خانات كحد أدنى',
         'file' => 'The :attribute must be at least :min kilobytes.',
         'string' => 'The :attribute must be at least :min characters.',
         'array' => 'The :attribute must have at least :min items.',
