@@ -7,15 +7,17 @@ use Illuminate\View\Component;
 class LaptopCard extends Component
 {
     public $laptop;
+    public $role;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($laptop)
+    public function __construct($laptop, $role)
     {
         $this->laptop = $laptop;
+        $this->role = $role;
     }
 
     /**

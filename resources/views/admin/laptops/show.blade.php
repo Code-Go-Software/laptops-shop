@@ -26,17 +26,25 @@
 
       </div>
       <div class="text-center mt-3">
-        <h1>{{ $laptop->name }}</h1>
+        <h1 class="text-primary">{{ $laptop->name }}</h1>
         <h2 class="mb-3">
-          <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
-          <strike class="text-secondary"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
+          <span class="text-danger font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
+          <strike class="text-secondary h4"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
         </h2>
+      </div>
+      <div class="col-12 text-center mt-4">
+        <a href="/admin/laptops/{{ $laptop->id }}/edit" class="btn btn-success rounded-pill"><i class="lni lni-pencil"></i> تعديل البيانات</a>
+        <form action="/admin/laptops/{{ $laptop->id }}" method="post" class="d-inline">
+          @csrf
+          @method('delete')
+          <button type="submit" class="btn btn-outline-danger rounded-pill delete-btn"><i class="lni lni-trash"></i> حذف الحاسوب</button>
+        </form>
       </div>
       <div class="text-center mt-3">
         <span class="badge badge-primary rounded-pill">
           <i class="lni lni-tag"></i> {{ $laptop->category->name }}
         </span>
-        <span class="badge badge-secondary rounded-pill">
+        <span class="badge badge-warning rounded-pill">
           <i class="lni lni-eye"></i> {{ $laptop->views }}
         </span>
       </div>
@@ -72,14 +80,6 @@
           <span class="text-secondary">{{ $laptop->hard }}</span>
           <div><b>تفاصيل</b></div>
           <span class="text-secondary">{{ $laptop->description }}</span>
-        </div>
-        <div class="col-12 text-center mt-4">
-          <a href="/admin/laptops/{{ $laptop->id }}/edit" class="btn btn-primary rounded-pill"><i class="lni lni-pencil"></i> تعديل البيانات</a>
-          <form action="/admin/laptops/{{ $laptop->id }}" method="post" class="d-inline">
-            @csrf
-            @method('delete')
-            <button type="submit" class="btn btn-danger rounded-pill delete-btn"><i class="lni lni-trash"></i> حذف الحاسوب</button>
-          </form>
         </div>
       </div>
     </div>

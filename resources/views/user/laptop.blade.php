@@ -23,15 +23,15 @@
       
     </div>
     <div class="text-center mt-3">
-      <h1>{{ $laptop->name }}</h1>
+      <h1 class="text-primary">{{ $laptop->name }}</h1>
       <h2 class="mb-3">
-        <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
-        <strike class="text-secondary"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
+        <span class="text-danger font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
+        <strike class="text-secondary h4"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
       </h2>
       <form action="/cart" method="post" class="d-inline">
         @csrf
         <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
-        <button class="btn rounded-pill btn-dark btn-sm" type="submit">
+        <button class="btn rounded-pill btn-success" type="submit">
           <i class="lni lni-cart"></i> 
           إضافة إلى السلة
         </button>
@@ -39,7 +39,7 @@
       <form action="/favourites" method="post" class="d-inline">
         @csrf
         <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
-        <button class="btn rounded-pill btn-danger btn-sm">
+        <button class="btn rounded-pill btn-outline-danger">
           <i class="lni lni-heart"></i> 
           إضافة إلى المفضلة
         </button>
@@ -49,7 +49,7 @@
       <span class="badge badge-primary rounded-pill">
         <i class="lni lni-tag"></i> {{ $laptop->category->name }}
       </span>
-      <span class="badge badge-secondary rounded-pill">
+      <span class="badge badge-warning rounded-pill">
         <i class="lni lni-eye"></i> {{ $laptop->views }}
       </span>
     </div>
@@ -94,7 +94,7 @@
 
         @forelse ($related_laptops as $laptop)
 
-          <x-laptop-card :laptop="$laptop" />
+          <x-laptop-card :laptop="$laptop" role='user'/>
 
         @empty
             <div class="alert alert-secondary text-center">عذرا لا يوجد أي حواسيب مشابهة</div>

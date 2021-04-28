@@ -42,7 +42,7 @@
             
           @foreach ($laptops as $laptop)
 
-            <x-laptop-card :laptop="$laptop" />
+            <x-laptop-card :laptop="$laptop" role='user'/>
               
           @endforeach
 

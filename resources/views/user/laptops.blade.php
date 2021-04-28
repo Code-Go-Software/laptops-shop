@@ -54,7 +54,7 @@
 
         @forelse ($laptops as $laptop)
 
-          <x-laptop-card :laptop="$laptop" />
+          <x-laptop-card :laptop="$laptop" role='user'/>
 
         @empty
           <div class="col-12 alert alert-secondary">
