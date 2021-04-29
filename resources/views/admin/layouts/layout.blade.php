@@ -39,9 +39,6 @@
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/admin">لوحة التحكم</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -56,8 +53,8 @@
   <section class="container-fluid">
     <div class="row">
       <!--Side Bar Start-->
-      <div class="col-2 d-flex flex-column bg-dark small">
-        <div class="h-100">
+      <div class="col-md-2 col-12 d-flex flex-column bg-dark small">
+        <div class="h-100" style="min-height: 100vh;">
           <div class="p-3">
             <a href="/admin" class="text-light">
               <i class="lni lni-dashboard ml-2"></i>
@@ -97,15 +94,17 @@
           <div class="p-3">
             <a href="/admin/currency" class="text-light">
               <i class="lni lni-dollar ml-2"></i>
-              سعر الصرف
+              إدارة الأسعار
             </a>
           </div>
+          <!--
           <div class="p-3">
             <a href="/admin/help" class="text-light">
               <i class="lni lni-question-circle ml-2"></i>
               مركز المساعدة 
             </a>
           </div>
+          -->
           <div class="p-3">
             <a href="/" class="text-light">
               <i class="lni lni-home ml-2"></i>
@@ -122,7 +121,7 @@
         </div>
       </div>
       <!--Side Bar End-->
-      <div class="col-10 p-0">
+      <div class="col-md-10 col-12 p-0" style="background-color: #ccc">
         @if (Session::has('success'))
           <section class="alert bg-success mb-0 rounded-0 text-light">
             <i class="lni lni-checkmark-circle ml-1"></i>

@@ -17,7 +17,7 @@
           <label for="name">اسم الفئة</label>
 
           <input type="text" name="name"
-          id="name" class="form-control rounded-pill border-dark"
+          id="name" class="form-control rounded-pill border-secondary"
           placeholder="حواسيب تصميم" value="{{ $category->name }}">
 
           @error('name')
@@ -29,7 +29,7 @@
           <label for="description">وصف الفئة</label>
 
           <textarea id="description" name="description"
-          class="form-control rounded border-dark"
+          class="form-control rounded border-secondary"
           cols="30" rows="10"
           placeholder="وصف الحواسيب ضمن هذه الفئة">{{ $category->description }}</textarea>
 

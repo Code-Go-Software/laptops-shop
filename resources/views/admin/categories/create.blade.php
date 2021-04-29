@@ -14,7 +14,7 @@
 
         <div class="form-group">
           <label for="name">اسم الفئة</label>
-          <input type="text" name="name" id="name" class="form-control rounded-pill border-dark" placeholder="مثل: حواسيب للألعاب" value="{{ old('name') }}">
+          <input type="text" name="name" id="name" class="form-control rounded-pill border-secondary" placeholder="مثل: حواسيب للألعاب" value="{{ old('name') }}">
           @error('name')
                 <small class="text-danger">{{ $message }}</small>
           @enderror
@@ -23,7 +23,7 @@
         <div class="form-group">
           <label for="description">وصف الفئة</label>
           <textarea id="description" name="description"
-          class="form-control rounded border-dark"
+          class="form-control rounded border-secondary"
           cols="30" rows="10"
           placeholder="وصف للحواسيب ضمن هذه الفئة">{{ old('description') }}</textarea>
           

@@ -31,11 +31,11 @@
   </div>
   -->
   <div class="col-12">
-    <h4 class="text-secondary mb-3">الفئات <span>({{ $categories->count() }})</span></h4>
+    <h4 class="mb-3 mt-3">الفئات <span>({{ $categories->count() }})</span></h4>
     <a href="/admin/categories/create" class="btn btn-success rounded-pill"><i class="lni lni-plus"></i> إضافة فئة جديدة</a>
-    <div class="table-responsive-sm mt-3">
-      <table class="table table-striped mt-2 table-sm table-hover">
-        <thead>
+    <div class="table-responsive-sm mt-3 bg-light">
+      <table class="table table-sm">
+        <thead class="bg-primary text-light">
           <tr>
             <th scope="col">#</th>
             <th scope="col">اسم الفئة</th>

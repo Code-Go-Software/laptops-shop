@@ -8,29 +8,49 @@
     <h2>لوحة التحكم</h2>
   </div>
   <div class="col-12 row justify-content-center text-center my-3">
-    <div class="col-3">
-      <h1>{{ $all_laptops }}</h1>
-      <p><i class="lni lni-display-alt h1"></i> الأجهزة المتوفرة</p>
+    <div class="col-md-3 col-12 mb-2">
+      <div class="card text-white bg-primary h-100">
+        <div class="card-header">الحواسيب المعروضة</div>
+        <div class="card-body">
+          <h5 class="card-title"><i class="lni lni-display-alt"></i> {{ $all_laptops }}</h5>
+          <small class="card-text">عدد الحواسيب المعروضة للبيع على المتجر</small>
+        </div>
+      </div>
     </div>
-    <div class="col-3">
-      <h1>{{ $all_users }}</h1>
-      <p><i class="lni lni-user"></i> المستخدمون</p>
+    <div class="col-md-3 col-12 mb-2">
+      <div class="card text-white bg-success h-100">
+        <div class="card-header">المستخدمون</div>
+        <div class="card-body">
+          <h5 class="card-title"><i class="lni lni-user"></i> {{ $all_users }}</h5>
+          <small class="card-text">عدد المستخدمين المسجلين في المتجر</small>
+        </div>
+      </div>
     </div>
-    <div class="col-3">
-      <h1>{{ $all_views }}</h1>
-      <p><i class="lni lni-eye"></i> المشاهدات الكلية</p>
+    <div class="col-md-3 col-12 mb-2">
+      <div class="card text-dark bg-warning h-100">
+        <div class="card-header">المشاهدات الكلية</div>
+        <div class="card-body">
+          <h5 class="card-title"><i class="lni lni-eye"></i> {{ $all_views }}</h5>
+          <small class="card-text">عدد المشاهدات الكلية لجميع الحواسيب</small>
+        </div>
+      </div>
     </div>
-    <div class="col-3">
-      <h1>{{ $all_orders }}</h1>
-      <p><i class="lni lni-clipboard"></i> الطلبات الكلية</p>
+    <div class="col-md-3 col-12 mb-2">
+      <div class="card text-white bg-danger h-100">
+        <div class="card-header">الطلبات</div>
+        <div class="card-body">
+          <h5 class="card-title"><i class="lni lni-clipboard"></i> {{ $all_orders }}</h5>
+          <small class="card-text">عدد الطلبات المنجزة ضمن المتجر</small>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="col-9">
-    <h4 class="text-secondary mb-4">الطلبات غير المنجزة <span>({{ $uncompleted_orders_count }})</span></h4>
-    <div class="table-responsive-sm">
-      <table class="table table-striped mt-2 table-sm table-hover table-secondary">
-        <thead>
+  <div class="col-12 mt-3">
+    <h4 class="mb-4">الطلبات غير المنجزة <span>({{ $uncompleted_orders_count }})</span></h4>
+    <div class="table-responsive-sm bg-light">
+      <table class="table table-sm">
+        <thead class="bg-primary text-light">
           <tr>
             <th scope="col">#</th>
             <th scope="col">المستخدم</th>
@@ -42,15 +62,15 @@
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="small">
           
           @forelse ($uncompleted_orders as $order)
             <tr>
               <th scope="row">{{ $loop->index + 1 }}</th>
               <td>
                 <img src="{{ asset('images/' . $order->user->image) }}" class="rounded-circle mr-2" width="30px" height="30px">
-                <small>{{ $order->user->fullname }}</small>
-                <a href="admin/users/{{ $order->user->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
+                <span>{{ $order->user->fullname }}</span>
+                <a href="admin/users/{{ $order->user->id }}"><i class="lni lni-arrow-right-circle"></i></a>
               </td>
               <td>
 
@@ -60,24 +80,24 @@
 
                 @foreach ($laptops as $laptop)
                   <img src="{{ asset('images/' . $laptop->image) }}" class="mr-2" width="30px" height="30px">
-                  <small class="mr-1">{{ $laptop->name }}</small>
-                  <a href="admin/laptops/{{ $laptop->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
+                  <span class="mr-1">{{ $laptop->name }}</span>
+                  <a href="admin/laptops/{{ $laptop->id }}"><i class="lni lni-arrow-right-circle"></i></a>
                   <br>
                 @endforeach
 
                 
               </td>
               <td>
-                <small>{{ $order->contact_number }}</small>
+                {{ $order->contact_number }}
               </td>
               <td>
-                <small class="text-danger font-weight-bold">
+                <span class="text-danger font-weight-bold">
                   <bdi>s.p</bdi> {{ $order->total_price }}
-                </small>
+                </span>
               </td>
-              <td><small>{{ $order->created_at }}</small></td>
+              <td>{{ $order->created_at }}</td>
               <td>
-                <a class="font-weight-bold text-info mr-2" href="admin/orders/{{ $order->id }}"><i class="lni lni-menu"></i></a>
+                <a class="font-weight-bold text-info mr-2" href="/admin/orders/{{ $order->id }}"><i class="lni lni-menu"></i></a>
               </td>
               <td>
                 <form action="/admin/orders/{{ $order->id }}" method="post">
@@ -110,22 +130,22 @@
     </div>
   </div>
 
-  <div class="col-3">
-    <h4 class="text-secondary mb-4">تقرير الطلبات</h4>
-    <div class="table-responsive-sm">
-      <table class="table table-hover table-sm">
+  <div class="col-12 col-md-6 mt-3">
+    <h4 class="mb-4">تقرير الطلبات</h4>
+    <div class="table-responsive-sm bg-light">
+      <table class="table table-sm">
         <tbody>
           <tr>
-            <td><small class="font-weight-bold">الطلبات المنجزة</small></td>
+            <td>الطلبات المنجزة</td>
             <td><b class="text-success">{{ $completed_orders_count }}</b></td>
           </tr>
           <tr>
-            <td><small class="font-weight-bold">الطلبات غير المنجزة</small></td>
+            <td>الطلبات غير المنجزة</td>
             <td><b class="text-danger">{{ $uncompleted_orders_count }}</b></td>
           </tr>
           <tr>
-            <td><small class="font-weight-bold">قيمة الطلبات</small></td>
-            <td><b class="text-primary"><b><bdi>s.p</bdi> {{ $orders_value }}</b></b></td>
+            <td>قيمة الطلبات</td>
+            <td><b class="text-primary"><bdi>s.p</bdi> {{ $orders_value }}</b></td>
           </tr>
           <!--
           <tr>
@@ -138,11 +158,55 @@
     </div>
   </div>
 
-  <div class="col-6">
-    <h4 class="text-secondary mb-4">تقرير الفئات</h4>
-    <div class="table-responsive-sm">
-      <table class="table table-striped mt-2 table-sm table-hover">
-        <thead>
+  <div class="col-12 col-md-6 mt-3">
+    <h4 class="mb-4">تقرير المفضلة</h4>
+    <div class="table-responsive-sm bg-light">
+      <table class="table table-sm">
+        <thead class="bg-danger text-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">المستخدم</th>
+            <th scope="col">المنتج</th>
+            <th scope="col">تاريخ الإضاقة</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          @forelse ($favourites as $favourite)
+            <tr>
+              <th scope="row">{{ $loop->index + 1 }}</th>
+              <td>
+                <img src="{{ asset('images/' . $favourite->user->image) }}" class="rounded-circle mr-2" width="30px" height="30px">
+                <span>{{ $favourite->user->fullname }}</span>
+                <a href="admin/users/{{ $favourite->user->id }}"><i class="lni lni-arrow-right-circle"></i></a>
+              </td>
+              <td>
+                <img src="{{ asset('images/' . $favourite->laptop->image) }}" class="mr-2" width="30px" height="30px">
+                <span class="mr-1">{{ $favourite->laptop->name }}</span>
+                <a href="admin/laptops/{{ $favourite->laptop->id }}"><i class="lni lni-arrow-right-circle"></i></a>
+              </td>
+              <td>
+                <b>{{ $favourite->created_at }}</b>
+              </td>
+            </tr>
+          @empty
+            <tr>
+              <td colspan="4" class="text-secondary">
+                لا يوجد أي حواسيب مفضلة حاليا
+              </td>
+            </tr>
+          @endforelse
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-12 mt-3">
+    <h4 class="mb-4">تقرير الفئات</h4>
+    <div class="table-responsive-sm bg-light">
+      <table class="table table-sm">
+        <thead class="bg-success text-light">
           <tr>
             <th scope="col">#</th>
             <th scope="col">الفئة</th>
@@ -173,50 +237,6 @@
             <tr>
               <td colspan="5" class="text-secondary">
                 لا يوجد أي فئات حاليا
-              </td>
-            </tr>
-          @endforelse
-
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="col-6">
-    <h4 class="text-secondary mb-4">تقرير المفضلة</h4>
-    <div class="table-responsive-sm">
-      <table class="table table-striped mt-2 table-sm table-hover">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">المستخدم</th>
-            <th scope="col">المنتج</th>
-            <th scope="col">تاريخ الإضاقة</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-          @forelse ($favourites as $favourite)
-            <tr>
-              <th scope="row">{{ $loop->index + 1 }}</th>
-              <td>
-                <img src="{{ asset('images/' . $favourite->user->image) }}" class="rounded-circle mr-2" width="30px" height="30px">
-                <small>{{ $favourite->user->fullname }}</small>
-                <a href="admin/users/{{ $favourite->user->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
-              </td>
-              <td>
-                <img src="{{ asset('images/' . $favourite->laptop->image) }}" class="mr-2" width="30px" height="30px">
-                <small class="mr-1">{{ $favourite->laptop->name }}</small>
-                <a href="admin/laptops/{{ $favourite->laptop->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
-              </td>
-              <td>
-                <b><small>{{ $favourite->created_at }}</small></b>
-              </td>
-            </tr>
-          @empty
-            <tr>
-              <td colspan="4" class="text-secondary">
-                لا يوجد أي حواسيب مفضلة حاليا
               </td>
             </tr>
           @endforelse

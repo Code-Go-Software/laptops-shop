@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
       
       <div class="col-12 col-md-8">
-        <div class="item row align-items-center shadow py-2 px-1 mb-2">
+        <div class="item row align-items-center shadow py-2 px-1 mb-2 bg-light">
           <div class="col-12 text-center">
             <img src="{{ asset('images/' . $order->user->image) }}" class="img-fluid rounded-circle">
             <p class="mt-2 mb-4">

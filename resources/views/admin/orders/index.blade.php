@@ -8,29 +8,49 @@
     <h2>إدارة الطلبات</h2>
   </div>
   <div class="col-12 row justify-content-center text-center my-3">
-    <div class="col-3">
-      <h1>{{ $completed_orders->count() + $uncompleted_orders->count() }}</h1>
-      <p><i class="lni lni-clipboard"></i> الطلبات</p>
+    <div class="col-md-3 col-12 mb-2">
+      <div class="card text-white bg-primary h-100">
+        <div class="card-header">الطلبات</div>
+        <div class="card-body">
+          <h5 class="card-title"><i class="lni lni-clipboard"></i> {{ $completed_orders->count() + $uncompleted_orders->count() }}</h5>
+          <small class="card-text">عدد الطلبات الكلي (المنجزة وغير المنجزة)</small>
+        </div>
+      </div>
     </div>
-    <div class="col-3">
-      <h1>{{ $completed_orders->count() }}</h1>
-      <p><i class="lni lni-checkmark-circle"></i> الطلبات المنجزة</p>
+    <div class="col-md-3 col-12 mb-2">
+      <div class="card text-white bg-success h-100">
+        <div class="card-header">الطلبات المنجزة</div>
+        <div class="card-body">
+          <h5 class="card-title"><i class="lni lni-checkmark-circle"></i> {{ $completed_orders->count() }}</h5>
+          <small class="card-text">عدد الطلبات التي تم إنجازها</small>
+        </div>
+      </div>
     </div>
-    <div class="col-3">
-      <h1>{{ $uncompleted_orders->count() }}</h1>
-      <p><i class="lni lni-close"></i> الطلبات غير المنجزة</p>
+    <div class="col-md-3 col-12 mb-2">
+      <div class="card text-dark bg-warning h-100">
+        <div class="card-header">الطلبات الغير منجزة</div>
+        <div class="card-body">
+          <h5 class="card-title"><i class="lni lni-close"></i> {{ $uncompleted_orders->count() }}</h5>
+          <small class="card-text">عدد الطلبات التي لا زالت قيد المتابعة</small>
+        </div>
+      </div>
     </div>
-    <div class="col-3">
-      <h1><bdi>s.p</bdi> {{ $completed_orders->sum('total_price') }}</h1>
-      <p><i class="lni lni-dollar"></i> قيمة الطلبات المنجزة</p>
+    <div class="col-md-3 col-12 mb-2">
+      <div class="card text-white bg-danger h-100">
+        <div class="card-header">قيمة الطلبات المنجزة</div>
+        <div class="card-body">
+          <h5 class="card-title"><bdi>s.p</bdi> {{ $completed_orders->sum('total_price') }}</h5>
+          <small class="card-text">القيمة المالية لجميع الطلبات التي تم إنجازها</small>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="col-9 mt-4">
-    <h4 class="text-secondary mb-4">الطلبات غير المنجزة <span>({{ $uncompleted_orders->count() }})</span></h4>
-    <div class="table-responsive-sm">
-      <table class="table table-striped mt-2 table-sm table-hover table-secondary">
-        <thead>
+  <div class="col-12 mt-3">
+    <h4 class="mb-4">الطلبات غير المنجزة <span>({{ $uncompleted_orders->count() }})</span></h4>
+    <div class="table-responsive-sm bg-light">
+      <table class="table table-sm">
+        <thead class="bg-danger text-light">
           <tr>
             <th scope="col">#</th>
             <th scope="col">المستخدم</th>
@@ -42,15 +62,15 @@
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="small">
           
           @forelse ($uncompleted_orders as $order)
             <tr>
               <th scope="row">{{ $loop->index + 1 }}</th>
               <td>
-                <img src="{{ asset('images/' . $oreder->user->image) }}" class="rounded-circle mr-2" width="30px" height="30px">
-                <small>{{ $order->user->fullname }}</small>
-                <a href="/admin/users/{{ $order->user->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
+                <img src="{{ asset('images/' . $order->user->image) }}" class="rounded-circle mr-2" width="30px" height="30px">
+                <span>{{ $order->user->fullname }}</span>
+                <a href="admin/users/{{ $order->user->id }}"><i class="lni lni-arrow-right-circle"></i></a>
               </td>
               <td>
 
@@ -60,21 +80,22 @@
 
                 @foreach ($laptops as $laptop)
                   <img src="{{ asset('images/' . $laptop->image) }}" class="mr-2" width="30px" height="30px">
-                  <small class="mr-1">{{ $laptop->name }}</small>
-                  <a href="/admin/laptops/{{ $laptop->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
+                  <span class="mr-1">{{ $laptop->name }}</span>
+                  <a href="admin/laptops/{{ $laptop->id }}"><i class="lni lni-arrow-right-circle"></i></a>
                   <br>
                 @endforeach
 
+                
               </td>
               <td>
-                <small>{{ $order->contact_number }}</small>
+                {{ $order->contact_number }}
               </td>
               <td>
-                <small class="text-danger font-weight-bold">
+                <span class="text-danger font-weight-bold">
                   <bdi>s.p</bdi> {{ $order->total_price }}
-                </small>
+                </span>
               </td>
-              <td><small>{{ $order->created_at }}</small></td>
+              <td>{{ $order->created_at }}</td>
               <td>
                 <a class="font-weight-bold text-info mr-2" href="/admin/orders/{{ $order->id }}"><i class="lni lni-menu"></i></a>
               </td>
@@ -82,16 +103,24 @@
                 <form action="/admin/orders/{{ $order->id }}" method="post">
                   @csrf
                   @method('put')
-                  <button type="submit" class="btn p-0 font-weight-bold text-success">
-                    <i class="lni lni-checkmark-circle"></i>
-                  </button>
+
+                  @if ($order->status)
+                    <button type="submit" class="btn p-0 text-danger">
+                      <i class="lni lni-close"></i>
+                    </button>
+                  @else
+                    <button type="submit" class="btn p-0 text-success">
+                      <i class="lni lni-checkmark-circle"></i>
+                    </button>
+                  @endif
+
                 </form>
               </td>
             </tr>
           @empty
             <tr>
               <td colspan="8" class="text-secondary">
-                لا يوجد أي طلبات غير منجزة حاليا
+                لا يوجد طلبات غير منجزة
               </td>
             </tr>
           @endforelse
@@ -101,8 +130,9 @@
     </div>
   </div>
 
-  <div class="col-9 mt-4">
-    <h4 class="text-secondary mb-4">الطلبات المنجزة <span>({{ $completed_orders->count() }})</span></h4>
+  <div class="col-12 mt-3">
+    <h4 class="mb-4">الطلبات المنجزة <span>({{ $completed_orders->count() }})</span></h4>
+    <!--
     <form action="" class="row" method="get">
       <div class="form-group mr-3">
         <label for="sort">ترتيب حسب الزمن</label>
@@ -122,9 +152,10 @@
         <button type="submit" class="btn btn-primary rounded-pill">تطبيق</button>
       </div>
     </form>
-    <div class="table-responsive-sm">
-      <table class="table table-striped mt-2 table-sm table-hover table-secondary">
-        <thead>
+    -->
+    <div class="table-responsive-sm bg-light">
+      <table class="table table-sm">
+        <thead class="bg-success text-light">
           <tr>
             <th scope="col">#</th>
             <th scope="col">المستخدم</th>
@@ -133,17 +164,18 @@
             <th scope="col">قيمة الطلب</th>
             <th scope="col">تاريخ الطلب</th>
             <th scope="col"></th>
+            <th scope="col"></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="small">
           
           @forelse ($completed_orders as $order)
             <tr>
               <th scope="row">{{ $loop->index + 1 }}</th>
               <td>
                 <img src="{{ asset('images/' . $order->user->image) }}" class="rounded-circle mr-2" width="30px" height="30px">
-                <small>{{ $order->user->fullname }}</small>
-                <a href="/admin/users/{{ $order->user->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
+                <span>{{ $order->user->fullname }}</span>
+                <a href="admin/users/{{ $order->user->id }}"><i class="lni lni-arrow-right-circle"></i></a>
               </td>
               <td>
 
@@ -153,21 +185,22 @@
 
                 @foreach ($laptops as $laptop)
                   <img src="{{ asset('images/' . $laptop->image) }}" class="mr-2" width="30px" height="30px">
-                  <small class="mr-1">{{ $laptop->name }}</small>
-                  <a href="/admin/laptops/{{ $laptop->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
+                  <span class="mr-1">{{ $laptop->name }}</span>
+                  <a href="admin/laptops/{{ $laptop->id }}"><i class="lni lni-arrow-right-circle"></i></a>
                   <br>
                 @endforeach
 
+                
               </td>
               <td>
-                <small>{{ $order->contact_number }}</small>
+                {{ $order->contact_number }}
               </td>
               <td>
-                <small class="text-danger font-weight-bold">
+                <span class="text-danger font-weight-bold">
                   <bdi>s.p</bdi> {{ $order->total_price }}
-                </small>
+                </span>
               </td>
-              <td><small>{{ $order->created_at }}</small></td>
+              <td>{{ $order->created_at }}</td>
               <td>
                 <a class="font-weight-bold text-info mr-2" href="/admin/orders/{{ $order->id }}"><i class="lni lni-menu"></i></a>
               </td>
@@ -175,15 +208,23 @@
                 <form action="/admin/orders/{{ $order->id }}" method="post">
                   @csrf
                   @method('put')
-                  <button type="submit" class="btn p-0 font-weight-bold text-success">
-                    <i class="lni lni-checkmark-circle"></i>
-                  </button>
+
+                  @if ($order->status)
+                    <button type="submit" class="btn p-0 text-danger">
+                      <i class="lni lni-close"></i>
+                    </button>
+                  @else
+                    <button type="submit" class="btn p-0 text-success">
+                      <i class="lni lni-checkmark-circle"></i>
+                    </button>
+                  @endif
+
                 </form>
               </td>
             </tr>
           @empty
             <tr>
-              <td colspan="7" class="text-secondary">
+              <td colspan="8" class="text-secondary">
                 لا يوجد أي طلبات منجزة حاليا
               </td>
             </tr>
@@ -193,6 +234,7 @@
       </table>
     </div>
   </div>
+
 
   <!--
   <div class="col-9 mt-4">

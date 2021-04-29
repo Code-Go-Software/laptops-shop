@@ -4,7 +4,7 @@
 
 @section('content')
 
-  <div class="col-12">
+  <div class="col-12 mb-3">
     <h2>إدارة المستخدمين</h2>
   </div>
   <!--
@@ -32,9 +32,9 @@
   -->
   <div class="col-12">
     <h4 class="text-secondary mb-4">المستخدمون المسجلون <span>({{ $users->count() }})</span></h4>
-    <div class="table-responsive-sm">
-      <table class="table table-striped mt-2 table-sm table-hover">
-        <thead>
+    <div class="table-responsive-sm bg-light">
+      <table class="table table-sm">
+        <thead class="bg-primary text-light">
           <tr>
             <th scope="col">#</th>
             <th scope="col">الصورة الشخصية</th>
@@ -48,7 +48,7 @@
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="small">
           
           @forelse ($users as $user)
             <tr>
@@ -57,15 +57,15 @@
                 <img src="{{ asset('images/' . $user->image) }}" class="rounded-circle mr-2" width="30px" height="30px">
               </td>
               <td>
-                <small>{{ $user->fullname }}</small>
+                <span>{{ $user->fullname }}</span>
                 <a href="/admin/users/{{ $user->id }}"><small><i class="lni lni-arrow-right-circle"></i></small></a>
               </td>
               <td>
-                <small>{{ $user->email }}</small>
+                {{ $user->email }}
               </td>
-              <td><small>{{ $user->phone }}</small></td>
-              <td><small>{{ $user->address }}</small></td>
-              <td><small>{{ $user->created_at }}</small></td>
+              <td>{{ $user->phone }}</td>
+              <td>{{ $user->address }}</td>
+              <td>{{ $user->created_at }}</td>
               <td class="text-center"><b><i class="lni lni-clipboard"></i> {{ $user->orders->count() }}</b></td>
               <td>
                 <form action="/admin/user/{{ $user->id }}" method="post">
