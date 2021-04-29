@@ -89,9 +89,11 @@
               </td>
             </tr>
           @empty
-              <div class="alert bg-secondary text-light">
+            <tr>
+              <td colspan="8" class="text-secondary">
                 لا يوجد أي طلبات غير منجزة حاليا
-              </div>
+              </td>
+            </tr>
           @endforelse
 
         </tbody>
@@ -180,9 +182,11 @@
               </td>
             </tr>
           @empty
-              <div class="alert bg-secondary text-light">
+            <tr>
+              <td colspan="7" class="text-secondary">
                 لا يوجد أي طلبات منجزة حاليا
-              </div>
+              </td>
+            </tr>
           @endforelse
 
         </tbody>

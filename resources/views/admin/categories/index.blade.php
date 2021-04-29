@@ -77,9 +77,11 @@
               </td>
             </tr>
           @empty
-            <div class="alert bg-secondary text-light">
-              لا يوجد أي فئات حواسيب حاليا
-            </div>
+            <tr>
+              <td colspan="8" class="text-secondary">
+                لا يوجد أي فئات حواسيب حاليا
+              </td>
+            </tr>
           @endforelse
 
         </tbody>

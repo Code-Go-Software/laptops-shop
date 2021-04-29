@@ -98,9 +98,11 @@
               </td>
             </tr>
           @empty
-            <div class="alert bg-secondary text-light">
-              لا يوجد طلبات غير منجزة
-            </div>
+            <tr>
+              <td colspan="8" class="text-secondary">
+                لا يوجد طلبات غير منجزة
+              </td>
+            </tr>
           @endforelse
 
         </tbody>
@@ -168,9 +170,11 @@
               </td>
             </tr>
           @empty
-            <div class="alert bg-secondary text-light">
-              لا يوجد أي فئات حاليا
-            </div>
+            <tr>
+              <td colspan="5" class="text-secondary">
+                لا يوجد أي فئات حاليا
+              </td>
+            </tr>
           @endforelse
 
         </tbody>
@@ -210,9 +214,11 @@
               </td>
             </tr>
           @empty
-            <div class="alert bg-secondary text-light">
-              لا يوجد أي حواسيب مفضلة حاليا
-            </div>
+            <tr>
+              <td colspan="4" class="text-secondary">
+                لا يوجد أي حواسيب مفضلة حاليا
+              </td>
+            </tr>
           @endforelse
 
         </tbody>

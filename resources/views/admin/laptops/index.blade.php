@@ -68,9 +68,9 @@
       <x-laptop-card :laptop="$laptop" role='admin'/>
 
     @empty
-        <div class="col-12 alert bg-secondary text-light">
-          لا يوجد أي حواسيب متوفرة حاليا
-        </div>
+      <div class="col-12 alert bg-secondary text-light">
+        لا يوجد أي حواسيب متوفرة حاليا
+      </div>
     @endforelse
 
   </div>
@@ -116,9 +116,9 @@
       </div>
 
     @empty
-        <div class="col-12 alert bg-secondary text-light">
-          لا يوجد أي حواسيب غير متوفرة حاليا
-        </div>
+      <div class="col-12 alert bg-secondary text-light">
+        لا يوجد أي حواسيب غير متوفرة حاليا
+      </div>
     @endforelse
 
   </div>

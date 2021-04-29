@@ -7,6 +7,7 @@
   <div class="col-12">
     <h2>إدارة المستخدمين</h2>
   </div>
+  <!--
   <div class="col-12">
     <form action="" class="row mt-4 mb-4" method="get">
       <div class="form-group mr-3">
@@ -28,6 +29,7 @@
       </div>
     </form>
   </div>
+  -->
   <div class="col-12">
     <h4 class="text-secondary mb-4">المستخدمون المسجلون <span>({{ $users->count() }})</span></h4>
     <div class="table-responsive-sm">
@@ -79,9 +81,11 @@
               </td>
             </tr>
           @empty
-          <div class="alert bg-secondary text-light">
-            لا يوجد أي مستخدمين مسجلين حاليا
-          </div>
+            <tr>
+              <td colspan="10" class="text-secondary">
+                لا يوجد أي مستخدمين مسجلين حاليا
+              </td>
+            </tr>
           @endforelse
 
         </tbody>
