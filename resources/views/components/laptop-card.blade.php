@@ -38,7 +38,7 @@
 -->
 
 <div class="col-6 col-md-4 col-lg-3 px-1 mb-2">
-  <div class="card">
+  <div class="card h-100">
     <div class="view zoom overlay">
       <img class="img-fluid w-100" src="{{ asset('images/' . $laptop->image) }}">
       <p class="mb-0"><span class="badge badge-warning badge-pill badge-news"><i class="lni lni-eye"></i> {{ $laptop->views }}</span></p>
