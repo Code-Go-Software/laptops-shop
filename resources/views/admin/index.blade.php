@@ -80,10 +80,9 @@
                 <a class="font-weight-bold text-info mr-2" href="admin/orders/{{ $order->id }}"><i class="lni lni-menu"></i></a>
               </td>
               <td>
-                <form action="/orders" method="post">
+                <form action="/admin/orders/{{ $order->id }}" method="post">
                   @csrf
                   @method('put')
-                  <input type="hidden" name="order_id" value="{{ $order->id }}">
 
                   @if ($order->status)
                     <button type="submit" class="btn p-0 text-danger">
