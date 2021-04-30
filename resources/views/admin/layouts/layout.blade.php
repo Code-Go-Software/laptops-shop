@@ -86,8 +86,8 @@
             </a>
           </div>
           <div class="p-3">
-            <a href="/admin/currency" class="text-light">
-              <i class="lni lni-dollar ml-2"></i>
+            <a href="/admin/price" class="text-light">
+              <i class="lni lni-calculator ml-2"></i>
               إدارة الأسعار
             </a>
           </div>

@@ -76,7 +76,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'IsAdmin']], functio
 
 
     Route::get('/', [AdminPagesController::class, 'dashboard']); // Show Admin Dashboard Page
-    Route::get('/currency', [AdminPagesController::class, 'currency']); // Show Admin Currency Page
+    Route::get('/price', [AdminPagesController::class, 'currency']); // Show Admin Currency Page
     Route::get('/help', [AdminPagesController::class, 'help']); // Show Admin Help Page
 
 
