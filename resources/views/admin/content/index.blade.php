@@ -7,7 +7,7 @@
   <div class="col-12">
     <h2>إدارة المحتوى</h2>
   </div>
-  <div class="col-12">
+  <div class="col-12 mt-3">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
 
@@ -45,13 +45,13 @@
                 <label for="address">عنوان الشركة</label>
 
                 <input type="text" name="value" id="address"
-                class="form-control rounded-pill border-dark"
+                class="form-control rounded-pill border-secondary"
                 placeholder="دمشق - البحصة - جانب جامع الورد"
                 value="{{ $content->where('key', 'address')->first()->value }}">
 
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
+                <button type="submit" class="btn btn-success rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
               </div>
             </form>
           </div>
@@ -65,13 +65,13 @@
                 <label for="phone">رقم الهاتف</label>
 
                 <input type="text" name="value" id="phone"
-                class="form-control rounded-pill border-dark"
+                class="form-control rounded-pill border-secondary"
                 placeholder="0946918650"
                 value="{{ $content->where('key', 'phone')->first()->value }}">
 
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
+                <button type="submit" class="btn btn-success rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
               </div>
             </form>
           </div>
@@ -85,13 +85,13 @@
                 <label for="fixed-phone">رقم الهاتف الثابت</label>
 
                 <input type="text" name="value" id="fixed-phone"
-                class="form-control rounded-pill border-dark"
+                class="form-control rounded-pill border-secondary"
                 placeholder="211-115-12"
                 value="{{ $content->where('key', 'fixed_phone')->first()->value }}">
 
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
+                <button type="submit" class="btn btn-success rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
               </div>
             </form>
           </div>
@@ -105,13 +105,13 @@
                 <label for="help-email">بريد المساعدة</label>
 
                 <input type="text" name="value" id="help-email"
-                class="form-control rounded-pill border-dark"
+                class="form-control rounded-pill border-secondary"
                 placeholder="info@company.com"
                 value="{{ $content->where('key', 'help_email')->first()->value }}">
 
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
+                <button type="submit" class="btn btn-success rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
               </div>
             </form>
           </div>
@@ -125,13 +125,13 @@
                 <label for="facebook-link">رابط صفحة الفيسبوك</label>
 
                 <input type="text" name="value" id="facebook-link"
-                class="form-control rounded-pill border-dark"
+                class="form-control rounded-pill border-secondary"
                 placeholder="https://www.facebook.com" 
                 value="{{ $content->where('key', 'facebook_link')->first()->value }}">
 
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
+                <button type="submit" class="btn btn-success rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
               </div>
             </form>
           </div>
@@ -145,13 +145,13 @@
                 <label for="telegram-link">رابط قناة التلغرام</label>
 
                 <input type="text" name="value" id="telegram-link"
-                class="form-control rounded-pill border-dark"
+                class="form-control rounded-pill border-secondary"
                 placeholder="https://www.telegram.com"
                 value="{{ $content->where('key', 'telegram_link')->first()->value }}">
 
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
+                <button type="submit" class="btn btn-success rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
               </div>
             </form>
           </div>
@@ -165,13 +165,13 @@
                 <label for="instagram-link">رابط حساب الانستغرام</label>
 
                 <input type="text" name="value" id="instagram-link"
-                class="form-control rounded-pill border-dark"
+                class="form-control rounded-pill border-secondary"
                 placeholder="https://www.instagram.com"
                 value="{{ $content->where('key', 'instagram_link')->first()->value }}">
 
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
+                <button type="submit" class="btn btn-success rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
               </div>
             </form>
           </div>
@@ -185,13 +185,13 @@
                 <label for="whatsapp-number">رقم التواصل واتساب</label>
 
                 <input type="text" name="value" id="whatsapp-number"
-                class="form-control rounded-pill border-dark"
+                class="form-control rounded-pill border-secondary"
                 placeholder="0946918650" 
                 value="{{ $content->where('key', 'whatsapp_number')->first()->value }}">
 
               </div>
               <div class="form-group">
-                <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
+                <button type="submit" class="btn btn-success rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
               </div>
             </form>
           </div>
@@ -215,10 +215,10 @@
               </div>
               <div class="form-group text-center">
                 <input type="file" class="d-none" name="value" id="slide1" onchange="previewImage(this, '#slide1-image')">
-                <div id="select-slide1" class="btn btn-primary rounded-pill mt-2" onclick="openFileInput('#slide1')">
+                <div id="select-slide1" class="btn btn-warning rounded-pill mt-2" onclick="openFileInput('#slide1')">
                   <i class="lni lni-image"></i> اختيار صورة جديدة
                 </div>
-                <button type="submit" class="btn btn-info rounded-pill mt-2"><i class="lni lni-save"></i> حفظ</button>
+                <button type="submit" class="btn btn-success rounded-pill mt-2"><i class="lni lni-save"></i> حفظ الصورة</button>
               </div>
             </form>
           </div>
@@ -237,10 +237,10 @@
               </div>
               <div class="form-group text-center">
                 <input type="file" class="d-none" name="value" id="slide2" onchange="previewImage(this, '#slide2-image')">
-                <div id="select-slider2" class="btn btn-primary rounded-pill mt-2" onclick="openFileInput('#slide2')">
+                <div id="select-slider2" class="btn btn-warning rounded-pill mt-2" onclick="openFileInput('#slide2')">
                   <i class="lni lni-image"></i> اختيار صورة جديدة
                 </div>
-                <button type="submit" class="btn btn-info rounded-pill mt-2"><i class="lni lni-save"></i> حفظ</button>
+                <button type="submit" class="btn btn-success rounded-pill mt-2"><i class="lni lni-save"></i> حفظ الصورة</button>
               </div>
             </form>
           </div>
@@ -259,10 +259,10 @@
               </div>
               <div class="form-group text-center">
                 <input type="file" class="d-none" name="value" id="slide3" onchange="previewImage(this, '#slide3-image')">
-                <div id="select-slider3" class="btn btn-primary rounded-pill mt-2" onclick="openFileInput('#slide3')">
+                <div id="select-slider3" class="btn btn-warning rounded-pill mt-2" onclick="openFileInput('#slide3')">
                   <i class="lni lni-image"></i> اختيار صورة جديدة
                 </div>
-                <button type="submit" class="btn btn-info rounded-pill mt-2"><i class="lni lni-save"></i> حفظ</button>
+                <button type="submit" class="btn btn-success rounded-pill mt-2"><i class="lni lni-save"></i> حفظ الصورة</button>
               </div>
             </form>
           </div>
@@ -280,11 +280,11 @@
             <input type="hidden" name="is_image" value="0">
             <div class="form-group">
               <label for="about-us"><b>تعديل المقال</b></label>
-              <textarea id="about-us" name="value" class="form-control rounded border-dark"
+              <textarea id="about-us" name="value" class="form-control rounded border-secondary"
               cols="30" rows="10" placeholder="مقال تعريفي عن الشركة">{{ $content->where('key', 'about_us')->first()->value }}</textarea>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
+              <button type="submit" class="btn btn-success rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
             </div>
           </form>
         </div>

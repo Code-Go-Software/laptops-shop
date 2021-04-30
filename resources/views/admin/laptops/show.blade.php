@@ -12,11 +12,11 @@
       <div class="text-center">
         <img src="{{ asset('images/' . $laptop->image) }}" class="img-fluid">
       </div>
-      <div class="thumbs d-flex justify-content-center align-items-center">
+      <div class="thumbs d-flex justify-content-center align-items-center mt-2">
 
         @forelse ($laptop->subImages as $image)
-          <div class="col text-center">
-            <img src="{{ asset('images/' . $image->image) }}" class="img-fluid rounded-circle shadow" style="max-width: 150px;">
+          <div class="text-center">
+            <img src="{{ asset('images/' . $image->image) }}" class="img-fluid rounded shadow mx-2" style="max-width: 150px;">
           </div>
         @empty
             <div class="col-12 text-center">

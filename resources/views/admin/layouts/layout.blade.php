@@ -136,7 +136,7 @@
           </section>
         @endif
 
-        <div class="h-100 py-3 px-4">
+        <div class="py-3 px-4">
           <div class="container-fluid">
   
             <div class="row">
