@@ -4,6 +4,36 @@
 
 @section('content')
     
+  
+
+  @forelse ($categories as $category)
+      
+    <section id="new-products" class="py-3 px-2">
+      <h1 class="text-dark" style="font-size: 45px;">{{ $category->name }}</h1>
+      <p class="text-secondary h5">{{ $category->description }}</p>
+      <div class="container-fluid">
+        <div class="row">
+
+          @php
+              $laptops = $category->laptops->where('is_available', true);
+          @endphp
+            
+          @foreach ($laptops as $laptop)
+
+            <x-laptop-card :laptop="$laptop" role='user'/>
+              
+          @endforeach
+
+          <div class="col-12 text-center mt-3">
+            <a href="/laptops?cid={{ $category->id }}" class="btn bg-primary text-light rounded-pill">عرض المزيد</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  @empty
+      <div class="alert alert-secondary text-center">عذرا لا يتوفر أي حواسيب حاليا</div>
+  @endforelse
+
   <!--Carousel Start-->
   <section id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
@@ -27,34 +57,6 @@
     </a>
   </section>
   <!--Carousel End-->
-
-  @forelse ($categories as $category)
-      
-    <section id="new-products" class="py-3 px-2">
-      <h1>{{ $category->name }}</h1>
-      <p class="text-secondary">{{ $category->description }}</p>
-      <div class="container-fluid">
-        <div class="row">
-
-          @php
-              $laptops = $category->laptops->where('is_available', true);
-          @endphp
-            
-          @foreach ($laptops as $laptop)
-
-            <x-laptop-card :laptop="$laptop" role='user'/>
-              
-          @endforeach
-
-          <div class="col-12 text-center mt-3">
-            <a href="/laptops?cid={{ $category->id }}" class="btn btn-primary rounded-pill">عرض المزيد</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  @empty
-      <div class="alert alert-secondary text-center">عذرا لا يتوفر أي حواسيب حاليا</div>
-  @endforelse
 
 @endsection
 

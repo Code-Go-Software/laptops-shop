@@ -1,0 +1,70 @@
+:root{
+  font-size: 14px;
+}
+body{
+  /*font-family: 'tahoma';*/
+  font-family: 'Almarai', sans-serif;
+  text-align: right;
+  --primary: #14213D;
+  --secondary: #7E8287;
+  --warning: #FCA311;
+  --success: #0B6E4F;
+  --danger: #A63A50;
+  --light: #E5E5E5;
+  --info: #6096BA;
+  --dark: #000;
+}
+
+a.text-light:hover{
+  text-decoration: none;
+  color: var(--warning) !important;
+}
+
+.bg-primary{
+  background-color: var(--primary) !important;
+}
+.text-primary{
+  color: var(--primary) !important;
+}
+.bg-secondary{
+  background-color: var(--secondary) !important;
+}
+.text-secondary{
+  color: var(--secondary) !important;
+}
+.bg-success{
+  background-color: var(--success) !important;
+}
+.text-success{
+  color: var(--success) !important;
+}
+.bg-info{
+  background-color: var(--info) !important;
+}
+.text-info{
+  color:  var(--info) !important;
+}
+.bg-danger{
+  background-color: var(--danger) !important;
+}
+.text-danger{
+  color: var(--danger) !important;
+}
+.bg-light{
+  background-color: var(--light) !important;
+}
+.text-light{
+  color: var(--light) !important;
+}
+.bg-dark{
+  background-color: var(--dark) !important;
+}
+.text-dark{
+  color: var(--dark) !important;
+}
+.bg-warning{
+  background-color: var(--warning) !important;
+}
+.text-warning{
+  color: var(--warning) !important;
+}

@@ -41,7 +41,7 @@
   <div class="card h-100">
     <div class="view zoom overlay">
       <img class="img-fluid w-100" src="{{ asset('images/' . $laptop->image) }}">
-      <p class="mb-0"><span class="badge badge-warning badge-pill badge-news"><i class="lni lni-eye"></i> {{ $laptop->views }}</span></p>
+      <p class="mb-0"><span class="badge bg-warning text-dark badge-pill badge-news"><i class="lni lni-eye"></i> {{ $laptop->views }}</span></p>
     </div>
     @if ($role == 'user')
       <div class="card-body text-center">
@@ -54,14 +54,14 @@
         <form action="/cart" class="d-inline" method="POST">
           @csrf
           <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
-          <button type="submit" class="btn btn-success rounded-pill btn-sm mr-1 mb-2">
+          <button type="submit" class="btn bg-success text-light rounded-pill btn-sm mr-1 mb-2">
             <i class="lni lni-cart pl-2"></i>إضافة للسلة
           </button>
         </form>
         <form action="/favourites" class="d-inline" method="POST">
           @csrf
           <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
-          <button type="submit" class="btn btn-outline-danger rounded-pill btn-sm px-3 mb-2 material-tooltip-main"
+          <button type="submit" class="btn bg-danger text-light rounded-pill btn-sm px-3 mb-2 material-tooltip-main"
           data-toggle="tooltip" data-placement="top"
           title="إضافة للمفضلة">
             <i class="lni lni-heart-filled"></i>

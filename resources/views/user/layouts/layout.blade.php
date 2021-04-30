@@ -7,20 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/font-css/LineIcons.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
-  <style>
-    body{
-      /*font-family: 'tahoma';*/
-      font-family: 'Almarai', sans-serif;
-      text-align: right;
-    }
-  </style>
 </head>
 
 <body dir="rtl">
   <!--Navbar Start-->
-  <nav class="d-flex justify-content-center align-items-center py-2 px-2" style="background-color: #262626;">
+  <nav id="navbar" class="d-flex justify-content-center align-items-center py-2 px-2 bg-primary">
     <div class="ml-3">
       @auth
         <a href="/profile" class="text-light">
@@ -44,7 +38,7 @@
       </a>
     </div>
     <div class="flex-grow-1 text-center text-light">
-      <h3>اسم الشركة</h3>
+      <h3><a href="/" class="text-light">دبي غروب</a></h3>
     </div>
     <div class="mr-3">
       <a href="/cart" class="text-light">
@@ -63,13 +57,13 @@
   <section id="search-bar" class="mb-2">
     <form action="/laptops" method="GET"  class="d-flex align-items-stretch mt-2">
       <div>
-        <button type="submit" class="btn btn-info rounded-pill btn-sm"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
+        <button type="submit" class="btn bg-primary text-light rounded-pill btn-sm"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
       </div>
       <div class="flex-grow-1 px-1">
         <input type="text" name="q" placeholder="ما الذي تبحث عنه" class="form-control form-control-sm rounded-pill shadow font-italic" value="{{ request('q') }}">
       </div>
       <div class="d-none d-md-block">
-        <a href="/laptops" class="btn btn-info rounded-pill btn-sm"><i class="lni lni-control-panel d-none d-md-inline"></i> بحث
+        <a href="/laptops" class="btn bg-info text-light rounded-pill btn-sm"><i class="lni lni-control-panel d-none d-md-inline"></i> بحث
           متقدم</a>
       </div>
     </form>
@@ -110,19 +104,19 @@
   @yield('content')
 
   <!--Footer Start-->
-  <footer class="py-3 px-2 mt-3">
+  <footer class="py-3 px-2 mt-3 bg-primary text-light">
     <div class="container-fluid">
       <div class="row">
         <div class="col-5 col-md-4">
           <h5 class="font-weight-bold">أقسام الموقع</h5>
           <ul class="list-unstyled py-2 pl-2">
-            <li class="py-1 px-1"><a href="/" class="text-dark">الصفحة الرئيسية</a></li>
-            <li class="py-1 px-1"><a href="/laptops" class="text-dark">تصفح الحواسيب المحمولة</a></li>
-            <li class="py-1 px-1"><a href="/register" class="text-dark">إنشاء حساب</a></li>
-            <li class="py-1 px-1"><a href="/about-us" class="text-dark">عن الشركة</a></li>
+            <li class="py-1 px-1"><a href="/" class="text-light">الصفحة الرئيسية</a></li>
+            <li class="py-1 px-1"><a href="/laptops" class="text-light">تصفح الحواسيب المحمولة</a></li>
+            <li class="py-1 px-1"><a href="/register" class="text-light">إنشاء حساب</a></li>
+            <li class="py-1 px-1"><a href="/about-us" class="text-light">عن الشركة</a></li>
             @auth
                 @if(auth()->user()->is_admin)
-                  <li class="py-1 px-1"><a href="/admin" class="text-dark">إدارة الموقع</a></li>
+                  <li class="py-1 px-1"><a href="/admin" class="text-light">إدارة الموقع</a></li>
                 @endif
             @endauth
           </ul>
@@ -138,37 +132,38 @@
           </ul>
           <div class="d-flex mt-2">
             <div class="px-2 py-1">
-              <a class="text-dark" href="{{ $content->where('key', 'whatsapp_number')->first()->value }}">
+              <a class="text-light" href="{{ $content->where('key', 'whatsapp_number')->first()->value }}">
                 <i class="lni lni-whatsapp" style="font-size: 22px;"></i>
               </a>
             </div>
             <div class="px-2 py-1">
-              <a class="text-dark" href="{{ $content->where('key', 'telegram_link')->first()->value }}">
+              <a class="text-light" href="{{ $content->where('key', 'telegram_link')->first()->value }}">
                 <i class="lni lni-telegram" style="font-size: 22px;"></i>
               </a>
             </div>
             <div class="px-2 py-1">
-              <a class="text-dark" href="{{ $content->where('key', 'instagram_link')->first()->value }}">
+              <a class="text-light" href="{{ $content->where('key', 'instagram_link')->first()->value }}">
                 <i class="lni lni-instagram" style="font-size: 22px;"></i>
               </a>
             </div>
             <div class="px-2 py-1">
-              <a class="text-dark" href="{{ $content->where('key', 'facebook_link')->first()->value }}">
+              <a class="text-light" href="{{ $content->where('key', 'facebook_link')->first()->value }}">
                 <i class="lni lni-facebook" style="font-size: 22px;"></i>
               </a>
             </div>
           </div>
         </div>
         <div class="col-12 col-md-3">
-          <div class="text-center mt-2">
-            <h1>Company Name</h1>
+          <div class="">
+            <h1><a href="/" class="text-light">دبي غروب</a></h1>
+            <p class="text-light">تجارة كافة أنواع الحواسيب المحمولة الجديدة والمستعملة</p>
           </div>
         </div>
       </div>
     </div>
   </footer>
   <div>
-    <div class="text-secondary text-center py-1 px-2" style="background-color: #262626;">
+    <div class="text-dark text-center py-1 px-2 bg-warning">
       جميع الحقوق محفوظة @
     </div>
   </div>
