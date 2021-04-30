@@ -30,9 +30,9 @@
     </form>
   </div>
   -->
-  <div class="col-12">
+  <div class="col-12 my-5">
     <h4 class="mb-3 mt-3">الفئات <span>({{ $categories->count() }})</span></h4>
-    <a href="/admin/categories/create" class="btn btn-success rounded-pill"><i class="lni lni-plus"></i> إضافة فئة جديدة</a>
+    <a href="/admin/categories/create" class="btn bg-success text-light"><i class="lni lni-plus"></i> إضافة فئة جديدة</a>
     <div class="table-responsive-sm mt-3 bg-light">
       <table class="table table-sm">
         <thead class="bg-primary text-light">
@@ -47,7 +47,7 @@
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="text-primary">
           
           @forelse ($categories as $category)
             <tr>

@@ -14,7 +14,7 @@
 
         <div class="form-group">
           <label for="name">اسم الفئة</label>
-          <input type="text" name="name" id="name" class="form-control rounded-pill border-secondary" placeholder="مثل: حواسيب للألعاب" value="{{ old('name') }}">
+          <input type="text" name="name" id="name" class="form-control border-secondary" placeholder="مثل: حواسيب للألعاب" value="{{ old('name') }}">
           @error('name')
                 <small class="text-danger">{{ $message }}</small>
           @enderror
@@ -33,7 +33,7 @@
         </div>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-success btn-block rounded-pill"><i class="lni lni-plus"></i> إضافة الفئة</button>
+          <button type="submit" class="btn bg-success text-light btn-block"><i class="lni lni-plus"></i> إضافة الفئة</button>
         </div>
 
       </form>

@@ -30,11 +30,11 @@
     </form>
   </div>
   -->
-  <div class="col-12">
+  <div class="col-12 my-5">
     <h4 class="text-secondary mb-4">المستخدمون المسجلون <span>({{ $users->count() }})</span></h4>
     <div class="table-responsive-sm bg-light">
       <table class="table table-sm">
-        <thead class="bg-primary text-light">
+        <thead class="bg-warning text-dark">
           <tr>
             <th scope="col">#</th>
             <th scope="col">الصورة الشخصية</th>
@@ -48,7 +48,7 @@
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody class="small">
+        <tbody class="text-primary">
           
           @forelse ($users as $user)
             <tr>

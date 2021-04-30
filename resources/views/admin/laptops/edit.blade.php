@@ -18,10 +18,10 @@
             <p class="text-danger"><small>{{ $message }}</small></p>
         @enderror
         <br>
-        <div class="btn btn-warning rounded-pill mt-2 mb-2" onclick="openFileInput('#main-image-file')">
+        <div class="btn bg-primary text-light mt-2 mb-2" onclick="openFileInput('#main-image-file')">
           <i class="lni lni-image"></i> اختيار صورة
         </div>
-        <button type="submit" class="btn btn-success rounded-pill"><i class="lni lni-save"></i> حفظ الصورة</button>
+        <button type="submit" class="btn bg-success text-light"><i class="lni lni-save"></i> حفظ الصورة</button>
       </div>
     </form>
   </div>
@@ -35,7 +35,7 @@
       <div class="form-group">
         <label for="name">اسم الحاسوب</label>
         <input type="text" name="name" id="name"
-        class="form-control rounded-pill border-secondary"
+        class="form-control border-secondary"
         placeholder="Asus 10.255 LS850" value="{{ $laptop->name }}">
         @error('name')
             <small class="text-danger">{{ $message }}</small>
@@ -45,7 +45,7 @@
       <div class="form-group">
         <label for="before-discount-price">السعر قبل الحسم</label>
         <input type="text" name="before_discount_price" id="before-discount-price"
-        class="form-control rounded-pill border-secondary" placeholder="سعر الحاسوب قبل الحسم" value="{{ $laptop->before_discount_price }}">
+        class="form-control border-secondary" placeholder="سعر الحاسوب قبل الحسم" value="{{ $laptop->before_discount_price }}">
         @error('before_discount_price')
             <small class="text-danger">{{ $message }}</small>
         @enderror
@@ -63,7 +63,7 @@
       <div class="form-group">
         <label for="company">الشركة المصنعة</label>
         <input type="text" name="company" id="company"
-        class="form-control rounded-pill border-secondary" placeholder="Asus" value="{{ $laptop->company }}">
+        class="form-control border-secondary" placeholder="Asus" value="{{ $laptop->company }}">
         @error('company')
             <small class="text-danger">{{ $message }}</small>
         @enderror
@@ -82,7 +82,7 @@
       <div class="form-group">
         <label for="ram">ذاكرة الوصول العشوائية</label>
         <input type="text" name="ram" id="ram"
-        class="form-control rounded-pill border-secondary" placeholder="8 GB DDR4" value="{{ $laptop->ram }}">
+        class="form-control border-secondary" placeholder="8 GB DDR4" value="{{ $laptop->ram }}">
         @error('ram')
             <small class="text-danger">{{ $message }}</small>
         @enderror
@@ -91,7 +91,7 @@
       <div class="form-group">
         <label for="hard-drive">سعة التخزين</label>
         <input type="text" name="hard" id="hard-drive"
-        class="form-control rounded-pill border-secondary" placeholder="1 TB HDD" value="{{ $laptop->hard }}">
+        class="form-control border-secondary" placeholder="1 TB HDD" value="{{ $laptop->hard }}">
         @error('hard')
             <small class="text-danger">{{ $message }}</small>
         @enderror
@@ -100,7 +100,7 @@
       <div class="form-group">
         <label for="screen-card">كرت الشاشة</label>
         <input type="text" name="screen_card" id="screen-card"
-        class="form-control rounded-pill border-secondary" placeholder="AMD RTX-4500 2GB" value="{{ $laptop->screen_card }}">
+        class="form-control border-secondary" placeholder="AMD RTX-4500 2GB" value="{{ $laptop->screen_card }}">
         @error('screen_card')
             <small class="text-danger">{{ $message }}</small>
         @enderror
@@ -108,7 +108,7 @@
   
       <div class="form-group">
         <label for="screen-card-type">نوع كرت الشاشة</label>
-        <select class="form-control rounded-pill border-secondary" name="screen_card_type" id="screen-card-type">
+        <select class="form-control border-secondary" name="screen_card_type" id="screen-card-type">
           <option {{ ($laptop->screen_card_type == "مدمج") ? 'selected' : '' }} value="مدمج">مدمج</option>
           <option {{ ($laptop->screen_card_type == "منفصل") ? 'selected' : '' }} value="منفصل">منفصل</option>
         </select>
@@ -120,7 +120,7 @@
       <div class="form-group">
         <label for="screen-size">قياس الشاشة</label>
         <input type="text" name="screen_size" id="screen-size"
-        class="form-control rounded-pill border-secondary" placeholder="15.6 INCH" value="{{ $laptop->screen_size }}">
+        class="form-control border-secondary" placeholder="15.6 INCH" value="{{ $laptop->screen_size }}">
         @error('screen_size')
             <small class="text-danger">{{ $message }}</small>
         @enderror
@@ -129,7 +129,7 @@
       <div class="form-group">
         <label for="cd-rom">قارئة الأقراص</label>
         <input type="text" name="cd_driver" id="cd-rom"
-        class="form-control rounded-pill border-secondary" placeholder="CD/ROM قراءة وكتابة" value="{{ $laptop->cd_driver }}">
+        class="form-control border-secondary" placeholder="CD/ROM قراءة وكتابة" value="{{ $laptop->cd_driver }}">
         @error('cd_driver')
             <small class="text-danger">{{ $message }}</small>
         @enderror
@@ -138,7 +138,7 @@
       <div class="form-group">
         <label for="battery">البطارية</label>
         <input type="text" name="battery" id="battery"
-        class="form-control rounded-pill border-secondary" placeholder="تعمل ل 4 ساعات متواصل" value="{{ $laptop->battery }}">
+        class="form-control border-secondary" placeholder="تعمل ل 4 ساعات متواصل" value="{{ $laptop->battery }}">
         @error('battery')
             <small class="text-danger">{{ $message }}</small>
         @enderror
@@ -147,7 +147,7 @@
       <div class="form-group">
         <label for="ports">المداخل</label>
         <input type="text" name="ports" id="ports"
-        class="form-control rounded-pill border-secondary" placeholder="USB 3 + HDMI" value="{{ $laptop->ports }}">
+        class="form-control border-secondary" placeholder="USB 3 + HDMI" value="{{ $laptop->ports }}">
         @error('ports')
             <small class="text-danger">{{ $message }}</small>
         @enderror
@@ -155,7 +155,7 @@
   
       <div class="form-group">
         <label for="category">فئة الحاسوب</label>
-        <select name="category_id" class="form-control rounded-pill border-secondary" id="category">
+        <select name="category_id" class="form-control border-secondary" id="category">
           @foreach ($categories as $category)
             <option value="{{ $category->id }}" {{ ($category->id == $laptop->category_id) ? 'selected' : '' }}>{{ $category->name }}</option>
           @endforeach
@@ -166,7 +166,7 @@
       </div>
       <div class="form-group">
         <label for="is-available">هل المنتج متوفر للبيع</label>
-        <select name="is_available" class="form-control rounded-pill border-secondary" id="is-available">
+        <select name="is_available" class="form-control border-secondary" id="is-available">
           <option {{ ($laptop->is_available) ? 'selected' : '' }} value="1">متوفر</option>
           <option {{ (!$laptop->is_available) ? 'selected' : '' }} value="0">غير متوفر</option>
         </select>
@@ -176,7 +176,7 @@
       </div>
       <div class="form-group">
         <label for="type">حالة المنتج</label>
-        <select name="type" class="form-control rounded-pill border-secondary" id="type">
+        <select name="type" class="form-control border-secondary" id="type">
           <option {{ ($laptop->type == 'New') ? 'selected' : '' }} value="New">New</option>
           <option {{ ($laptop->type == 'Open Box') ? 'selected' : '' }} value="Open Box">Open Box</option>
         </select>
@@ -194,7 +194,7 @@
         @enderror
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-success btn-block rounded-pill"><i class="lni lni-save"></i> تعديل البيانات</button>
+        <button type="submit" class="btn bg-success text-light btn-block"><i class="lni lni-save"></i> تعديل البيانات</button>
       </div>
     </form>
   </div>
@@ -209,7 +209,7 @@
           @csrf
           @method('delete')
           <img src="{{ asset('images/' . $subImage->image) }}" class="img-fluid rounded">
-          <button type="submit" class="btn btn-block btn-danger rounded-pill mt-2 delete-btn"><i class="lni lni-trash"></i> حذف</button>
+          <button type="submit" class="btn btn-block bg-danger text-light mt-2 delete-btn"><i class="lni lni-trash"></i> حذف</button>
         </form>
       @empty
           
@@ -224,8 +224,8 @@
             <small class="text-danger">{{ $message }}</small>
         @enderror
         <br>
-        <div class="btn btn-warning rounded-pill mt-2" onclick="openFileInput('#image-file')"><i class="lni lni-image"></i> اختيار صورة</div>
-        <button class="btn btn-success rounded-pill mt-2"><i class="lni lni-save"></i> حفظ الصورة</button>
+        <div class="btn bg-primary text-light mt-2" onclick="openFileInput('#image-file')"><i class="lni lni-image"></i> اختيار صورة</div>
+        <button class="btn bg-success text-light mt-2"><i class="lni lni-save"></i> حفظ الصورة</button>
       </form>
     </div>
   </div>

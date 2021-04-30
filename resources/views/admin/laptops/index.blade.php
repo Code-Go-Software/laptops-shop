@@ -44,22 +44,22 @@
   <div class="col-12">
     <form action="" class="row" method="get">
       <div class="form-group mr-3">
-        <label for="sort"><small>ترتيب حسب الزمن</small></label>
-        <select name="t" class="form-control form-control-sm rounded-pill d-inline-block w-auto border-secondary ml-2">
+        <label for="sort">ترتيب حسب الزمن</label>
+        <select name="t" class="form-control form-control-sm d-inline-block w-auto border-secondary ml-2">
           <option value="new" {{ (request('t') == 'new' || request('t') == '') ? 'selected' : ''}}>الأحدث أولا</option>
           <option value="old" {{ (request('t') == 'old') ? 'selected' : ''}}>الأقدم أولا</option>
         </select>
       </div>
       <div class="form-group mr-3">
-        <label for="sort"><small>ترتيب حسب السعر</small></label>
-        <select name="p" class="form-control form-control-sm rounded-pill d-inline-block w-auto border-secondary ml-2">
+        <label for="sort">ترتيب حسب السعر</label>
+        <select name="p" class="form-control form-control-sm d-inline-block w-auto border-secondary ml-2">
           <option value="high" {{ (request('p') == 'high') ? 'selected' : ''}}>الأعلى سعرا أولا</option>
           <option value="low" {{ (request('p') == 'low' || request('p') == '') ? 'selected' : ''}}>الأقل سعرا أولا</option>
         </select>
       </div>
       <div class="form-group mr-3">
-        <label for="sort"><small>الفئة</small></label>
-        <select name="cid" class="form-control form-control-sm rounded-pill d-inline-block w-auto border-secondary ml-2">
+        <label for="sort">الفئة</label>
+        <select name="cid" class="form-control form-control-sm d-inline-block w-auto border-secondary ml-2">
           <option value="" selected>الكل</option>
           @foreach ($categories as $category)
             <option value="{{ $category->id }}" {{ (request('cid') == $category->id) ? 'selected' : '' }}>{{ $category->name }}</option>
@@ -67,17 +67,17 @@
         </select>
       </div>
       <div class="form-group mr-3">
-        <input type="text" name="q" class="form-control form-control-sm rounded-pill border-secondary" placeholder="بحث" value="{{ request('q') }}">
+        <input type="text" name="q" class="form-control form-control-sm border-secondary" placeholder="بحث" value="{{ request('q') }}">
       </div>
       <div class="form-group mr-3">
-        <button type="submit" class="btn btn-sm btn-primary rounded-pill">تطبيق</button>
+        <button type="submit" class="btn btn-sm bg-primary text-light">تطبيق</button>
       </div>
       <div class="form-group mr-2">
-        <a href="/admin/laptops/create" class="btn btn-sm btn-success rounded-pill"><i class="lni lni-plus"></i> إضافة حاسوب</a>
+        <a href="/admin/laptops/create" class="btn btn-sm bg-success text-light"><i class="lni lni-plus"></i> إضافة حاسوب</a>
       </div>
     </form>
   </div>
-  <div class="col-12 row">
+  <div class="col-12 row my-5">
 
     @forelse ($laptops as $laptop)
 
@@ -100,7 +100,7 @@
   <div class="col-12">
     <h4 class="mb-4 mt-4">المنتجات المنتجات الغير متوفرة <span>({{ $un_available_laptops->count() }})</span></h4>
   </div>
-  <div class="col-12 row">
+  <div class="col-12 row my-5">
     
     @forelse ($un_available_laptops as $laptop)
 

@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <div class="col-12 mt-3">
+  <div class="col-12 my-5">
     <h4 class="mb-4">الطلبات غير المنجزة <span>({{ $uncompleted_orders_count }})</span></h4>
     <div class="table-responsive-sm bg-light">
       <table class="table table-sm">
@@ -62,7 +62,7 @@
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody class="small">
+        <tbody class="text-primary">
           
           @forelse ($uncompleted_orders as $order)
             <tr>
@@ -130,11 +130,11 @@
     </div>
   </div>
 
-  <div class="col-12 col-md-6 mt-3">
+  <div class="col-12 col-md-6 my-5">
     <h4 class="mb-4">تقرير الطلبات</h4>
     <div class="table-responsive-sm bg-light">
-      <table class="table table-sm">
-        <tbody>
+      <table class="table table-sm bg-warning">
+        <tbody class="text-primary font-weight-bold">
           <tr>
             <td>الطلبات المنجزة</td>
             <td><b class="text-success">{{ $completed_orders_count }}</b></td>
@@ -158,7 +158,7 @@
     </div>
   </div>
 
-  <div class="col-12 col-md-6 mt-3">
+  <div class="col-12 col-md-6 my-5">
     <h4 class="mb-4">تقرير المفضلة</h4>
     <div class="table-responsive-sm bg-light">
       <table class="table table-sm">
@@ -170,7 +170,7 @@
             <th scope="col">تاريخ الإضاقة</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="text-primary">
           
           @forelse ($favourites as $favourite)
             <tr>
@@ -186,7 +186,7 @@
                 <a href="admin/laptops/{{ $favourite->laptop->id }}"><i class="lni lni-arrow-right-circle"></i></a>
               </td>
               <td>
-                <b>{{ $favourite->created_at }}</b>
+                {{ $favourite->created_at }}
               </td>
             </tr>
           @empty
@@ -202,7 +202,7 @@
     </div>
   </div>
 
-  <div class="col-12 mt-3">
+  <div class="col-12 my-5">
     <h4 class="mb-4">تقرير الفئات</h4>
     <div class="table-responsive-sm bg-light">
       <table class="table table-sm">
@@ -215,7 +215,7 @@
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="text-primary">
           
           @forelse ($categories as $category)
             <tr>

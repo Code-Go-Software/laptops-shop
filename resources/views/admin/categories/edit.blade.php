@@ -17,7 +17,7 @@
           <label for="name">اسم الفئة</label>
 
           <input type="text" name="name"
-          id="name" class="form-control rounded-pill border-secondary"
+          id="name" class="form-control border-secondary"
           placeholder="حواسيب تصميم" value="{{ $category->name }}">
 
           @error('name')
@@ -44,7 +44,7 @@
         </div>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-info btn-block rounded-pill"><i class="lni lni-save"></i> حفظ التعديلات</button>
+          <button type="submit" class="btn bg-success text-light btn-block"><i class="lni lni-save"></i> حفظ التعديلات</button>
         </div>
 
       </form>

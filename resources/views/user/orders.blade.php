@@ -15,18 +15,18 @@
               
             <div class="item row align-items-center shadow py-2 px-1 mb-2">
               <div class="col-12">
-                <span class="badge badge-secondary rounded-pill">
+                <span class="badge bg-secondary text-light rounded-pill">
                   <i class="lni lni-calendar"></i> 
                   <span>{{ $order->created_at }}</span>
                 </span>
 
                 @if ($order->status)
-                  <span class="badge badge-success rounded-pill float-left">
+                  <span class="badge bg-success text-light rounded-pill float-left">
                     <i class="lni lni-checkmark-circle"></i> 
                     <span>منجز</span>
                   </span>
                 @else
-                  <span class="badge badge-danger rounded-pill float-left">
+                  <span class="badge bg-danger text-light rounded-pill float-left">
                     <i class="lni lni-close"></i> 
                     <span>قيد المتابعة</span>
                   </span>

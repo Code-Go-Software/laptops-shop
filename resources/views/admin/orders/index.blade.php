@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <div class="col-12 mt-3">
+  <div class="col-12 my-5">
     <h4 class="mb-4">الطلبات غير المنجزة <span>({{ $uncompleted_orders->count() }})</span></h4>
     <div class="table-responsive-sm bg-light">
       <table class="table table-sm">
@@ -62,7 +62,7 @@
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody class="small">
+        <tbody class="text-primary">
           
           @forelse ($uncompleted_orders as $order)
             <tr>
@@ -130,7 +130,7 @@
     </div>
   </div>
 
-  <div class="col-12 mt-3">
+  <div class="col-12 my-5">
     <h4 class="mb-4">الطلبات المنجزة <span>({{ $completed_orders->count() }})</span></h4>
     <!--
     <form action="" class="row" method="get">
@@ -167,7 +167,7 @@
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody class="small">
+        <tbody class="text-primary">
           
           @forelse ($completed_orders as $order)
             <tr>

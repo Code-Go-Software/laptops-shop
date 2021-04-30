@@ -18,13 +18,13 @@
         @method('put')
         <div class="form-group">
           <label for="currency">سعر الصرف الجديد</label>
-          <input type="text" name="value" class="form-control border-secondary rounded-pill" placeholder="{{ $content->where('key', 'currency')->first()->value }}">
+          <input type="text" name="value" class="form-control border-secondary" placeholder="{{ $content->where('key', 'currency')->first()->value }}">
           @error('value')
             <small class="text-danger">{{ $message }}</small>
           @enderror
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary rounded-pill">تعديل سعر الصرف</button>
+          <button type="submit" class="btn bg-success text-light">تعديل سعر الصرف</button>
         </div>
       </form>
     </div>

@@ -7,15 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/font-css/LineIcons.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
-  <style>
-    body{
-      /*font-family: 'tahoma';*/
-      font-family: 'Almarai', sans-serif;
-      text-align: right;
-    }
-  </style>
 </head>
 
 <body dir="rtl">
@@ -37,7 +31,7 @@
     </div>
   </div>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand" href="/admin">لوحة التحكم</a>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -53,7 +47,7 @@
   <section class="container-fluid">
     <div class="row">
       <!--Side Bar Start-->
-      <div class="col-md-2 col-12 d-flex flex-column bg-dark small">
+      <div class="col-md-2 col-12 d-flex flex-column bg-primary small">
         <div class="h-100" style="min-height: 100vh;">
           <div class="p-3">
             <a href="/admin" class="text-light">
@@ -121,7 +115,7 @@
         </div>
       </div>
       <!--Side Bar End-->
-      <div class="col-md-10 col-12 p-0" style="background-color: #ccc">
+      <div class="col-md-10 col-12 p-0">
         @if (Session::has('success'))
           <section class="alert bg-success mb-0 rounded-0 text-light">
             <i class="lni lni-checkmark-circle ml-1"></i>

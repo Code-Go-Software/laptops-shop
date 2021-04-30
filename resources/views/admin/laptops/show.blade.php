@@ -33,18 +33,18 @@
         </h2>
       </div>
       <div class="col-12 text-center mt-4">
-        <a href="/admin/laptops/{{ $laptop->id }}/edit" class="btn btn-success rounded-pill"><i class="lni lni-pencil"></i> تعديل البيانات</a>
+        <a href="/admin/laptops/{{ $laptop->id }}/edit" class="btn bg-success text-light rounded-pill"><i class="lni lni-pencil"></i> تعديل البيانات</a>
         <form action="/admin/laptops/{{ $laptop->id }}" method="post" class="d-inline">
           @csrf
           @method('delete')
-          <button type="submit" class="btn btn-outline-danger rounded-pill delete-btn"><i class="lni lni-trash"></i> حذف الحاسوب</button>
+          <button type="submit" class="btn bg-danger text-light rounded-pill delete-btn"><i class="lni lni-trash"></i> حذف الحاسوب</button>
         </form>
       </div>
       <div class="text-center mt-3">
-        <span class="badge badge-primary rounded-pill">
+        <span class="badge bg-primary text-light rounded-pill">
           <i class="lni lni-tag"></i> {{ $laptop->category->name }}
         </span>
-        <span class="badge badge-warning rounded-pill">
+        <span class="badge bg-warning text-dark rounded-pill">
           <i class="lni lni-eye"></i> {{ $laptop->views }}
         </span>
       </div>

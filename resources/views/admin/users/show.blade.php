@@ -7,7 +7,7 @@
   <div class="col-12 mb-3">
     <h2>إدارة المستخدمين > عرض بيانات المستخدم</h2>
   </div>
-  <div class="col-md-6 col-12">
+  <div class="col-md-6 col-12 my-5">
     <h4><i class="lni lni-postcard mr-2 mb-2"></i> بيانات المستخدم</h4>
     <img src="{{ asset('images/' . $user->image) }}" class="rounded-circle mr-2" width="100px" height="100px">
     <p><i class="lni lni-user mr-2"></i> الاسم الكامل</p>
@@ -18,8 +18,8 @@
     <p class="text-secondary">{{ $user->phone }}</p>
     <p><i class="lni lni-map mr-2"></i> العنوان</p>
     <p class="text-secondary">{{ $user->address }}</p>
-    <h4><i class="lni lni-star-filled mr-2 mb-3 mt-3"></i> القائمة المفضلة</h4>
-    <div class="pr-4">
+    <h4><i class="lni lni-star-filled mr-2 mt-5"></i> القائمة المفضلة</h4>
+    <div class="pr-4 mb-5">
       
       @forelse ($user->favourites as $favourite)
 
@@ -51,7 +51,7 @@
 
     </div>
   </div>
-  <div class="col-md-6 col-12">
+  <div class="col-md-6 col-12 my-5">
 
     @php
         $orders = $user->orders;
@@ -62,18 +62,18 @@
     @forelse ($orders as $order)
       <div class="item row align-items-center shadow py-2 px-1 mb-2 bg-light">
         <div class="col-12">
-          <span class="badge badge-secondary rounded-pill">
+          <span class="badge bg-secondary text-light rounded-pill">
             <i class="lni lni-calendar"></i> 
             <span>{{ $order->created_at }}</span>
           </span>
 
           @if ($order->status)
-            <span class="badge badge-success rounded-pill float-left">
+            <span class="badge bg-success text-light rounded-pill float-left">
               <i class="lni lni-checkmark-circle"></i> 
               <span>منجز</span>
             </span>
           @else
-            <span class="badge badge-danger rounded-pill float-left">
+            <span class="badge bg-danger text-light rounded-pill float-left">
               <i class="lni lni-close"></i> 
               <span>قيد المتابعة</span>
             </span>
@@ -98,7 +98,7 @@
                     <a href="laptops/{{ $laptop->id }}/{{ $laptop->name }}" class="text-dark">{{ $laptop->name }}</a>
                   </p>
                   <small>السعر عند الطلب</small>
-                  <span class="text-success font-weight-bold"><bdi>s.p</bdi> </span>
+                  <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->pivot->price }}</span>
                 </div>
               </div>
             @endforeach

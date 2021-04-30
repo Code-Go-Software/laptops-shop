@@ -8,7 +8,7 @@
     <h2>إدارة الطلبات > عرض تفاصيل الطلب</h2>
   </div>
 
-  <div class="col-12 mt-4">
+  <div class="col-12 my-5">
     <div class="row justify-content-center">
       
       <div class="col-12 col-md-8">
@@ -22,18 +22,18 @@
           </div>
 
           <div class="col-12">
-            <span class="badge badge-secondary rounded-pill">
+            <span class="badge bg-secondary text-light rounded-pill">
               <i class="lni lni-calendar"></i> 
               <span>{{ $order->created_at }}</span>
             </span>
 
             @if ($order->status)
-              <span class="badge badge-success rounded-pill float-left">
+              <span class="badge bg-success text-light rounded-pill float-left">
                 <i class="lni lni-checkmark-circle"></i> 
                 <span>منجز</span>
               </span>
             @else
-              <span class="badge badge-danger rounded-pill float-left">
+              <span class="badge bg-danger text-light rounded-pill float-left">
                 <i class="lni lni-close"></i> 
                 <span>قيد المتابعة</span>
               </span>
