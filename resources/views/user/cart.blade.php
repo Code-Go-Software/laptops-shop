@@ -8,7 +8,7 @@
     <h1 class="mb-4">سلة المشتريات ({{ $cart_items->count() }})</h1>
     <div class="container-fluid">
       <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6">
+        <div class="col-12 col-md-8 col-lg-6 my-5">
 
           @php
               $total_price = 0;
@@ -27,7 +27,7 @@
               </div>
               <div class="col-7">
                 <p class="font-weight-bold mb-1">
-                  <a href="/laptops/{{ $laptop->id }}/{{ $laptop->name }}" class="text-dark">{{ $laptop->name }}</a>
+                  <a href="/laptops/{{ $laptop->id }}/{{ $laptop->name }}" class="text-primary">{{ $laptop->name }}</a>
                 </p>
                 <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
                 <strike class="text-secondary"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
@@ -72,7 +72,7 @@
             <div class="form-group">
 
               <input type="text" name="contact_number"
-              class="form-control rounded-pill border-dark text-center"
+              class="form-control form-control-lg border-secondary text-center"
               placeholder="رقم التواصل: 0946918650"
               value="{{ auth()->user()->phone }}">
 
@@ -82,7 +82,7 @@
               
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-lg btn-block rounded-pill btn-success">
+              <button type="submit" class="btn btn-lg btn-block bg-success text-light">
                 <i class="lni lni-checkmark-circle"></i>
                 تأكيد الطلب
               </button>

@@ -16,7 +16,7 @@
           <img src="{{ asset('images/' . $image->image) }}" onclick="swapImage(this, '#main-image')" class="img-fluid rounded-circle shadow" style="max-width: 150px;">
         </div>
       @empty
-          <div class="col-12 text-center">
+          <div class="col-12 text-center text-secondary">
             لا يوجد أي صور فرعية لهذا الحاسوب
           </div>
       @endforelse
@@ -24,14 +24,14 @@
     </div>
     <div class="text-center mt-3">
       <h1 class="text-primary">{{ $laptop->name }}</h1>
-      <h2 class="mb-3">
+      <h2 class="mb-5">
         <span class="text-danger font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
         <strike class="text-secondary h4"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
       </h2>
       <form action="/cart" method="post" class="d-inline">
         @csrf
         <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
-        <button class="btn rounded-pill btn-success" type="submit">
+        <button class="btn rounded-pill bg-success text-light" type="submit">
           <i class="lni lni-cart"></i> 
           إضافة إلى السلة
         </button>
@@ -39,17 +39,17 @@
       <form action="/favourites" method="post" class="d-inline">
         @csrf
         <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
-        <button class="btn rounded-pill btn-outline-danger">
+        <button class="btn rounded-pill bg-danger text-light">
           <i class="lni lni-heart"></i> 
           إضافة إلى المفضلة
         </button>
       </form>
     </div>
-    <div class="text-center mt-3">
-      <span class="badge badge-primary rounded-pill">
+    <div class="text-center mt-5">
+      <span class="badge bg-info text-light">
         <i class="lni lni-tag"></i> {{ $laptop->category->name }}
       </span>
-      <span class="badge badge-warning rounded-pill">
+      <span class="badge bg-warning text-dark">
         <i class="lni lni-eye"></i> {{ $laptop->views }}
       </span>
     </div>
@@ -102,7 +102,7 @@
 
       </div>
       <div class="text-center mt-3">
-        <a href="/laptops" class="btn btn-primary rounded-pill">عرض جميع الحواسيب</a>
+        <a href="/laptops" class="btn bg-primary text-light">عرض جميع الحواسيب</a>
       </div>
     </div>
   </section>

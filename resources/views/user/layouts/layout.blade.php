@@ -14,7 +14,7 @@
 
 <body dir="rtl">
   <!--Navbar Start-->
-  <nav id="navbar" class="d-flex justify-content-center align-items-center py-2 px-2 bg-primary">
+  <nav id="navbar" class="d-flex align-items-center py-2 px-2 bg-primary">
     <div class="ml-3">
       @auth
         <a href="/profile" class="text-light">
@@ -37,8 +37,8 @@
         <small>({{ (Auth::check()) ? auth()->user()->favourites->count() : '0' }})</small>
       </a>
     </div>
-    <div class="flex-grow-1 text-center text-light">
-      <h3><a href="/" class="text-light">دبي غروب</a></h3>
+    <div class="flex-grow-1 text-light" style="order:-1;">
+      <h3 class="col-12"><a href="/" class="text-light">دبي غروب</a></h3>
     </div>
     <div class="mr-3">
       <a href="/cart" class="text-light">
@@ -54,16 +54,16 @@
       </a>
     </div>
   </nav>
-  <section id="search-bar" class="mb-2">
-    <form action="/laptops" method="GET"  class="d-flex align-items-stretch mt-2">
+  <section id="search-bar" class="px-2 py-2 bg-warning">
+    <form action="/laptops" method="GET"  class="d-flex align-items-stretch">
       <div>
-        <button type="submit" class="btn bg-primary text-light rounded-pill btn-sm"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
+        <button type="submit" class="btn bg-primary text-light"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
       </div>
       <div class="flex-grow-1 px-1">
-        <input type="text" name="q" placeholder="ما الذي تبحث عنه" class="form-control form-control-sm rounded-pill shadow font-italic" value="{{ request('q') }}">
+        <input type="text" name="q" placeholder="ما الذي تبحث عنه" class="form-control shadow font-italic" value="{{ request('q') }}">
       </div>
       <div class="d-none d-md-block">
-        <a href="/laptops" class="btn bg-info text-light rounded-pill btn-sm"><i class="lni lni-control-panel d-none d-md-inline"></i> بحث
+        <a href="/laptops" class="btn bg-warning text-dark"><i class="lni lni-control-panel d-none d-md-inline"></i> بحث
           متقدم</a>
       </div>
     </form>

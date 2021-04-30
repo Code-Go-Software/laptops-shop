@@ -4,13 +4,12 @@
 
 @section('content')
     
-  
 
   @forelse ($categories as $category)
       
     <section id="new-products" class="py-3 px-2">
-      <h1 class="text-dark" style="font-size: 45px;">{{ $category->name }}</h1>
-      <p class="text-secondary h5">{{ $category->description }}</p>
+      <h1 class="text-primary" style="font-size: 45px;">{{ $category->name }}</h1>
+      <p class="text-info h5">{{ $category->description }}</p>
       <div class="container-fluid">
         <div class="row">
 
@@ -25,7 +24,7 @@
           @endforeach
 
           <div class="col-12 text-center mt-3">
-            <a href="/laptops?cid={{ $category->id }}" class="btn bg-primary text-light rounded-pill">عرض المزيد</a>
+            <a href="/laptops?cid={{ $category->id }}" class="btn bg-primary text-light">عرض المزيد</a>
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@
             @csrf
             <div class="form-group">
               <label for="username"><i class="lni lni-user"></i> الاسم الكامل</label>
-              <input type="text" name="fullname" id="username" class="form-control border border-dark rounded-pill" placeholder="الاسم والكنية" value="{{ old('fullname') }}">
+              <input type="text" name="fullname" id="username" class="form-control border-secondary" placeholder="الاسم والكنية" value="{{ old('fullname') }}">
               
               @error('fullname')
                 <small class="text-danger">{{ $message }}</small>
@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
               <label for="email"><i class="lni lni-envelope"></i> البريد الإلكتروني</label>
-              <input type="email" name="email" id="email" class="form-control border border-dark rounded-pill" placeholder="user@email.com" value="{{ old('email') }}">
+              <input type="email" name="email" id="email" class="form-control border-secondary" placeholder="user@email.com" value="{{ old('email') }}">
 
               @error('email')
                 <small class="text-danger">{{ $message }}</small>
@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
               <label for="phone"><i class="lni lni-phone"></i> رقم الهاتف</label>
-              <input type="text" name="phone" id="phone" class="form-control border border-dark rounded-pill" placeholder="946-918-650 (963)" value="{{ old('phone') }}">
+              <input type="text" name="phone" id="phone" class="form-control border-secondary" placeholder="946-918-650 (963)" value="{{ old('phone') }}">
 
               @error('phone')
                 <small class="text-danger">{{ $message }}</small>
@@ -40,7 +40,7 @@
             </div>
             <div class="form-group">
               <label for="address"><i class="lni lni-map"></i> العنوان</label>
-              <input type="text" name="address" id="address" class="form-control border border-dark rounded-pill" placeholder="دمشق - الحمرا" value="{{ old('address') }}">
+              <input type="text" name="address" id="address" class="form-control border-secondary" placeholder="دمشق - الحمرا" value="{{ old('address') }}">
 
               @error('address')
                 <small class="text-danger">{{ $message }}</small>
@@ -49,7 +49,7 @@
             </div>
             <div class="form-group">
               <label for="password"><i class="lni lni-eye"></i> كلمة السر</label>
-              <input type="password" name="password" id="password" class="form-control border border-dark rounded-pill" placeholder="********" value="{{ old('password') }}">
+              <input type="password" name="password" id="password" class="form-control border-secondary" placeholder="********" value="{{ old('password') }}">
 
               @error('password')
                 <small class="text-danger">{{ $message }}</small>
@@ -58,7 +58,7 @@
             </div>
             <div class="form-group">
               <label for="password-confirm"><i class="lni lni-eye"></i> تاكيد كلمة السر</label>
-              <input type="password" name="password_confirmation" id="password-confirm" class="form-control border border-dark rounded-pill" placeholder="********" value="{{ old('password_confirmation') }}">
+              <input type="password" name="password_confirmation" id="password-confirm" class="form-control border-secondary" placeholder="********" value="{{ old('password_confirmation') }}">
 
               @error('password_confirmation')
                 <small class="text-danger">{{ $message }}</small>
@@ -66,7 +66,7 @@
 
             </div>
             <div class="form-group">
-              <button class="btn btn-primary rounded-pill" type="submit">
+              <button class="btn bg-primary text-light" type="submit">
                   إنشاء الحساب
               </button>
             </div>

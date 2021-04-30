@@ -13,7 +13,7 @@
           <form action="" method="GET" class="shadow px-2 py-3 row">
             <div class="col-12 col-md-auto">
               <select id="category" name="cid"
-              class="form-control form-control-sm d-inline-block w-auto mr-1 border-dark rounded-pill mb-3">
+              class="form-control form-control-sm d-inline-block w-auto mr-1 border-secondary mb-3">
                 <option value="">الكل</option>  
 
                 @forelse ($categories as $category)
@@ -24,12 +24,12 @@
 
               </select>
               <select id="price" name="p"
-              class="form-control form-control-sm d-inline-block w-auto mr-1 border-dark rounded-pill mb-3">
+              class="form-control form-control-sm d-inline-block w-auto mr-1 border-secondary mb-3">
                 <option value="high" {{ (request('p') == 'high') ? 'selected' : ''}}>الأعلى أولا</option>
                 <option value="low" {{ (request('p') == 'low' || request('p') == '') ? 'selected' : ''}}>الأقل أولا</option>
               </select>
               <select id="time" name="t"
-              class="form-control form-control-sm d-inline-block w-auto mr-1 border-dark rounded-pill mb-3">
+              class="form-control form-control-sm d-inline-block w-auto mr-1 border-secondary mb-3">
                 <option value="new" {{ (request('t') == 'new' || request('t') == '') ? 'selected' : ''}}>الأحدث أولا</option>
                 <option value="old" {{ (request('t') == 'old') ? 'selected' : ''}}>الأقدم أولا</option>
               </select>
@@ -47,7 +47,7 @@
             </div>
             -->
             <div class="col-auto">
-              <button type="submit" class="btn btn-info btn-sm rounded-pill"><i class="lni lni-search"></i> بحث</button>
+              <button type="submit" class="btn bg-primary text-light btn-sm"><i class="lni lni-search"></i> بحث</button>
             </div>
           </form>
         </div>

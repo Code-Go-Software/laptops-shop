@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section id="login-form" class="py-3 px-2 mt-5 mb-5">
+<section id="login-form" class="py-3 px-2 my-5">
   <h1 class="text-center">تسجيل الدخول</h1>
   <div class="container-fluid">
     <div class="row justify-content-center">
@@ -13,7 +13,7 @@
           @csrf
           <div class="form-group">
             <label for="email"><i class="lni lni-envelope"></i> البريد الإلكتروني</label>
-            <input type="text" name="email" id="email" class="form-control border border-dark rounded-pill" placeholder="user@email.com" value="{{ old('email') }}">
+            <input type="text" name="email" id="email" class="form-control border-secondary" placeholder="user@email.com" value="{{ old('email') }}">
 
             @error('email')
                 <small class="text-danger">{{ $message }}</small>
@@ -22,14 +22,14 @@
           </div>
           <div class="form-group">
             <label for="password"><i class="lni lni-eye"></i> كلمة السر</label>
-            <input type="password" name="password" id="password" class="form-control border border-dark rounded-pill" placeholder="********"  value="{{ old('password') }}">
+            <input type="password" name="password" id="password" class="form-control border-secondary" placeholder="********"  value="{{ old('password') }}">
 
             @error('password')
                 <small class="text-danger">{{ $message }}</small>
             @enderror
           </div>
           <div class="form-group">
-            <button class="btn btn-primary rounded-pill" type="submit">
+            <button class="btn bg-primary text-light" type="submit">
             تسجيل الدخول
             </button>
           </div>
