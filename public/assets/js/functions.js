@@ -40,3 +40,4 @@ function swapImage(img, mainImg){
   $(img).attr('src', main);
   $(mainImg).attr('src', thump);
 }
+

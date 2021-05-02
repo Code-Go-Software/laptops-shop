@@ -73,5 +73,10 @@ class ContentSeeder extends Seeder
         $whatsapp->key = 'whatsapp_number';
         $whatsapp->value = '+963 9xxxxxxxx';
         $whatsapp->save();
+
+        $about_us = new Content();
+        $about_us->key = 'about_us';
+        $about_us->value = 'مقال حول الشركة';
+        $about_us->save();
     }
 }

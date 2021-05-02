@@ -3,7 +3,6 @@
 @section('title', 'الصفحة الرئيسية')
 
 @section('content')
-    
 
   @forelse ($categories as $category)
       
@@ -37,13 +36,13 @@
   <section id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="{{ asset('/assets/images/' . $content->where('key', 'slide1')->first()->value) }}" alt="First slide">
+        <img class="d-block w-100" src="{{ asset('images/' . $content->where('key', 'slide1')->first()->value) }}" alt="First slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="{{ asset('/assets/images/' . $content->where('key', 'slide2')->first()->value) }}" alt="Second slide">
+        <img class="d-block w-100" src="{{ asset('images/' . $content->where('key', 'slide2')->first()->value) }}" alt="Second slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="{{ asset('/assets/images/' . $content->where('key', 'slide3')->first()->value) }}" alt="Third slide">
+        <img class="d-block w-100" src="{{ asset('images/' . $content->where('key', 'slide3')->first()->value) }}" alt="Third slide">
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

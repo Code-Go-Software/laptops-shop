@@ -210,7 +210,7 @@
                 <h4>الصورة الأولى</h4>
               </div>
               <div class="form-group text-center">
-                <img src="{{ asset('assets/images/' . $content->where('key', 'slide1')->first()->value) }}"
+                <img src="{{ asset('images/' . $content->where('key', 'slide1')->first()->value) }}"
                 id="slide1-image" class="img-fluid rounded">
               </div>
               <div class="form-group text-center">
@@ -232,7 +232,7 @@
                 <h4>الصورة الثانية</h4>
               </div>
               <div class="form-group text-center">
-                <img src="{{ asset('assets/images/' . $content->where('key', 'slide2')->first()->value) }}"
+                <img src="{{ asset('images/' . $content->where('key', 'slide2')->first()->value) }}"
                 id="slide2-image" class="img-fluid rounded">
               </div>
               <div class="form-group text-center">
@@ -254,7 +254,7 @@
                 <h4>الصورة الثالثة</h4>
               </div>
               <div class="form-group text-center">
-                <img src="{{ asset('assets/images/' . $content->where('key', 'slide3')->first()->value) }}"
+                <img src="{{ asset('images/' . $content->where('key', 'slide3')->first()->value) }}"
                 id="slide3-image" class="img-fluid rounded">
               </div>
               <div class="form-group text-center">
