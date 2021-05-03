@@ -1,47 +1,9 @@
-<!--
-<div class="col-6 col-md-4 col-lg-3 px-1 mb-2">
-  <div class="product text-center shadow h-100">
-    <div class="header text-left">
-      <small class="d-inline-block bg-danger text-light p-1"><i class="lni lni-eye"></i> {{ $laptop->views }}</small>
-    </div>
-    <div class="image">
-      <img src="{{ asset('images/' . $laptop->image) }}" class="img-fluid rounded">
-    </div>
-    <div class="data px-2 pb-1">
-      <a href="laptops/{{ $laptop->id }}/{{ $laptop->name }}" class="text-dark font-weight-bold">{{ $laptop->name }}</a>
-      <div class="d-flex w-100">
-        <div class="flex-grow-1">
-          <form action="/cart" method="POST">
-            @csrf
-            <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
-            <button class="btn" type="submit">
-              <i class="lni lni-cart"></i> <small class="d-none d-md-inline">إضافة للسلة</small>
-            </button>
-          </form>
-        </div>
-        <div class="flex-grow-1">
-          <form action="/favourites" method="POST">
-            @csrf
-            <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
-            <button class="btn" type="submit">
-              <i class="lni lni-heart text-danger"></i> <small class="d-none d-md-inline">إضافة للمفضلة</small>
-            </button>
-          </form>
-        </div>
-      </div>
-      <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
-      <br>
-      <strike class="text-secondary"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
-    </div>
-  </div>
-</div>
--->
 
 <div class="col-6 col-md-4 col-lg-3 px-1 mb-2">
-  <div class="card h-100">
+  <div class="card h-100 shadow">
     <div class="view zoom overlay">
       <img class="img-fluid w-100" src="{{ asset('images/' . $laptop->image) }}">
-      <p class="mb-0"><span class="badge bg-warning text-dark badge-pill badge-news"><i class="lni lni-eye"></i> {{ $laptop->views }}</span></p>
+      <p class="mb-0"><span class="badge bg-warning text-dark badge-news views"><i class="lni lni-eye"></i> {{ $laptop->views }}</span></p>
     </div>
     @if ($role == 'user')
       <div class="card-body text-center">
@@ -54,14 +16,14 @@
         <form action="/cart" class="d-inline" method="POST">
           @csrf
           <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
-          <button type="submit" class="btn bg-success text-light rounded-pill btn-sm mr-1 mb-2">
+          <button type="submit" class="btn bg-success text-light btn-sm mr-1 mb-2">
             <i class="lni lni-cart pl-2"></i>إضافة للسلة
           </button>
         </form>
         <form action="/favourites" class="d-inline" method="POST">
           @csrf
           <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
-          <button type="submit" class="btn bg-danger text-light rounded-pill btn-sm px-3 mb-2 material-tooltip-main"
+          <button type="submit" class="btn bg-danger text-light btn-sm px-3 mb-2 material-tooltip-main"
           data-toggle="tooltip" data-placement="top"
           title="إضافة للمفضلة">
             <i class="lni lni-heart-filled"></i>

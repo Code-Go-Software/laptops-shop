@@ -7,11 +7,11 @@
   <!--Products Section Start-->
   <section id="products" class="py-3 px-2">
     <h1 class="mb-5">الأجهزة المتوفرة</h1>
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
         <div class="col-12 mb-5">
           <form action="" method="GET" class="shadow px-2 py-3 row">
-            <div class="col-12 col-md-auto">
+            <div class="col-12 col-md-auto pr-0 pl-0">
               <select id="category" name="cid"
               class="form-control form-control-sm d-inline-block w-auto mr-1 border-secondary mb-3">
                 <option value="">الكل</option>  
@@ -46,8 +46,8 @@
               </select>
             </div>
             -->
-            <div class="col-auto">
-              <button type="submit" class="btn bg-primary text-light btn-sm"><i class="lni lni-search"></i> بحث</button>
+            <div class="col-auto pl-0 pr-2">
+              <button type="submit" class="btn bg-primary text-light btn-sm"><i class="lni lni-control-panel"></i> تطبيق</button>
             </div>
           </form>
         </div>

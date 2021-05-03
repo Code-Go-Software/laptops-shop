@@ -24,8 +24,8 @@
                 هل أنت متأكد؟
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">إغلاق</button>
-                <button type="button" id="confirm-delete-btn" class="btn btn-success btn-sm">نعم</button>
+                <button type="button" class="btn bg-danger text-light btn-sm" data-dismiss="modal">إغلاق</button>
+                <button type="button" id="confirm-delete-btn" class="btn bg-success text-light btn-sm">نعم</button>
             </div>
         </div>
     </div>

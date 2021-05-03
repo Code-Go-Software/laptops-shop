@@ -13,58 +13,70 @@
 </head>
 
 <body dir="rtl">
+
+  <nav id="info-bar" class="d-flex align-items-center py-2 px-2 bg-warning text-dark small">
+    <div class="ml-3 flex-grow-1 d-flex align-items-center">
+      <i class="lni lni-car ml-2"></i>
+      <span>خدمة التوصيل مجانية</span>
+    </div>
+    <div class="ml-3 d-flex align-items-center">
+      <i class="lni lni-envelope ml-2"></i>
+      <span>{{ $content->where('key', 'help_email')->first()->value }}</span>
+    </div>
+    <div class="d-flex align-items-center">
+      <i class="lni lni-phone ml-2"></i>
+      <span>{{ $content->where('key', 'phone')->first()->value }}</span>
+    </div>
+  </nav>
+
   <!--Navbar Start-->
   <nav id="navbar" class="d-flex align-items-center py-2 px-2 bg-primary">
     <div class="ml-3">
+      <a href="/favourites" class="text-light d-flex align-items-center">
+        <i class="lni lni-heart-filled text-danger" style="font-size:18px;"></i>
+        <small class="d-none d-md-inline mr-2">القائمة المفضلة</small>
+        <small>({{ (Auth::check()) ? auth()->user()->favourites->count() : '0' }})</small>
+      </a>
+    </div>
+    <div class="flex-grow-1 text-light d-flex align-items-center" style="order:-1;">
+      <h3 class=""><a href="/" class="text-light">دبي غروب</a></h3>
+    </div>
+    <div class="ml-3">
+      <a href="/cart" class="text-light d-flex align-items-center">
+        <i class="lni lni-cart" style="font-size:18px;"></i>
+        <small class="d-none d-md-inline mr-2">سلة المشتريات</small>
+        <small>({{ (Auth::check()) ? auth()->user()->carts->count() : '0' }})</small>
+      </a>
+    </div>
+    <div class="ml-3">
+      <a href="/laptops" class="text-light d-flex align-items-center">
+        <i class="lni lni-display-alt" style="font-size:18px;"></i>
+        <small class="d-none d-md-inline mr-2">الحواسيب</small>
+      </a>
+    </div>
+    <div class="">
       @auth
-        <a href="/profile" class="text-light">
+        <a href="/profile" class="text-light d-flex align-items-center">
           <img src="{{ asset('images/' . auth()->user()->image) }}" class="img-fluid rounded-circle" width="30px" height="30px">
           <small class="d-none d-md-inline mr-1">{{ auth()->user()->fullname }}</small>
         </a>
       @endauth
       
       @guest
-        <a href="/login" class="text-light">
+        <a href="/login" class="text-light d-flex align-items-center">
           <i class="lni lni-user" style="font-size:18px;"></i>
           <small class="d-none d-md-inline mr-2">تسجيل دخول</small>
         </a>
       @endguest
     </div>
-    <div class="ml-3">
-      <a href="/favourites" class="text-light">
-        <i class="lni lni-heart-filled text-danger" style="font-size:18px;"></i>
-        <small class="d-none d-md-inline mr-2">القائمة المفضلة</small>
-        <small>({{ (Auth::check()) ? auth()->user()->favourites->count() : '0' }})</small>
-      </a>
-    </div>
-    <div class="flex-grow-1 text-light" style="order:-1;">
-      <h3 class="col-12"><a href="/" class="text-light">دبي غروب</a></h3>
-    </div>
-    <div class="mr-3">
-      <a href="/cart" class="text-light">
-        <i class="lni lni-cart" style="font-size:18px;"></i>
-        <small class="d-none d-md-inline mr-2">سلة المشتريات</small>
-        <small>({{ (Auth::check()) ? auth()->user()->carts->count() : '0' }})</small>
-      </a>
-    </div>
-    <div class="mr-3">
-      <a href="/laptops" class="text-light">
-        <i class="lni lni-display-alt" style="font-size:18px;"></i>
-        <small class="d-none d-md-inline mr-2">الحواسيب</small>
-      </a>
-    </div>
   </nav>
-  <section id="search-bar" class="px-2 py-2 bg-warning">
+  <section id="search-bar" class="px-2 py-2 bg-primary">
     <form action="/laptops" method="GET"  class="d-flex align-items-stretch">
       <div>
-        <button type="submit" class="btn bg-primary text-light"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
+        <button type="submit" class="btn bg-warning text-light"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
       </div>
-      <div class="flex-grow-1 px-1">
+      <div class="flex-grow-1 pr-1">
         <input type="text" name="q" placeholder="ما الذي تبحث عنه" class="form-control shadow font-italic" value="{{ request('q') }}">
-      </div>
-      <div class="d-none d-md-block">
-        <a href="/laptops" class="btn bg-warning text-dark"><i class="lni lni-control-panel d-none d-md-inline"></i> بحث
-          متقدم</a>
       </div>
     </form>
   </section>
@@ -80,8 +92,8 @@
                 هل أنت متأكد؟
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">إغلاق</button>
-                <button type="button" id="confirm-delete-btn" class="btn btn-success btn-sm">نعم</button>
+                <button type="button" class="btn bg-danger text-light btn-sm" data-dismiss="modal">إغلاق</button>
+                <button type="button" id="confirm-delete-btn" class="btn bg-success text-light btn-sm">نعم</button>
             </div>
         </div>
     </div>
@@ -155,7 +167,7 @@
         </div>
         <div class="col-12 col-md-3">
           <div class="">
-            <h1><a href="/" class="text-light">دبي غروب</a></h1>
+            <h1 class="mb-4"><a href="/" class="text-light">دبي غروب</a></h1>
             <p class="text-light">تجارة كافة أنواع الحواسيب المحمولة الجديدة والمستعملة</p>
           </div>
         </div>
