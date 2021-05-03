@@ -35,9 +35,13 @@ class UserController extends Controller
 
     public function destroy()
     {
-        Auth::user()->delete();
-        Auth::logout();
-        return redirect('/')->with('success', 'تم تسجيل الخروج بنجاح');
+        if(!Auth::user()->isAdmin()){
+            return back()->with('fail', 'عذرا لا يمكن حذف هذا الحساب');
+        }else{
+            Auth::user()->delete();
+            Auth::logout();
+            return redirect('/')->with('success', 'تم حذف حسابك بنجاح');
+        }
     }
 
     public function indexForAdmin(){

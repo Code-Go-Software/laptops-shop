@@ -16,11 +16,11 @@
                         <img src="{{ asset('images/' . $user->image) }}" class="img-fluid rounded-circle" id="image-preview" style="max-width: 250px">
                         <div class="mt-2">
                             <input type="file" name="image" id="image-input" class="d-none" onchange="previewImage(this, '#image-preview');">
-                            <div class="btn btn-success rounded-pill" onclick="openFileInput('#image-input');"><i class="lni lni-image"></i> اختيار صورة</div>
+                            <div class="btn bg-success text-light" onclick="openFileInput('#image-input');"><i class="lni lni-image"></i> اختيار صورة</div>
                             @error('image')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
-                            <button type="submit" class="btn btn-primary rounded-pill"><i class="lni lni-save"></i>  حفظ</button>
+                            <button type="submit" class="btn bg-warning text-dark"><i class="lni lni-save"></i>  حفظ</button>
                         </div>
                     </div>
                 </form>
@@ -31,21 +31,21 @@
                     @method('put')
                     <div class="form-group">
                         <label for="username"><i class="lni lni-user"></i> الاسم الكامل</label>
-                        <input type="text" name="fullname" id="username" value="{{ $user->fullname }}" class="form-control border border-dark rounded-pill" placeholder="الاسم والكنية">
+                        <input type="text" name="fullname" id="username" value="{{ $user->fullname }}" class="form-control border border-secondary" placeholder="الاسم والكنية">
                         @error('fullname')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="phone"><i class="lni lni-phone"></i> رقم الهاتف</label>
-                        <input type="text" name="phone" id="phone" value="{{ $user->phone }}" class="form-control border border-dark rounded-pill" placeholder="946-918-650 (963)">
+                        <input type="text" name="phone" id="phone" value="{{ $user->phone }}" class="form-control border border-secondary" placeholder="946-918-650 (963)">
                         @error('phone')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="address"><i class="lni lni-map"></i> العنوان</label>
-                        <input type="text" name="address" id="address" value="{{ $user->address }}" class="form-control border border-dark rounded-pill" placeholder="دمشق - الحمرا">
+                        <input type="text" name="address" id="address" value="{{ $user->address }}" class="form-control border border-secondary" placeholder="دمشق - الحمرا">
                         @error('address')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -61,22 +61,33 @@
                         -->
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary rounded-pill">
+                        <button type="submit" class="btn bg-success text-light">
                             <i class="lni lni-save"></i> 
                             حفظ التغييرات
                         </button>
                     </div>
                 </form>
-                <form action="/logout" class="mt-3 d-inline" method="post">
-                    @csrf
-                    <a href="/orders" class="btn btn-success rounded-pill"><i class="lni lni-clipboard"></i> طلباتي</a>
-                    <button type="submit" class="btn btn-dark rounded-pill"><i class="lni lni-exit"></i> تسجيل الخروج</button>
-                </form>
-                <form action="/profile" class="d-inline" method="post">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" class="btn btn-danger rounded-pill delete-btn"><i class="lni lni-trash"></i> حذف الحساب</button>
-                </form>
+                @if (!auth()->user()->isAdmin())
+                    
+                    <form action="/logout" class="mt-3 d-inline" method="post">
+                        @csrf
+                        <a href="/orders" class="btn bg-primary text-light"><i class="lni lni-clipboard"></i> طلباتي</a>
+                        <button type="submit" class="btn bg-info text-light"><i class="lni lni-exit"></i> تسجيل الخروج</button>
+                    </form>
+                    <form action="/profile" class="d-inline" method="post">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn bg-danger text-light delete-btn"><i class="lni lni-trash"></i> حذف الحساب</button>
+                    </form>
+                
+                @else  
+
+                    <form action="/logout" class="mt-3 d-inline" method="post">
+                        @csrf
+                        <button type="submit" class="btn bg-info text-light"><i class="lni lni-exit"></i> تسجيل الخروج</button>
+                    </form>
+
+                @endif
             </div>
         </div>
     </div>
