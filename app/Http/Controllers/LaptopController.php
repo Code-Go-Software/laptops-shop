@@ -15,9 +15,10 @@ class LaptopController extends Controller
     */
     public function home()
     {
-        $categories = Category::limit(6)->get();
         return view('user.index', [
-            'categories' => $categories
+            'all_categories' => Category::limit(12)->get(),
+            'categories' => Category::has('laptops', '>=', 4)->limit(4)->get(),
+            'top4laptops' => Laptop::orderby('views', 'DESC')->limit(4)->get()
         ]);
     }
 
@@ -115,16 +116,19 @@ class LaptopController extends Controller
     */
     public function show(Laptop $laptop, $name)
     {
-        $laptop->views = $laptop->views + 1;
-        $laptop->save();
+        if($laptop->is_avaialble){
+            $laptop->views = $laptop->views + 1;
+            $laptop->save();
 
-        // Get The Laptops From The Same Company
-        $related_laptops = Laptop::where('company', $laptop->company)->where('id', '!=', $laptop->id)->limit(8)->get();
-        
-        return view('user.laptop', [
-            'laptop' => $laptop,
-            'related_laptops' => $related_laptops
-        ]);
+            // Get The Laptops From The Same Company
+            $related_laptops = Laptop::where('company', $laptop->company)->where('id', '!=', $laptop->id)->limit(8)->get();
+            
+            return view('user.laptop', [
+                'laptop' => $laptop,
+                'related_laptops' => $related_laptops
+            ]);
+        }
+        return back()->with('fail', 'عذرا هذا الحاسوب لم يعد متوفرا لدينا');
     }
 
 

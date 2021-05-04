@@ -14,7 +14,7 @@
 
 <body dir="rtl">
 
-  <nav id="info-bar" class="d-flex align-items-center py-2 px-2 bg-warning text-dark small">
+  <nav id="info-bar" class="d-flex align-items-center py-2 px-2 bg-info text-light small">
     <div class="ml-3 flex-grow-1 d-flex align-items-center">
       <i class="lni lni-car ml-2"></i>
       <span>خدمة التوصيل مجانية</span>
@@ -71,12 +71,17 @@
     </div>
   </nav>
   <section id="search-bar" class="px-2 py-2 bg-primary">
-    <form action="/laptops" method="GET"  class="d-flex align-items-stretch">
-      <div>
+    <form action="/laptops" method="GET"  class="d-flex align-items-center">
+      <div class="pl-2">
         <button type="submit" class="btn bg-warning text-light"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
       </div>
-      <div class="flex-grow-1 pr-1">
+      <div class="flex-grow-1 pl-2">
         <input type="text" name="q" placeholder="ما الذي تبحث عنه" class="form-control shadow font-italic" value="{{ request('q') }}">
+      </div>
+      <div class="">
+        <a href="/orders-policy" class="text-info">
+          <small>كيف نتعامل مع الطلبات؟</small>
+        </a>
       </div>
     </form>
   </section>
@@ -125,6 +130,7 @@
             <li class="py-1 px-1"><a href="/" class="text-light">الصفحة الرئيسية</a></li>
             <li class="py-1 px-1"><a href="/laptops" class="text-light">تصفح الحواسيب المحمولة</a></li>
             <li class="py-1 px-1"><a href="/register" class="text-light">إنشاء حساب</a></li>
+            <li class="py-1 px-1"><a href="/orders-policy" class="text-light">سياسة الطلبات</a></li>
             <li class="py-1 px-1"><a href="/about-us" class="text-light">عن الشركة</a></li>
             @auth
                 @if(auth()->user()->is_admin)
@@ -176,7 +182,7 @@
   </footer>
   <div>
     <div class="text-dark text-center py-1 px-2 bg-warning">
-      جميع الحقوق محفوظة @
+      جميع الحقوق محفوظة @ {{ date('Y') }}
     </div>
   </div>
   <!--Footer End-->

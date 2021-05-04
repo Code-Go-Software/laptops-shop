@@ -4,7 +4,6 @@
 
 @section('content')
 
-
   <!--Carousel Start-->
   <section id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner" style="height: 60vh;">
@@ -19,15 +18,30 @@
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
+      <button class="btn bg-light text-dark">
+        <i class="lni lni-chevron-left" aria-hidden="true"></i>
+        <span class="sr-only">Previous</span>
+      </button>
     </a>
     <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
+      <button class="btn bg-light text-dark">
+        <i class="lni lni-chevron-right" aria-hidden="true"></i>
+        <span class="sr-only">Next</span>
+      </button>
     </a>
   </section>
   <!--Carousel End-->
+
+  <ul class="nav">
+    @forelse ($all_categories as $category)
+      <li class="nav-item">
+        <a class="nav-link text-primary" href="/laptops?cid={{ $category->id }}">{{ $category->name }}</a>
+      </li>
+    @empty
+        
+    @endforelse
+  </ul>
+     
 
 
   @forelse ($categories as $category)
