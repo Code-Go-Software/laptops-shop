@@ -58,7 +58,7 @@
           </span>
         </div>
         <div class="row justify-content-center mt-3">
-          <div class="col-6 col-md-4 col-lg-3">
+          <div class="col-6 col-md-4">
             <div><b>اسم المنتج</b></div>
             <span class="text-secondary">{{ $laptop->name }}</span>
             <div><b>الشركة المصنعة</b></div>
@@ -72,7 +72,7 @@
             <div><b>نوع كرت الشاشة</b></div>
             <span class="text-secondary">{{ $laptop->screen_card_type }}</span>
           </div>
-          <div class="col-6 col-md-4 col-lg-3">
+          <div class="col-6 col-md-4">
             <div><b>قياس الشاشة</b></div>
             <span class="text-secondary">{{ $laptop->screen_size }}</span>
             <div><b>السواقة</b></div>
