@@ -1,6 +1,6 @@
 @extends('user.layouts.layout')
 
-@section('title', 'الطلبات')
+@section('title', 'دبي غروب لتجارة جميع أنواع اللابتوبات | سجل طلباتي')
 
 @section('content')
 

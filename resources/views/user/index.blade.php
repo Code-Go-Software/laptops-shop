@@ -1,12 +1,13 @@
 @extends('user.layouts.layout')
 
-@section('title', 'الصفحة الرئيسية')
+@section('title', 'دبي غروب لتجارة جميع أنواع اللابتوبات | تسوق الآن')
+@section('description', 'تسوق الآن في أفضل المتاجر الإلكترونية لبيع جميع أنواع اللابتوبات بمختلف المواصفات لتلبية جميع احتياجات المستخدمين وبأفضل الأسعار مع خدمات الشحن والتوصيل المجاني')
 
 @section('content')
 
   <!--Carousel Start-->
   <section id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner" style="height: 60vh;">
+    <div class="carousel-inner">
       <div class="carousel-item active">
         <img class="d-block w-100" src="{{ asset('images/' . $content->where('key', 'slide1')->first()->value) }}" alt="First slide">
       </div>
@@ -32,17 +33,14 @@
   </section>
   <!--Carousel End-->
 
-  <ul class="nav">
+  <div class="scrollmenu list-unstyled text-center">
     @forelse ($all_categories as $category)
-      <li class="nav-item">
-        <a class="nav-link text-primary" href="/laptops?cid={{ $category->id }}">{{ $category->name }}</a>
-      </li>
+      <a class="text-primary" href="/laptops?cid={{ $category->id }}">{{ $category->name }}</a>
     @empty
         
     @endforelse
-  </ul>
-     
-
+    <a class="text-primary" href="/laptops">جميع الفئات</a>
+  </div>
 
   @forelse ($categories as $category)
       

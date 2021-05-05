@@ -1,8 +1,15 @@
 @extends('user.layouts.layout')
 
 @section('title', 'اسم الشركة | إنشاء حساب جديد')
+@section('description', 'أنشأ حسابك في متجر دبي غروب الإلكتروني مجانا وتمتع بتجربة تسوق للحواسيب المحمولة فريدة من نوعها ما الذي تنتظره أنشأ حسابك  واطلب حاسوبك ودعنا نتولى بقية التفاصيل')
 
 @section('content')
+
+<style>
+  #services{
+    display: none;
+  }
+</style>
 
   <section id="login-form" class="py-3 px-2 mt-5 mb-5">
     <h1 class="text-center">إنشاء حساب جديد</h1>

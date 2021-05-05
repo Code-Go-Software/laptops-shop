@@ -116,7 +116,7 @@ class LaptopController extends Controller
     */
     public function show(Laptop $laptop, $name)
     {
-        if($laptop->is_avaialble){
+        if($laptop->is_available){
             $laptop->views = $laptop->views + 1;
             $laptop->save();
 

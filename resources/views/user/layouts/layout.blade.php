@@ -5,6 +5,7 @@
   <title>@yield('title')</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="@yield('description')">
   <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/font-css/LineIcons.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -120,13 +121,59 @@
 
   @yield('content')
 
+  <div class="container" id="services">
+    <div class="row py-4 px-2 text-center text-primary my-5">
+      <div class="col-12">
+        <h1 class="font-weight-bold">
+          ما الذي يميزنا؟
+        </h1>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="p-5">
+          <img src="{{ asset('assets/images/delivery.svg') }}" height="80px">
+        </div>
+        <p class="mb-1">شحن لكافة المحافظات</p>
+        <p class="text-secondary service-desc">
+          لا تقلق بشأن المسافة مهما كنت بعيدا سنحرص على شحن حاسوبك إلى أقرب نقطة إليك
+        </p>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="p-5">
+          <img src="{{ asset('assets/images/cash-payment.svg') }}" height="80px">
+        </div>
+        <p class="mb-1">ادفع نقدا عند الاستلام</p>
+        <p class="text-secondary service-desc">
+          يمكنك التسديد نقدا أو بأي طريقة ترغب بها بعد أن تستلم حاسوبك
+        </p>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="p-5">
+          <img src="{{ asset('assets/images/package-quality.svg') }}" height="80px">
+        </div>
+        <p class="mb-1">شحن بعناية فائقة</p>
+        <p class="text-secondary service-desc">
+          رغم بعد المسافة أو صعوبات الشحن نحن نحرص أن يصل حاسوبك بأفضل جودة كما تنتظره تماما
+        </p>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="p-5">
+          <img src="{{ asset('assets/images/customer-service.svg') }}" height="80px">
+        </div>
+        <p class="mb-1">خدمة زبائن على مدار الساعة</p>
+        <p class="text-secondary service-desc">
+          هل لديك أي استفسار؟ لا تتردد بالاتصال بنا لدينا فريق متكامل جاهز لمساعدتك بأي وقت
+        </p>
+      </div>
+    </div>
+  </div>
+
   <!--Footer Start-->
   <footer class="py-3 px-2 mt-3 bg-primary text-light">
     <div class="container-fluid">
       <div class="row">
         <div class="col-5 col-md-4">
-          <h5 class="font-weight-bold">أقسام الموقع</h5>
-          <ul class="list-unstyled py-2 pl-2">
+          <h5>أقسام الموقع</h5>
+          <ul class="list-unstyled py-2 pl-2 small">
             <li class="py-1 px-1"><a href="/" class="text-light">الصفحة الرئيسية</a></li>
             <li class="py-1 px-1"><a href="/laptops" class="text-light">تصفح الحواسيب المحمولة</a></li>
             <li class="py-1 px-1"><a href="/register" class="text-light">إنشاء حساب</a></li>
@@ -140,8 +187,8 @@
           </ul>
         </div>
         <div class="col-7 col-md-5">
-          <h5 class="font-weight-bold">معلومات التواصل</h5>
-          <ul class="list-unstyled py-2 pl-2">
+          <h5>معلومات التواصل</h5>
+          <ul class="list-unstyled py-2 pl-2 small">
             <li class="py-1 px-1"><i class="lni lni-phone ml-1"></i> {{ $content->where('key', 'phone')->first()->value }}</li>
             <li class="py-1 px-1"><i class="lni lni-phone-set ml-1"></i> {{ $content->where('key', 'fixed_phone')->first()->value }}</li>
             <li class="py-1 px-1"><i class="lni lni-envelope ml-1"></i> {{ $content->where('key', 'help_email')->first()->value }}</li>
@@ -172,17 +219,15 @@
           </div>
         </div>
         <div class="col-12 col-md-3">
-          <div class="">
-            <h1 class="mb-4"><a href="/" class="text-light">دبي غروب</a></h1>
-            <p class="text-light">تجارة كافة أنواع الحواسيب المحمولة الجديدة والمستعملة</p>
-          </div>
+          <h1 class="mb-4"><a href="/" class="text-light">دبي غروب</a></h1>
+          <p class="text-light">تجارة كافة أنواع الحواسيب المحمولة الجديدة والمستعملة</p>
         </div>
       </div>
     </div>
   </footer>
   <div>
     <div class="text-dark text-center py-1 px-2 bg-warning">
-      جميع الحقوق محفوظة @ {{ date('Y') }}
+      جميع الحقوق محفوظة لصالح شركة دبي غروب
     </div>
   </div>
   <!--Footer End-->
@@ -190,7 +235,6 @@
   <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
   <script src="{{ asset('assets/js/functions.js') }}"></script>
 </body>
 

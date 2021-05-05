@@ -1,14 +1,21 @@
 @extends('user.layouts.layout')
 
-@section('title', 'اسم الشركة | تسجيل الدخول')
+@section('title', 'دبي غروب لتجارة جميع أنواع اللابتوبات | تسجيل الدخول')
+@section('description', 'سجل الدخول إلى حسابك لدينا وتحكم بكامل معلوماتك في متجر دبي غروب الإلكتروني ما الذي تنتظره سجل دخولك الآن أو أنشأ حسابك لدينا وتمتع بجيمع خدماتنا مجانا')
 
 @section('content')
+
+<style>
+  #services{
+    display: none;
+  }
+</style>
 
 <section id="login-form" class="py-3 px-2 my-5">
   <h1 class="text-center">تسجيل الدخول</h1>
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <div class="col-12 col-md-8 col-lg-6">
+      <div class="col-10 col-md-6 col-lg-4">
         <form action="{{ route('login') }}" method="POST">
           @csrf
           <div class="form-group">

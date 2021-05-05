@@ -1,6 +1,7 @@
 @extends('user.layouts.layout')
 
-@section('title', $laptop->name)
+@section('title', 'دبي غروب | ' . $laptop->name)
+@section('description', $laptop->cpu . ',' . $laptop->screen_card . ',' . $laptop->hard . ',' . $laptop->ports . ',' . $laptop->type . ' :دبي غروب | المواصفات ' .  $laptop->description)
 
 @section('content')
   
@@ -15,7 +16,7 @@
     
           @forelse ($laptop->subImages as $image)
             <div class="col text-center">
-              <img src="{{ asset('images/' . $image->image) }}" onclick="swapImage(this, '#main-image')" class="img-fluid rounded-circle shadow" style="max-width: 150px;">
+              <img src="{{ asset('images/' . $image->image) }}" onclick="swapImage(this, '#main-image')" class="img-fluid rounded shadow laptop-thumb" style="max-width: 150px;">
             </div>
           @empty
               <div class="col-12 text-center text-secondary">

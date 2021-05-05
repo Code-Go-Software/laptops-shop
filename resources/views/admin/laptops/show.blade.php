@@ -19,7 +19,7 @@
     
             @forelse ($laptop->subImages as $image)
               <div class="text-center">
-                <img src="{{ asset('images/' . $image->image) }}" onclick="swapImage(this, '#main-image')" class="img-fluid rounded shadow mx-2" style="max-width: 150px;">
+                <img src="{{ asset('images/' . $image->image) }}" onclick="swapImage(this, '#main-image')" class="img-fluid rounded shadow mx-2 laptop-thumb" style="max-width: 150px;">
               </div>
             @empty
                 <div class="col-12 text-center">
