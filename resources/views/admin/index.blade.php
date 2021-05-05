@@ -47,10 +47,11 @@
   </div>
 
   <div class="col-12 my-5">
-    <h4 class="mb-4">الطلبات غير المنجزة <span>({{ $uncompleted_orders_count }})</span></h4>
-    <div class="table-responsive-sm bg-light">
-      <table class="table table-sm">
-        <thead class="bg-primary text-light">
+    <h4>الطلبات غير المنجزة <span>({{ $uncompleted_orders_count }})</span></h4>
+    <p class="text-secondary small">قائمة بالطلبات التي سجلها المستخدمون وتحتاج إلى متابعة من مدير الموقع</p>
+    <div class="table-responsive-sm bg-light mt-4">
+      <table class="table table-sm rounded">
+        <thead class="bg-primary text-light rounded">
           <tr>
             <th scope="col">#</th>
             <th scope="col">المستخدم</th>
@@ -127,12 +128,14 @@
 
         </tbody>
       </table>
+      <a href="/admin/orders" class="small">عرض جميع الطلبات</a>
     </div>
   </div>
 
   <div class="col-12 col-md-6 my-5">
-    <h4 class="mb-4">تقرير الطلبات</h4>
-    <div class="table-responsive-sm bg-light">
+    <h4>تقرير الطلبات</h4>
+    <p class="text-secondary small">تقرير مبسط عن إحصائيات الكلبات</p>
+    <div class="table-responsive-sm bg-light mt-4">
       <table class="table table-sm bg-warning">
         <tbody class="text-primary font-weight-bold">
           <tr>
@@ -155,12 +158,14 @@
           -->
         </tbody>
       </table>
+      <a href="/admin/orders" class="small">عرض تقرير كامل عن الطلبات</a>
     </div>
   </div>
 
   <div class="col-12 col-md-6 my-5">
-    <h4 class="mb-4">تقرير المفضلة</h4>
-    <div class="table-responsive-sm bg-light">
+    <h4>تقرير المفضلة</h4>
+    <p class="text-secondary small">قائمة خاصة بجميع الحواسيب التي وضعها المستخدمون ضمن قائمتهم المفضلة</p>
+    <div class="table-responsive-sm bg-light mt-4">
       <table class="table table-sm">
         <thead class="bg-danger text-light">
           <tr>
@@ -203,8 +208,9 @@
   </div>
 
   <div class="col-12 my-5">
-    <h4 class="mb-4">تقرير الفئات</h4>
-    <div class="table-responsive-sm bg-light">
+    <h4>تقرير الفئات</h4>
+    <p class="text-secondary small">تقرير فئات أو أقسام الحواسيب الموجودة في المتجر</p>
+    <div class="table-responsive-sm bg-light mt-4">
       <table class="table table-sm">
         <thead class="bg-success text-light">
           <tr>
@@ -212,6 +218,7 @@
             <th scope="col">الفئة</th>
             <th scope="col">عدد المنتجات</th>
             <th scope="col">عدد الزيارات</th>
+            <th scope="col"></th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -230,7 +237,14 @@
                 <b><i class="lni lni-eye"></i> {{ $category->laptops->sum('views') }}</b>
               </td>
               <td>
-                <a class="font-weight-bold text-info mr-2" href="/admin/categories"><i class="lni lni-menu"></i></a>
+                <form action="/admin/categories/{{ $category->id }}" method="post">
+                  @csrf
+                  @method('delete')
+                  <button type="submit" class="btn p-0 delete-btn"><i class="lni lni-trash text-danger"></i></button>
+                </form>
+              </td>
+              <td>
+                <a href="/admin/categories/{{ $category->id }}/edit"><i class="lni lni-pencil btn text-primary p-0"></i></a>
               </td>
             </tr>
           @empty
@@ -243,6 +257,7 @@
 
         </tbody>
       </table>
+      <a href="/admin/categories" class="small">عرض جميع الفئات</a>
     </div>
   </div>
             

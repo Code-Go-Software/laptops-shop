@@ -31,8 +31,11 @@
   </div>
   -->
   <div class="col-12 my-5">
-    <h4 class="text-secondary mb-4">المستخدمون المسجلون <span>({{ $users->count() }})</span></h4>
-    <div class="table-responsive-sm bg-light">
+    <h4 class="text-primary"><i class="lni lni-user ml-3"></i> المستخدمون المسجلون <span>({{ $users->count() }})</span></h4>
+    <p class="small text-secondary">
+      قائمة بجميع المستخدمين الذين يملكون حسابات في المتجر مع معلوماتهم الأساسية
+    </p>
+    <div class="table-responsive-sm bg-light mt-4">
       <table class="table table-sm">
         <thead class="bg-warning text-dark">
           <tr>

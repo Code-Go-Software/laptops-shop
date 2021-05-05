@@ -31,8 +31,8 @@
   </div>
   -->
   <div class="col-12 my-5">
-    <h4 class="mb-3 mt-3">الفئات <span>({{ $categories->count() }})</span></h4>
-    <a href="/admin/categories/create" class="btn bg-success text-light"><i class="lni lni-plus"></i> إضافة فئة جديدة</a>
+    <h4 class="mt-3">الفئات <span>({{ $categories->count() }})</span></h4>
+    <p class="small text-secondary">قائمة بجميع فئات أو أقسام الحواسيب الموجودة في المتجر مع معلوماتها الأساسية</p>
     <div class="table-responsive-sm mt-3 bg-light">
       <table class="table table-sm">
         <thead class="bg-primary text-light">
@@ -86,6 +86,8 @@
 
         </tbody>
       </table>
+      <br>
+      <a href="/admin/categories/create" class="btn bg-success text-light"><i class="lni lni-plus"></i> إضافة فئة جديدة</a>
     </div>
   </div>
 

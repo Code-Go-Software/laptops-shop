@@ -5,7 +5,7 @@
 @section('content')
 
   <div class="col-12">
-    <h2>إدارة المنتجات</h2>
+    <h2>إدارة الحواسيب</h2>
   </div>
 
   <div class="col-12 row justify-content-center text-center my-3">
@@ -38,8 +38,9 @@
     </div>
   </div>
 
-  <div class="col-12">
-    <h4 class="mb-4">المنتجات المتوفرة <span>({{ $laptops->count() }})</span></h4>
+  <div class="col-12 my-5">
+    <h4 class="text-primary">الحواسيب المتوفرة <span>({{ $laptops->count() }})</span></h4>
+    <p class="small text-secondary">قائمة بالحواسيب الموجودة في المتجر والمعروضة للبيع أي يمكن للزبائن مشاهدتها وطلبها</p>
   </div>
   <div class="col-12">
     <form action="" class="row" method="get">
@@ -97,10 +98,11 @@
   </div>
   <!--Pagination End-->
   
-  <div class="col-12">
-    <h4 class="mb-4 mt-4">المنتجات المنتجات الغير متوفرة <span>({{ $un_available_laptops->count() }})</span></h4>
+  <div class="col-12 my-5">
+    <h4 class="text-primary">الحواسيب الغير متوفرة <span>({{ $un_available_laptops->count() }})</span></h4>
+    <p class="small text-secondary">قائمة بالحواسيب الموجودة في المتجر ولكنها غير معروضة للبيع أي لا يمكن للزبائن مشاهدتها أو طلبها</p>
   </div>
-  <div class="col-12 row my-5">
+  <div class="col-12 row">
     
     @forelse ($un_available_laptops as $laptop)
 

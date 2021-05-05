@@ -47,8 +47,9 @@
   </div>
 
   <div class="col-12 my-5">
-    <h4 class="mb-4">الطلبات غير المنجزة <span>({{ $uncompleted_orders->count() }})</span></h4>
-    <div class="table-responsive-sm bg-light">
+    <h4 class="text-priamry">الطلبات غير المنجزة <span>({{ $uncompleted_orders->count() }})</span></h4>
+    <p class="text-secondary small">قائمة بالطلبات التي سجلها المستخدمون وتحتاج إلى متابعة من مدير الموقع</p>
+    <div class="table-responsive-sm bg-light mt-4">
       <table class="table table-sm">
         <thead class="bg-danger text-light">
           <tr>
@@ -131,7 +132,8 @@
   </div>
 
   <div class="col-12 my-5">
-    <h4 class="mb-4">الطلبات المنجزة <span>({{ $completed_orders->count() }})</span></h4>
+    <h4 class="text-priamry">الطلبات المنجزة <span>({{ $completed_orders->count() }})</span></h4>
+    <p class="small text-secondary">قائمة بالطلبات التي تم إنجازها من قبل مدير الموقع</p>
     <!--
     <form action="" class="row" method="get">
       <div class="form-group mr-3">
@@ -153,7 +155,7 @@
       </div>
     </form>
     -->
-    <div class="table-responsive-sm bg-light">
+    <div class="table-responsive-sm bg-light mt-4">
       <table class="table table-sm">
         <thead class="bg-success text-light">
           <tr>
