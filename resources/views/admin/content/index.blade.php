@@ -27,7 +27,7 @@
 
         <a class="nav-link" id="about-us-tab"
         data-toggle="tab" href="#about-us" role="tab"
-        aria-controls="about-us" aria-selected="false">حولنا</a>
+        aria-controls="about-us" aria-selected="false">غير ذلك</a>
 
       </li>
     </ul>
@@ -271,6 +271,7 @@
 
       <div class="tab-pane fade" id="about-us" role="tabpanel" aria-labelledby="about-us-tab">
         <div class="py-3 px-4">
+          <h4>مقال تعريفي عن الشركة</h4>
           <p>
             {{ $content->where('key', 'about_us')->first()->value }}
           </p>
@@ -282,6 +283,25 @@
               <label for="about-us"><b>تعديل المقال</b></label>
               <textarea id="about-us" name="value" class="form-control rounded border-secondary"
               cols="30" rows="10" placeholder="مقال تعريفي عن الشركة">{{ $content->where('key', 'about_us')->first()->value }}</textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn bg-success text-light"><i class="lni lni-save"></i> حفظ التعديلات</button>
+            </div>
+          </form>
+        </div>
+        <div class="py-3 px-4">
+          <h4>سياسة التعامل مع طلبات الزبائن</h4>
+          <p>
+            {{ $content->where('key', 'orders_policy')->first()->value }}
+          </p>
+          <form action="/admin/content/{{ $content->where('key', 'orders_policy')->first()->id }}" method="post">
+            @csrf
+            @method('put')
+            <input type="hidden" name="is_image" value="0">
+            <div class="form-group">
+              <label for="order-policy"><b>تعديل المقال</b></label>
+              <textarea id="order-policy" name="value" class="form-control rounded border-secondary"
+              cols="30" rows="10" placeholder="مقال يشرح كيف تتعامل الشركة مع طلبات الزبائن">{{ $content->where('key', 'orders_policy')->first()->value }}</textarea>
             </div>
             <div class="form-group">
               <button type="submit" class="btn bg-success text-light"><i class="lni lni-save"></i> حفظ التعديلات</button>

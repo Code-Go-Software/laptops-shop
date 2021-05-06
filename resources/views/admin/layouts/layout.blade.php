@@ -34,29 +34,27 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand text-warning m-0" href="/admin"><i class="lni lni-menu ml-2 text-light" id="admin-sidebar-toggle"></i> لوحة التحكم</a>
   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto align-items-center">
-        <li class="nav-item ml-3">
-          <a href="#" class="text-warning">
-            <small>(2)</small>
-            <i class="lni lni-bullhorn"></i>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="/profile" class="text-warning small">
-            <b class="ml-2">مدير الموقع</b>
-            <img src="{{ asset('images/' . auth()->user()->image) }}" class="rounded-circle" width="30px" height="30px">
-          </a>
-        </li>
-      </ul>
-    </div>
+    <ul class="navbar-nav mr-auto align-items-center">
+      <li class="nav-item ml-3 d-none d-md-block">
+        <a href="#" class="text-info">
+          <small>(2)</small>
+          <i class="lni lni-bullhorn"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="/profile" class="text-warning small">
+          <b class="ml-2">مدير الموقع</b>
+          <img src="{{ asset('images/' . auth()->user()->image) }}" class="rounded-circle" width="30px" height="30px">
+        </a>
+      </li>
+    </ul>
   </nav>
 
   <section class="container-fluid">
     <div class="row">
       <!--Side Bar Start-->
-      <div class="col-md-2 col-12 d-flex flex-column bg-primary small show" id="admin-sidebar">
-        <div class="h-100" style="min-height: 100vh;">
+      <div class="col-md-2 col-12 d-flex flex-column small p-0 m-0">
+        <div class="bg-primary show" id="admin-sidebar">
           <div>
             <a href="/admin" class="text-light p-3 link d-block">
               <i class="lni lni-dashboard ml-2"></i>

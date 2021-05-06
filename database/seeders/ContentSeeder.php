@@ -78,5 +78,10 @@ class ContentSeeder extends Seeder
         $about_us->key = 'about_us';
         $about_us->value = 'مقال حول الشركة';
         $about_us->save();
+
+        $orders_policy = new Content();
+        $orders_policy->key = 'orders_policy';
+        $orders_policy->value = 'كيف نتعامل مع طلبات زبائننا';
+        $orders_policy->save();
     }
 }

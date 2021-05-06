@@ -1,7 +1,7 @@
 @extends('user.layouts.layout')
 
-@section('title', 'دبي غروب | ' . $laptop->name)
-@section('description', $laptop->cpu . ',' . $laptop->screen_card . ',' . $laptop->hard . ',' . $laptop->ports . ',' . $laptop->type . ' :دبي غروب | المواصفات ' .  $laptop->description)
+@section('title', 'اسم الشركة | ' . $laptop->name)
+@section('description', $laptop->cpu . ',' . $laptop->screen_card . ',' . $laptop->hard . ',' . $laptop->ports . ',' . $laptop->type . ' :اسم الشركة | المواصفات ' .  $laptop->description)
 
 @section('content')
   

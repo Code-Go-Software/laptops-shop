@@ -41,13 +41,23 @@ function swapImage(img, mainImg){
   $(mainImg).attr('src', thump);
 }
 
-$("#admin-sidebar-toggle").click(function(){
+$("#admin-sidebar-toggle").click(function(e){
   e.preventDefault();
   var sidebar = $("#admin-sidebar");
-
+  
   if(sidebar.hasClass('show')){
-    sidebar.animate({'width':'0'});
+    sidebar.animate({'width': 0}, 500);
+    sidebar.removeClass('show');
+    sidebar.css('height', '0');
+    sidebar.parent().removeClass('bg-primary');
   }else{
-    sidebar.animate({'width':'100%'});
+    sidebar.animate({'width': '100%'}, 500);
+    sidebar.addClass('show');
+    if(window.innerWidth > 300){
+      sidebar.css('height', '100%');
+      sidebar.parent().addClass('bg-primary');
+    }
+    else
+      sidebar.css('height', 'auto');
   }
 });

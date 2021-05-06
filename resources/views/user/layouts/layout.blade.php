@@ -40,7 +40,7 @@
       </a>
     </div>
     <div class="flex-grow-1 text-light d-flex align-items-center" style="order:-1;">
-      <h3 class=""><a href="/" class="text-light">دبي غروب</a></h3>
+      <h3 class=""><a href="/" class="text-light">اسم الشركة</a></h3>
     </div>
     <div class="ml-3">
       <a href="/cart" class="text-light d-flex align-items-center">
@@ -219,7 +219,7 @@
           </div>
         </div>
         <div class="col-12 col-md-3">
-          <h1 class="mb-4"><a href="/" class="text-light">دبي غروب</a></h1>
+          <h1 class="mb-4"><a href="/" class="text-light">اسم الشركة</a></h1>
           <p class="text-light">تجارة كافة أنواع الحواسيب المحمولة الجديدة والمستعملة</p>
         </div>
       </div>
@@ -227,7 +227,7 @@
   </footer>
   <div>
     <div class="text-dark text-center py-1 px-2 bg-warning">
-      جميع الحقوق محفوظة لصالح شركة دبي غروب
+      جميع الحقوق محفوظة لصالح شركة اسم الشركة
     </div>
   </div>
   <!--Footer End-->
