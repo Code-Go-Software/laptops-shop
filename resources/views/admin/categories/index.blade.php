@@ -31,7 +31,7 @@
   </div>
   -->
   <div class="col-12 my-5">
-    <h4 class="mt-3">الفئات <span>({{ $categories->count() }})</span></h4>
+    <h4 class="mt-3"><i class="lni lni-tag ml-3"></i> الفئات <span>({{ $categories->count() }})</span></h4>
     <p class="small text-secondary">قائمة بجميع فئات أو أقسام الحواسيب الموجودة في المتجر مع معلوماتها الأساسية</p>
     <div class="table-responsive-sm mt-3 bg-light">
       <table class="table table-sm">

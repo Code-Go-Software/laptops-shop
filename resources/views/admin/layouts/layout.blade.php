@@ -32,13 +32,21 @@
   </div>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="/admin">لوحة التحكم</a>
+    <a class="navbar-brand text-warning m-0" href="/admin"><i class="lni lni-menu ml-2 text-light" id="admin-sidebar-toggle"></i> لوحة التحكم</a>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <b class="ml-2 text-light small">مدير الموقع</b>
-          <img src="{{ asset('images/' . auth()->user()->image) }}" class="img-fluid rounded-circle" width="30px" height="30px">
+      <ul class="navbar-nav mr-auto align-items-center">
+        <li class="nav-item ml-3">
+          <a href="#" class="text-warning">
+            <small>(2)</small>
+            <i class="lni lni-bullhorn"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/profile" class="text-warning small">
+            <b class="ml-2">مدير الموقع</b>
+            <img src="{{ asset('images/' . auth()->user()->image) }}" class="rounded-circle" width="30px" height="30px">
+          </a>
         </li>
       </ul>
     </div>
@@ -47,46 +55,46 @@
   <section class="container-fluid">
     <div class="row">
       <!--Side Bar Start-->
-      <div class="col-md-2 col-12 d-flex flex-column bg-primary small">
+      <div class="col-md-2 col-12 d-flex flex-column bg-primary small show" id="admin-sidebar">
         <div class="h-100" style="min-height: 100vh;">
-          <div class="p-3">
-            <a href="/admin" class="text-light">
+          <div>
+            <a href="/admin" class="text-light p-3 link d-block">
               <i class="lni lni-dashboard ml-2"></i>
               لوحة التحكم
             </a>
           </div>
-          <div class="p-3">
-            <a href="/admin/users" class="text-light">
+          <div>
+            <a href="/admin/users" class="text-light p-3 link d-block">
               <i class="lni lni-user ml-2"></i>
               إدارة المستخدمين
             </a>
           </div>
-          <div class="px-3 py-3">
-            <a href="/admin/laptops" class="text-light">
+          <div>
+            <a href="/admin/laptops" class="text-light p-3 link d-block">
               <i class="lni lni-display-alt ml-2"></i>
               إدارة الحواسيب
             </a>
           </div>
-          <div class="p-3">
-            <a href="/admin/categories" class="text-light">
+          <div>
+            <a href="/admin/categories" class="text-light p-3 link d-block">
               <i class="lni lni-tag ml-2"></i>
               إدارة الفئات
             </a>
           </div>
-          <div class="p-3">
-            <a href="/admin/orders" class="text-light">
+          <div>
+            <a href="/admin/orders" class="text-light p-3 link d-block">
               <i class="lni lni-clipboard ml-2"></i>
               إدارة الطلبات
             </a>
           </div>
-          <div class="p-3">
-            <a href="/admin/content" class="text-light">
+          <div>
+            <a href="/admin/content" class="text-light p-3 link d-block">
               <i class="lni lni-files ml-2"></i>
               إدارة المحتوى
             </a>
           </div>
-          <div class="p-3">
-            <a href="/admin/price" class="text-light">
+          <div>
+            <a href="/admin/price" class="text-light p-3 link d-block">
               <i class="lni lni-calculator ml-2"></i>
               إدارة الأسعار
             </a>
@@ -99,8 +107,8 @@
             </a>
           </div>
           -->
-          <div class="p-3">
-            <a href="/" class="text-light">
+          <div>
+            <a href="/" class="text-light p-3 link d-block">
               <i class="lni lni-home ml-2"></i>
                عودة للمتجر 
             </a>

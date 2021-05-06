@@ -41,3 +41,13 @@ function swapImage(img, mainImg){
   $(mainImg).attr('src', thump);
 }
 
+$("#admin-sidebar-toggle").click(function(){
+  e.preventDefault();
+  var sidebar = $("#admin-sidebar");
+
+  if(sidebar.hasClass('show')){
+    sidebar.animate({'width':'0'});
+  }else{
+    sidebar.animate({'width':'100%'});
+  }
+});

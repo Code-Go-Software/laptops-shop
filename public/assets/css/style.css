@@ -98,3 +98,18 @@ a.text-light:hover {
 .laptop-thumb:hover{
   transform: translateY(-5px);
 }
+
+#admin-sidebar{
+  padding: 0;
+  margin: 0;
+  transition: all .3s ease-in-out;
+}
+#admin-sidebar .link:hover{
+  background-color: var(--warning);
+  color: var(--dark) !important;
+  font-weight: bold;
+}
+
+#admin-sidebar-toggle:hover{
+  color: var(--info) !important;
+}

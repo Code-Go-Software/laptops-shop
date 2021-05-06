@@ -14,11 +14,31 @@
       <div class="col-12 col-md-8">
         <div class="item row align-items-center shadow py-2 px-1 mb-2 bg-light">
           <div class="col-12 text-center">
-            <img src="{{ asset('images/' . $order->user->image) }}" class="img-fluid rounded-circle">
+            <img src="{{ asset('images/' . $order->user->image) }}" class="img-fluid rounded-circle" width="150px" height="150px">
             <p class="mt-2 mb-4">
               <span class="h4">{{ $order->user->fullname }}</span>
               <a href="/admin/users/{{ $order->user->id }}"><i class="lni lni-arrow-right-circle"></i></a>
             </p>
+          </div>
+
+          <div class="col-12 text-center mb-5">
+            <form action="/admin/orders/{{ $order->id }}" method="post">
+              @csrf
+              @method('put')
+
+              @if ($order->status)
+                <button type="submit" class="btn bg-danger text-light">
+                  <i class="lni lni-close ml-2"></i> 
+                  تعيين الطلب كغير منجز
+                </button>
+              @else
+                <button type="submit" class="btn bg-success text-light">
+                  <i class="lni lni-checkmark-circle ml-2"></i> 
+                  إنجاز الطلب
+                </button>
+              @endif
+
+            </form>
           </div>
 
           <div class="col-12">
@@ -64,7 +84,7 @@
               @endforeach
 
             </div>
-            <p class="mb-1 text-secondary">تاريخ إكمال الطلب: {{ $order->updated_at }}</p>
+            <p class="mb-1 text-secondary">تاريخ إنجاز الطلب: {{ $order->updated_at }}</p>
             <b>قيمة الطلب</b>
             <h3 class="d-inline-block text-danger"><bdi>s.p</bdi> {{ $order->total_price }}</h3>
           </div>
