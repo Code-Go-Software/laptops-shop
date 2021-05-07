@@ -19,13 +19,13 @@
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-      <button class="btn bg-light text-dark">
+      <button class="btn btn-secondary">
         <i class="lni lni-chevron-left" aria-hidden="true"></i>
         <span class="sr-only">Previous</span>
       </button>
     </a>
     <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-      <button class="btn bg-light text-dark">
+      <button class="btn btn-secondary">
         <i class="lni lni-chevron-right" aria-hidden="true"></i>
         <span class="sr-only">Next</span>
       </button>

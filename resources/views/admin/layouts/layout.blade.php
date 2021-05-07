@@ -35,12 +35,14 @@
     <a class="navbar-brand text-warning m-0" href="/admin"><i class="lni lni-menu ml-2 text-light" id="admin-sidebar-toggle"></i> لوحة التحكم</a>
   
     <ul class="navbar-nav mr-auto align-items-center">
+      <!--
       <li class="nav-item ml-3 d-none d-md-block">
         <a href="#" class="text-info">
           <small>(2)</small>
           <i class="lni lni-bullhorn"></i>
         </a>
       </li>
+      -->
       <li class="nav-item">
         <a href="/profile" class="text-warning small">
           <b class="ml-2">مدير الموقع</b>

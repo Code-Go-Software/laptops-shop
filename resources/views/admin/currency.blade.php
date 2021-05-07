@@ -1,11 +1,11 @@
 @extends('admin.layouts.layout')
 
-@section('title', 'إدارة سعر الصرف')
+@section('title', 'إدارة الأسعار')
 
 @section('content')
 
   <div class="col-12 mb-3">
-    <h2>إدارة سعر الصرف</h2>
+    <h2>إدارة الأسعار</h2>
   </div>
   <div class="col-12 row justify-content-center">
     <div class="col-md-4 col-12">
@@ -24,7 +24,7 @@
           @enderror
         </div>
         <div class="form-group">
-          <button type="submit" class="btn bg-success text-light">تعديل القيمة</button>
+          <button type="submit" class="btn btn-warning">تعديل القيمة</button>
         </div>
       </form>
     </div>
