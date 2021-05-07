@@ -35,7 +35,7 @@
 
   <section id="new-products" class="py-3 px-2">
     <h1 class="text-primary" style="font-size: 45px;">أحدث الحواسيب</h1>
-    <p class="text-info h5 mb-5">أحدث الحواسيب المضافة إلى متجرنا في الآونة الأخيرة</p>
+    <p class="text-secondary h5 mb-5">أحدث الحواسيب المضافة إلى متجرنا في الآونة الأخيرة</p>
     <div class="container">
       <div class="row">
           
@@ -52,18 +52,18 @@
   
   <div class="scrollmenu list-unstyled text-center">
     @forelse ($all_categories as $category)
-      <a class="btn btn-sm bg-primary text-light" href="/laptops?cid={{ $category->id }}">{{ $category->name }}</a>
+      <a class="btn btn-warning" href="/laptops?cid={{ $category->id }}">{{ $category->name }}</a>
     @empty
         
     @endforelse
-    <a class="btn btn-sm bg-primary text-light" href="/laptops">جميع الفئات</a>
+    <a class="btn btn-warning" href="/laptops">جميع الفئات</a>
   </div>
 
   @forelse ($categories as $category)
       
     <section id="new-products" class="py-3 px-2">
       <h1 class="text-primary" style="font-size: 45px;">{{ $category->name }}</h1>
-      <p class="text-info h5 mb-5">{{ $category->description }}</p>
+      <p class="text-secondary h5 mb-5">{{ $category->description }}</p>
       <div class="container">
         <div class="row">
 
@@ -78,7 +78,7 @@
           @endforeach
 
           <div class="col-12 text-center mt-3">
-            <a href="/laptops?cid={{ $category->id }}" class="btn bg-primary text-light">عرض المزيد</a>
+            <a href="/laptops?cid={{ $category->id }}" class="btn btn-warning">عرض المزيد</a>
           </div>
         </div>
       </div>

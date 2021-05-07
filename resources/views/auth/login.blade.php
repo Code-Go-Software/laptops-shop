@@ -12,7 +12,7 @@
 </style>
 
 <section id="login-form" class="py-3 px-2 my-5">
-  <h1 class="text-center">تسجيل الدخول</h1>
+  <h1 class="text-center mb-4">تسجيل الدخول</h1>
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-10 col-md-6 col-lg-4">
@@ -36,12 +36,12 @@
             @enderror
           </div>
           <div class="form-group">
-            <button class="btn bg-primary text-light" type="submit">
+            <button class="btn btn-warning" type="submit">
             تسجيل الدخول
             </button>
           </div>
           <div class="form-group">
-            ليس لديك حساب؟ <a href="/register">أنشئ حسابك الآن</a>
+            ليس لديك حساب؟ <a href="/register" class="text-info">أنشئ حسابك الآن</a>
           </div>
         </form>
       </div>

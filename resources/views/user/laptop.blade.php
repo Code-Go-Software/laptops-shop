@@ -30,13 +30,13 @@
         <div class="text-center mt-3">
           <h1 class="text-primary">{{ $laptop->name }}</h1>
           <h2 class="mb-5">
-            <span class="text-danger font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
+            <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
             <strike class="text-secondary h4"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
           </h2>
           <form action="/cart" method="post" class="d-inline">
             @csrf
             <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
-            <button class="btn bg-success text-light" type="submit">
+            <button class="btn btn-secondary" type="submit">
               <i class="lni lni-cart"></i> 
               إضافة إلى السلة
             </button>
@@ -44,17 +44,17 @@
           <form action="/favourites" method="post" class="d-inline">
             @csrf
             <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
-            <button class="btn bg-danger text-light">
+            <button class="btn btn-info">
               <i class="lni lni-heart"></i> 
               إضافة إلى المفضلة
             </button>
           </form>
         </div>
         <div class="text-center mt-5">
-          <span class="badge bg-primary text-light">
+          <span class="badge badge-light">
             <i class="lni lni-tag"></i> {{ $laptop->category->name }}
           </span>
-          <span class="badge bg-warning text-dark">
+          <span class="badge badge-warning">
             <i class="lni lni-eye"></i> {{ $laptop->views }}
           </span>
         </div>

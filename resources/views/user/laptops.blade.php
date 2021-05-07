@@ -48,7 +48,7 @@
             </div>
             -->
             <div class="col-auto pl-0 pr-2">
-              <button type="submit" class="btn bg-primary text-light btn-sm"><i class="lni lni-control-panel"></i> تطبيق</button>
+              <button type="submit" class="btn btn-info btn-sm"><i class="lni lni-control-panel"></i> تطبيق</button>
             </div>
           </form>
         </div>

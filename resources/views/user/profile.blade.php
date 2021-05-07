@@ -16,11 +16,11 @@
                         <img src="{{ asset('images/' . $user->image) }}" class="img-fluid rounded-circle" id="image-preview" style="max-width: 250px">
                         <div class="mt-2">
                             <input type="file" name="image" id="image-input" class="d-none" onchange="previewImage(this, '#image-preview');">
-                            <div class="btn bg-success text-light" onclick="openFileInput('#image-input');"><i class="lni lni-image"></i> اختيار صورة</div>
+                            <div class="btn btn-sm btn-outline-info" onclick="openFileInput('#image-input');"><i class="lni lni-image"></i> اختيار صورة</div>
                             @error('image')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
-                            <button type="submit" class="btn bg-warning text-dark"><i class="lni lni-save"></i>  حفظ</button>
+                            <button type="submit" class="btn btn-sm btn-warning"><i class="lni lni-save"></i>  حفظ</button>
                         </div>
                     </div>
                 </form>
@@ -50,7 +50,7 @@
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
-                    <div class="form-group text-secondary">
+                    <div class="form-group text-info mb-4">
                         <p>
                             <i class="lni lni-envelope"></i> البريد الالكتروني: {{ $user->email }}
                         </p>
@@ -61,7 +61,7 @@
                         -->
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn bg-success text-light">
+                        <button type="submit" class="btn btn-warning">
                             <i class="lni lni-save"></i> 
                             حفظ التغييرات
                         </button>
@@ -71,13 +71,13 @@
                     
                     <form action="/logout" class="mt-3 d-inline" method="post">
                         @csrf
-                        <a href="/orders" class="btn bg-primary text-light"><i class="lni lni-clipboard"></i> طلباتي</a>
-                        <button type="submit" class="btn bg-info text-light"><i class="lni lni-exit"></i> تسجيل الخروج</button>
+                        <a href="/orders" class="btn btn-secondary"><i class="lni lni-clipboard"></i> طلباتي</a>
+                        <button type="submit" class="btn btn-outline-info float-left"><i class="lni lni-exit"></i> تسجيل الخروج</button>
                     </form>
-                    <form action="/profile" class="d-inline" method="post">
+                    <form action="/profile" class="d-inline float-left" method="post">
                         @csrf
                         @method('delete')
-                        <button type="submit" class="btn bg-danger text-light delete-btn"><i class="lni lni-trash"></i> حذف الحساب</button>
+                        <button type="submit" class="btn btn-outline-danger delete-btn ml-2"><i class="lni lni-trash"></i> حذف الحساب</button>
                     </form>
                 
                 @else  

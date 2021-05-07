@@ -74,13 +74,13 @@
   <section id="search-bar" class="px-2 py-2 bg-primary">
     <form action="/laptops" method="GET"  class="d-flex align-items-center">
       <div class="pl-2">
-        <button type="submit" class="btn bg-warning text-dark"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
+        <button type="submit" class="btn btn-warning"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
       </div>
       <div class="flex-grow-1 pl-2">
         <input type="text" name="q" placeholder="ما الذي تبحث عنه" class="form-control shadow font-italic" value="{{ request('q') }}">
       </div>
       <div class="">
-        <a href="/orders-policy" class="text-warning">
+        <a href="/orders-policy" class="text-info">
           <small>كيف نتعامل مع الطلبات؟</small>
         </a>
       </div>
@@ -122,9 +122,9 @@
   @yield('content')
 
   <div class="container" id="services">
-    <div class="row py-4 px-2 text-center text-primary my-5">
+    <div class="row py-4 px-2 text-center text-info my-5">
       <div class="col-12">
-        <h1 class="font-weight-bold">
+        <h1 class="font-weight-bold text-secondary">
           ما الذي يميزنا؟
         </h1>
       </div>
@@ -132,7 +132,7 @@
         <div class="p-5">
           <img src="{{ asset('assets/images/delivery.svg') }}" height="80px">
         </div>
-        <p class="mb-1">شحن لكافة المحافظات</p>
+        <p class="mb-1 font-weight-bold">شحن لكافة المحافظات</p>
         <p class="text-secondary service-desc">
           لا تقلق بشأن المسافة مهما كنت بعيدا سنحرص على شحن حاسوبك إلى أقرب نقطة إليك
         </p>
@@ -141,7 +141,7 @@
         <div class="p-5">
           <img src="{{ asset('assets/images/cash-payment.svg') }}" height="80px">
         </div>
-        <p class="mb-1">ادفع نقدا عند الاستلام</p>
+        <p class="mb-1 font-weight-bold">ادفع نقدا عند الاستلام</p>
         <p class="text-secondary service-desc">
           يمكنك التسديد نقدا أو بأي طريقة ترغب بها بعد أن تستلم حاسوبك
         </p>
@@ -150,7 +150,7 @@
         <div class="p-5">
           <img src="{{ asset('assets/images/package-quality.svg') }}" height="80px">
         </div>
-        <p class="mb-1">شحن بعناية فائقة</p>
+        <p class="mb-1 font-weight-bold">شحن بعناية فائقة</p>
         <p class="text-secondary service-desc">
           رغم بعد المسافة أو صعوبات الشحن نحن نحرص أن يصل حاسوبك بأفضل جودة كما تنتظره تماما
         </p>
@@ -159,7 +159,7 @@
         <div class="p-5">
           <img src="{{ asset('assets/images/customer-service.svg') }}" height="80px">
         </div>
-        <p class="mb-1">خدمة زبائن على مدار الساعة</p>
+        <p class="mb-1 font-weight-bold">خدمة زبائن على مدار الساعة</p>
         <p class="text-secondary service-desc">
           هل لديك أي استفسار؟ لا تتردد بالاتصال بنا لدينا فريق متكامل جاهز لمساعدتك بأي وقت
         </p>
@@ -172,7 +172,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-5 col-md-4">
-          <h5>أقسام الموقع</h5>
+          <h5 class="text-warning">أقسام الموقع</h5>
           <ul class="list-unstyled py-2 pl-2 small">
             <li class="py-1 px-1"><a href="/" class="text-light">الصفحة الرئيسية</a></li>
             <li class="py-1 px-1"><a href="/laptops" class="text-light">تصفح الحواسيب المحمولة</a></li>
@@ -187,7 +187,7 @@
           </ul>
         </div>
         <div class="col-7 col-md-5">
-          <h5>معلومات التواصل</h5>
+          <h5 class="text-warning">معلومات التواصل</h5>
           <ul class="list-unstyled py-2 pl-2 small">
             <li class="py-1 px-1"><i class="lni lni-phone ml-1"></i> {{ $content->where('key', 'phone')->first()->value }}</li>
             <li class="py-1 px-1"><i class="lni lni-phone-set ml-1"></i> {{ $content->where('key', 'fixed_phone')->first()->value }}</li>
@@ -219,14 +219,14 @@
           </div>
         </div>
         <div class="col-12 col-md-3">
-          <h1 class="mb-4"><a href="/" class="text-light">اسم الشركة</a></h1>
+          <h1 class="mb-4"><a href="/" class="text-warning">اسم الشركة</a></h1>
           <p class="text-light">تجارة كافة أنواع الحواسيب المحمولة الجديدة والمستعملة</p>
         </div>
       </div>
     </div>
   </footer>
   <div>
-    <div class="text-dark text-center py-1 px-2 bg-warning">
+    <div class="text-light text-center py-1 px-2 bg-secondary small">
       جميع الحقوق محفوظة لصالح شركة اسم الشركة
     </div>
   </div>

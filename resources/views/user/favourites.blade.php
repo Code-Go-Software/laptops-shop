@@ -28,12 +28,15 @@
                 </p>
                 <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
                 <strike class="text-secondary"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
+                <p class="text-info small mt-1">
+                  أضفته بتاريخ: {{ $favourite->created_at }}
+                </p>
               </div>
               <div class="col-2 text-right">
                 <form action="/favourites/{{ $favourite->id }}" method="post">
                   @csrf
                   @method('delete')
-                  <button class="btn delete-btn"><i class="lni lni-trash text-danger"></i></button>
+                  <button class="btn btn-warning btn-sm delete-btn"><i class="lni lni-trash"></i></button>
                 </form>
               </div>
             </div>

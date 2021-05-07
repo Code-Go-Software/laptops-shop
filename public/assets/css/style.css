@@ -5,72 +5,11 @@ body {
 	
 	font-family: "Almarai", sans-serif;
 	text-align: right;
-  /*
-	--primary: #14213d;
-	--secondary: #7e8287;
-	--warning: #fca311;
-	--success: #0b6e4f;
-	--danger: #a63a50;
-	--light: #e5e5e5;
-	--info: #6096ba;
-	--dark: #000;
-  */
 }
-/*
-a.text-light:hover {
+a:hover {
 	text-decoration: none;
-	color: var(--warning) !important;
 }
-
-.bg-primary {
-  background-color: var(--primary) !important;
-}
-.text-primary {
-  color: var(--primary) !important;
-}
-.bg-secondary {
-  background-color: var(--secondary) !important;
-}
-.text-secondary {
-  color: var(--secondary) !important;
-}
-.bg-success {
-  background-color: var(--success) !important;
-}
-.text-success {
-  color: var(--success) !important;
-}
-.bg-info {
-  background-color: var(--info) !important;
-}
-.text-info {
-  color: var(--info) !important;
-}
-.bg-danger {
-  background-color: var(--danger) !important;
-}
-.text-danger {
-  color: var(--danger) !important;
-}
-.bg-light {
-  background-color: var(--light) !important;
-}
-.text-light {
-  color: var(--light) !important;
-}
-.bg-dark {
-  background-color: var(--dark) !important;
-}
-.text-dark {
-  color: var(--dark) !important;
-}
-.bg-warning {
-  background-color: var(--warning) !important;
-}
-.text-warning {
-  color: var(--warning) !important;
-}
-*/
+ 
 .views{
   position: absolute;
   top: 10px;
@@ -85,7 +24,6 @@ a.text-light:hover {
 .scrollmenu a {
   display: inline-block;
   text-align: center;
-  padding: 14px;
   text-decoration: none;
 }
 

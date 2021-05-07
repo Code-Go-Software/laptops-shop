@@ -32,12 +32,15 @@
                 </p>
                 <span class="text-success font-weight-bold"><bdi>s.p</bdi> {{ $laptop->afterDiscountPrice() }}</span>
                 <strike class="text-secondary"><small><bdi>s.p</bdi> {{ $laptop->beforeDiscountPrice() }}</small></strike>
+                <p class="text-info small mt-1">
+                  أضفته بتاريخ: {{ $item->created_at }}
+                </p>
               </div>
               <div class="col-2 text-right">
                 <form action="/cart/{{ $item->id }}" method="post">
                   @csrf
                   @method('delete')
-                  <button type="submit" class="btn delete-btn"><i class="lni lni-reply text-danger" role="button"></i></button>
+                  <button type="submit" class="btn btn-sm btn-warning delete-btn"><i class="lni lni-reply" role="button"></i></button>
                 </form>
               </div>
             </div>
@@ -63,7 +66,7 @@
     @auth
       <div class="text-center mt-5 mb-5">
         <h3>قيمة الطلب النهائية</h3>
-        <h1 class="text-danger"><bdi>s.p</bdi> {{ $total_price }}</h1>
+        <h1 class="text-success"><bdi>s.p</bdi> {{ $total_price }}</h1>
       </div>
       <div class="container-fluid">
         <div class="row justify-content-center">
@@ -83,7 +86,7 @@
               
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-lg btn-block bg-success text-light">
+              <button type="submit" class="btn btn-lg btn-block btn-warning">
                 <i class="lni lni-checkmark-circle"></i>
                 تأكيد الطلب
               </button>

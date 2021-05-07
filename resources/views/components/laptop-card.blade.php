@@ -3,27 +3,27 @@
   <div class="card h-100 shadow">
     <div class="view zoom overlay">
       <img class="img-fluid w-100" src="{{ asset('images/' . $laptop->image) }}">
-      <p class="mb-0"><span class="badge bg-warning text-dark badge-news views"><i class="lni lni-eye"></i> {{ $laptop->views }}</span></p>
+      <p class="mb-0"><span class="badge badge-warning badge-news views"><i class="lni lni-eye"></i> {{ $laptop->views }}</span></p>
     </div>
     @if ($role == 'user')
       <div class="card-body text-center">
-        <h5><a class="text-primary font-weight-bold" href="/laptops/{{ $laptop->id }}/{{ $laptop->name }}">{{ $laptop->name }}</a></h5>
+        <h5><a class="font-weight-bold" href="/laptops/{{ $laptop->id }}/{{ $laptop->name }}">{{ $laptop->name }}</a></h5>
         <p class="small text-uppercase mb-2"><i class="lni lni-tag"></i> {{ $laptop->category->name }}</p>
         <h6 class="mb-3">
-          <span class="text-danger d-block font-weight-bold h5 mb-0"><bdi>s.p</bdi>  {{ $laptop->afterDiscountPrice() }}</span>
+          <span class="text-success d-block font-weight-bold h5 mb-0"><bdi>s.p</bdi>  {{ $laptop->afterDiscountPrice() }}</span>
           <strike class="text-secondary"><small><bdi>s.p</bdi>  {{ $laptop->beforeDiscountPrice() }}</small></strike>
         </h6>
         <form action="/cart" class="d-inline" method="POST">
           @csrf
           <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
-          <button type="submit" class="btn bg-success text-light btn-sm mr-1 mb-2">
+          <button type="submit" class="btn btn-secondary btn-sm mr-1 mb-2">
             <i class="lni lni-cart pl-2"></i>إضافة للسلة
           </button>
         </form>
         <form action="/favourites" class="d-inline" method="POST">
           @csrf
           <input type="hidden" name="laptop_id" value="{{ $laptop->id }}">
-          <button type="submit" class="btn bg-danger text-light btn-sm px-3 mb-2 material-tooltip-main"
+          <button type="submit" class="btn btn-info btn-sm px-3 mb-2 material-tooltip-main"
           data-toggle="tooltip" data-placement="top"
           title="إضافة للمفضلة">
             <i class="lni lni-heart-filled"></i>

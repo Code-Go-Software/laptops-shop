@@ -6,7 +6,7 @@
 @section('content')
     
   <section id="about-us" class="py-3 px-2 mt-3">
-    <h1 class="mb-4">سياسة التعامل مع الطلبات</h1>
+    <h1 class="mb-4 text-primary">سياسة التعامل مع الطلبات</h1>
     <div class="container-fluid">
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6 my-5">

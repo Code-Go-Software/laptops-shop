@@ -13,20 +13,20 @@
 
           @forelse ($orders as $order)
               
-            <div class="item row align-items-center shadow py-2 px-1 mb-2">
+            <div class="item row align-items-center shadow py-2 px-1 mb-4">
               <div class="col-12">
-                <span class="badge bg-secondary text-light rounded-pill">
+                <span class="badge badge-warning">
                   <i class="lni lni-calendar"></i> 
                   <span>{{ $order->created_at }}</span>
                 </span>
 
                 @if ($order->status)
-                  <span class="badge bg-success text-light rounded-pill float-left">
+                  <span class="badge bg-success text-light float-left">
                     <i class="lni lni-checkmark-circle"></i> 
                     <span>منجز</span>
                   </span>
                 @else
-                  <span class="badge bg-danger text-light rounded-pill float-left">
+                  <span class="badge bg-danger text-light float-left">
                     <i class="lni lni-close"></i> 
                     <span>قيد المتابعة</span>
                   </span>
@@ -58,7 +58,7 @@
 
                 </div>
                 <b>قيمة الطلب</b>
-                <h3 class="d-inline-block text-danger"><bdi>s.p</bdi> {{ $order->total_price }}</h3>
+                <h3 class="d-inline-block text-info font-weight-bold"><bdi>s.p</bdi> {{ $order->total_price }}</h3>
               </div>
             </div>
 

@@ -12,7 +12,7 @@
 </style>
 
   <section id="login-form" class="py-3 px-2 mt-5 mb-5">
-    <h1 class="text-center">إنشاء حساب جديد</h1>
+    <h1 class="text-center mb-4">إنشاء حساب جديد</h1>
     <div class="container-fluid">
       <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
@@ -73,12 +73,12 @@
 
             </div>
             <div class="form-group">
-              <button class="btn bg-primary text-light" type="submit">
+              <button class="btn btn-primary" type="submit">
                   إنشاء الحساب
               </button>
             </div>
             <div class="form-group">
-              لديك حساب مسبقا؟ <a href="/login">تسجيل الدخول إلى حسابك</a>
+              لديك حساب مسبقا؟ <a href="/login" class="text-info">تسجيل الدخول إلى حسابك</a>
             </div>
           </form>
         </div>
