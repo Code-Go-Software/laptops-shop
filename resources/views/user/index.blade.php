@@ -33,13 +33,30 @@
   </section>
   <!--Carousel End-->
 
+  <section id="new-products" class="py-3 px-2">
+    <h1 class="text-primary" style="font-size: 45px;">أحدث الحواسيب</h1>
+    <p class="text-info h5 mb-5">أحدث الحواسيب المضافة إلى متجرنا في الآونة الأخيرة</p>
+    <div class="container">
+      <div class="row">
+          
+        @foreach ($top4laptops as $laptop)
+
+          <x-laptop-card :laptop="$laptop" role='user'/>
+            
+        @endforeach
+
+      </div>
+    </div>
+  </section>
+
+  
   <div class="scrollmenu list-unstyled text-center">
     @forelse ($all_categories as $category)
-      <a class="text-primary" href="/laptops?cid={{ $category->id }}">{{ $category->name }}</a>
+      <a class="btn btn-sm bg-primary text-light" href="/laptops?cid={{ $category->id }}">{{ $category->name }}</a>
     @empty
         
     @endforelse
-    <a class="text-primary" href="/laptops">جميع الفئات</a>
+    <a class="btn btn-sm bg-primary text-light" href="/laptops">جميع الفئات</a>
   </div>
 
   @forelse ($categories as $category)
@@ -66,6 +83,7 @@
         </div>
       </div>
     </section>
+
   @empty
       <div class="alert alert-secondary text-center">عذرا لا يتوفر أي حواسيب حاليا</div>
   @endforelse

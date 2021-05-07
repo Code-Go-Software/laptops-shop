@@ -17,8 +17,8 @@ class LaptopController extends Controller
     {
         return view('user.index', [
             'all_categories' => Category::limit(12)->get(),
-            'categories' => Category::has('laptops', '>=', 4)->limit(4)->get(),
-            'top4laptops' => Laptop::orderby('views', 'DESC')->limit(4)->get()
+            'categories' => Category::has('laptops', '>=', 1)->limit(4)->get(),
+            'top4laptops' => Laptop::where('is_available', true)->orderby('views', 'DESC')->limit(4)->get()
         ]);
     }
 
