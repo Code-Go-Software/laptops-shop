@@ -2,9 +2,10 @@
   font-size: 14px;
 }
 body {
-	/*font-family: 'tahoma';*/
+	
 	font-family: "Almarai", sans-serif;
 	text-align: right;
+  /*
 	--primary: #14213d;
 	--secondary: #7e8287;
 	--warning: #fca311;
@@ -13,8 +14,9 @@ body {
 	--light: #e5e5e5;
 	--info: #6096ba;
 	--dark: #000;
+  */
 }
-
+/*
 a.text-light:hover {
 	text-decoration: none;
 	color: var(--warning) !important;
@@ -68,7 +70,7 @@ a.text-light:hover {
 .text-warning {
   color: var(--warning) !important;
 }
-
+*/
 .views{
   position: absolute;
   top: 10px;

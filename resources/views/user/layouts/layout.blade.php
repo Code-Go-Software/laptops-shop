@@ -15,7 +15,7 @@
 
 <body dir="rtl">
 
-  <nav id="info-bar" class="d-flex align-items-center py-2 px-2 bg-info text-light small">
+  <nav id="info-bar" class="d-flex align-items-center py-2 px-2 bg-secondary text-light small">
     <div class="ml-3 flex-grow-1 d-flex align-items-center">
       <i class="lni lni-car ml-2"></i>
       <span>خدمة التوصيل مجانية</span>
@@ -74,13 +74,13 @@
   <section id="search-bar" class="px-2 py-2 bg-primary">
     <form action="/laptops" method="GET"  class="d-flex align-items-center">
       <div class="pl-2">
-        <button type="submit" class="btn bg-warning text-light"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
+        <button type="submit" class="btn bg-warning text-dark"><i class="lni lni-search d-none d-md-inline"></i> بحث</button>
       </div>
       <div class="flex-grow-1 pl-2">
         <input type="text" name="q" placeholder="ما الذي تبحث عنه" class="form-control shadow font-italic" value="{{ request('q') }}">
       </div>
       <div class="">
-        <a href="/orders-policy" class="text-info">
+        <a href="/orders-policy" class="text-warning">
           <small>كيف نتعامل مع الطلبات؟</small>
         </a>
       </div>
